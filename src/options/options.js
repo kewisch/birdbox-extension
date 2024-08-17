@@ -115,10 +115,26 @@ async function flush() {
 
 async function deleteSpace() {
   let spaceElement = getSelectedSpace();
-  console.log("DELETE SPACE", spaceElement?._spaceData);
   spaceElement._spaceData = {};
   await flush();
   spaceElement.remove();
+}
+
+async function refreshIcon() {
+  let spaceElement = getSelectedSpace();
+
+  let [space, ..._otherSpaces] = await messenger.spaces.query({ isSelfOwned: true, name: spaceElement._spaceData.name });
+  if (!space) {
+    return;
+  }
+
+  let [tab, ..._otherTabs] = await messenger.tabs.query({ spaceId: space.id });
+  if (tab) {
+    spaceElement._spaceData.icon = tab.favIconUrl;
+    await flush();
+  } else {
+    await fetchIcon(spaceElement);
+  }
 }
 
 async function main() {
@@ -128,6 +144,7 @@ async function main() {
   });
   document.getElementById("settings-form").addEventListener("change", changeForm);
   document.getElementById("delete").addEventListener("click", deleteSpace);
+  document.getElementById("refresh-icon").addEventListener("click", refreshIcon);
 
 
   // Initialize Spaces

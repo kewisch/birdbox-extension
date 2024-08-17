@@ -60,7 +60,7 @@ body {
   margin: 0 0 20px;
 }
 .form-group.end {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .form-group {
@@ -88,12 +88,12 @@ body {
   margin-right: 10px;
 }
 
-#delete {
+button {
   border: 1px solid #bdc3c7;
   background: none;
   border-radius: 4px;
   padding: 5px;
 }
-#delete:active {
+button:active {
   background: revert;
 }
