@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Birdbox",
+  "description": "Maintain your favorite websites as spaces within Thunderbird",
+  "version": "1.0",
+  "author": "Philipp Kewisch",
+  "default_locale": "en",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "birdbox@mozilla.kewis.ch"
+    }
+  },
+
+  "icons": {
+    "256": "images/addon.svg"
+  },
+
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+
+  "options_ui": {
+    "page": "options/options.html"
+  },
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ]
+}

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaces Options</title>
+    <link rel="stylesheet" href="options.css">
+    <script src="options.js" defer></script>
+</head>
+<body>
+    <aside class="sidebar">
+      <div id="spaces-list" aria-label="Spaces">
+        <button class="space-item new-space" id="new-space">
+          +
+        </button>
+      </div>
+    </aside>
+    <main class="settings">
+        <section aria-labelledby="space-title">
+            <h2 id="space-title">Edit Space</h2>
+            <form id="settings-form" novalidate>
+                <div class="form-group">
+                    <label for="url">URL:</label>
+                    <input type="url" id="url" name="url" placeholder="https://example.com">
+                </div>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" placeholder="Enter title">
+                </div>
+                <div class="form-group end">
+                    <button id="delete">Delete Space</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
