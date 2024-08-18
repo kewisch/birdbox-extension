@@ -83,6 +83,11 @@ body {
   justify-self: end;
 }
 
+#settings-form > .row.checkbox {
+  grid-column: control;
+  justify-self: stretch;
+}
+
 #settings-form input, #settings-form button, #settings-form select {
   padding: 5px;
   border: 1px solid #bdc3c7;
