@@ -20,32 +20,28 @@
         <section aria-labelledby="space-title">
             <h2 id="space-title">Edit Space</h2>
             <form id="settings-form" novalidate>
-                <div class="form-group">
-                    <label for="url">URL:</label>
-                    <input type="url" id="url" name="url" placeholder="https://example.com">
-                </div>
-                <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" placeholder="Enter title">
-                </div>
-                <div class="form-group">
-                    <label for="useragent">User Agent:</label>
-                    <input type="text" id="useragent" name="useragent" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="container">Container:</label>
-                    <select name="container" id="container">
-                      <option value="firefox-default">Default</option>
-                      <option value="firefox-container-1">Personal</option>
-                      <option value="firefox-container-2">Work</option>
-                      <option value="firefox-container-3">Banking</option>
-                      <option value="firefox-container-4">Shopping</option>
-                    </select>
-                </div>
-                <div class="form-group end">
-                    <button id="refresh-icon">Reload Icon</button>
-                    <button id="delete">Delete Space</button>
-                </div>
+              <label for="url">URL:</label>
+              <input type="url" id="url" name="url" placeholder="https://example.com">
+
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="title" placeholder="Enter title">
+
+              <label for="useragent">User Agent:</label>
+              <input type="text" id="useragent" name="useragent" placeholder="">
+
+              <label for="container">Container:</label>
+              <select name="container" id="container" class="nostretch">
+                <option value="firefox-default">Default</option>
+                <option value="firefox-container-1">Personal</option>
+                <option value="firefox-container-2">Work</option>
+                <option value="firefox-container-3">Banking</option>
+                <option value="firefox-container-4">Shopping</option>
+              </select>
+
+              <div class="row end">
+                  <button id="refresh-icon">Reload Icon</button>
+                  <button id="delete">Delete Space</button>
+              </div>
             </form>
         </section>
     </main>
