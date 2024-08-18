@@ -1,0 +1,43 @@
+---
+name: "Checkin"
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Setup node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      - name: "npm ci"
+        run: npm ci
+
+      - name: "commitlint"
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+      - name: "eslint"
+        run: npx eslint
+
+      - name: "stylelint"
+        run: npx stylelint src
+
+      - name: "build"
+        run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: "birdbox"
+          path: "web-ext-artifacts/*.zip"
+          if-no-files-found: "error"
