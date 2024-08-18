@@ -1,11 +1,4 @@
 function createSpaceItem(spaceData = {}) {
-  let spacesList = document.getElementById("spaces-list");
-  let space = document.createElement("button");
-  space.className = "space-item existing-space";
-  space.setAttribute("role", "button");
-  space.setAttribute("tabindex", "0");
-  space._spaceData = spaceData;
-
   if (!spaceData.name) {
     spaceData.name = crypto.randomUUID().replace(/-/g, "_");
   }
@@ -13,14 +6,22 @@ function createSpaceItem(spaceData = {}) {
     spaceData.icon = "/images/addon.svg";
   }
 
-  let img = space.appendChild(document.createElement("img"));
-  img.src = spaceData.icon;
-  img.width = "20";
-  img.height = "20";
+  let spacesList = document.getElementById("spaces-list");
+  let spaceElementFragment = document.getElementById("space-element-template").content.cloneNode(true);
 
-  space.title = spaceData.title ?? "";
+  let spaceElement = spaceElementFragment.querySelector(".space-item");
+  spaceElement._spaceData = spaceData;
+  updateSpaceItem(spaceElement);
 
-  return spacesList.insertBefore(space, document.querySelector(".space-item.new-space"));
+  spacesList.insertBefore(spaceElementFragment, spacesList.querySelector(".space-item.new-space"));
+
+  return spaceElement;
+}
+
+function updateSpaceItem(spaceElement) {
+  let spaceData = spaceElement._spaceData;
+  spaceElement.title = spaceData.title ?? "";
+  spaceElement.querySelector("img").src = spaceData.icon;
 }
 
 function selectSpace(spaceItem) {
