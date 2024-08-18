@@ -61,6 +61,8 @@ async function changeForm(event) {
     } catch (e) {
       console.error(e);
     }
+
+    document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(event.target.url);
   } else if (event.target.id == "notifications") {
     messenger.birdbox.updateNotifications(space.url, event.target.checked);
   }
