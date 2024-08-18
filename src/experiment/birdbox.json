@@ -10,6 +10,23 @@
           { "type": "string", "name": "spaceName" },
           { "type": "string", "name": "cookieStoreId" }
         ]
+      },
+      {
+        "name": "updateNotifications",
+        "async": true,
+        "type": "function",
+        "parameters": [
+          { "type": "string", "name": "uri" },
+          { "type": "boolean", "name": "enabled" }
+        ]
+      },
+      {
+        "name": "checkNotificationPermission",
+        "async": true,
+        "type": "function",
+        "parameters": [
+          { "type": "string", "name": "uri" }
+        ]
       }
     ]
   }

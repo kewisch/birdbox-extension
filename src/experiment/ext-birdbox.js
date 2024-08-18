@@ -180,6 +180,23 @@ this.birdbox = class extends ExtensionAPI {
             let space = window.gSpacesToolbar.spaces.find(spc => spc.name == `${widgetId}-spacesButton-${spaceName}`);
             adaptSpace(space, window, cookieStoreId, context.extension);
           }));
+        },
+
+        async updateNotifications(uriSpec, enabled) {
+          let uri = Services.io.newURI(uriSpec);
+          let principal = Services.scriptSecurityManager.createContentPrincipal(uri, {});
+
+          if (enabled) {
+            Services.perms.addFromPrincipal(principal, "desktop-notification", Services.perms.ALLOW_ACTION);
+          } else {
+            Services.perms.removeFromPrincipal(principal, "desktop-notification");
+          }
+        },
+
+        async checkNotificationPermission(uriSpec) {
+          let uri = Services.io.newURI(uriSpec);
+          let principal = Services.scriptSecurityManager.createContentPrincipal(uri, {});
+          return !!Services.perms.testExactPermissionFromPrincipal(principal, "desktop-notification");
         }
       },
     };

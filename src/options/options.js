@@ -24,17 +24,20 @@ function updateSpaceItem(spaceElement) {
   spaceElement.querySelector("img").src = spaceData.icon;
 }
 
-function selectSpace(spaceItem) {
+async function selectSpace(spaceItem) {
   if (spaceItem?.classList.contains("new-space")) {
     spaceItem = createSpaceItem();
   }
 
   document.querySelector(".space-item.selected")?.classList.remove("selected");
   if (spaceItem) {
+    let data = spaceItem._spaceData;
+
     spaceItem.classList.add("selected");
-    document.getElementById("title").value = spaceItem._spaceData.title ?? "";
-    document.getElementById("url").value = spaceItem._spaceData.url ?? "";
-    document.getElementById("container").value = spaceItem._spaceData.container ?? "firefox-default";
+    document.getElementById("title").value = data.title ?? "";
+    document.getElementById("url").value = data.url ?? "";
+    document.getElementById("container").value = data.container ?? "firefox-default";
+    document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(data.url);
   }
 }
 
@@ -58,6 +61,8 @@ async function changeForm(event) {
     } catch (e) {
       console.error(e);
     }
+  } else if (event.target.id == "notifications") {
+    messenger.birdbox.updateNotifications(space.url, event.target.checked);
   }
 
   await flush();
@@ -120,13 +125,13 @@ async function deleteSpace() {
 
   let nextSpace = spaceElement.previousElementSibling || spaceElement.nextElementSibling;
   if (nextSpace?.classList.contains("existing-space")) {
-    selectSpace(nextSpace);
+    await selectSpace(nextSpace);
   }
 
   spaceElement.remove();
 
   if (document.querySelectorAll("#spaces-list > .space-item.existing-space").length == 0) {
-    selectSpace(createSpaceItem());
+    await selectSpace(createSpaceItem());
   }
 }
 
@@ -166,7 +171,7 @@ async function main() {
   if (!spaces.length) {
     createSpaceItem();
   }
-  selectSpace(document.querySelector(".space-item.existing-space"));
+  await selectSpace(document.querySelector(".space-item.existing-space"));
 }
 
 main();
