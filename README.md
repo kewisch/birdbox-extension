@@ -1,3 +1,5 @@
+[![Checkin](https://github.com/kewisch/birdbox-extension/actions/workflows/ci.yaml/badge.svg)](https://github.com/kewisch/birdbox-extension/actions/workflows/ci.yaml)
+
 Birdbox
 =======
 
