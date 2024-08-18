@@ -406,6 +406,19 @@ export default [
     }
   },
   {
+    files: ["src/experiment/*.js"],
+    languageOptions: {
+      globals: {
+        Cr: true,
+        Ci: true,
+        Cu: true,
+        Cc: true,
+        ChromeUtils: true,
+        Services: true,
+      }
+    }
+  },
+  {
     files: ["eslint.config.js"],
     rules: {
       "id-length": "off"

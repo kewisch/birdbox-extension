@@ -3,6 +3,7 @@ async function onBeforeSendHeaders(e) {
     return undefined;
   }
 
+  // https://bugzilla.mozilla.org/show_bug.cgi?id=1913581
   let tab = await messenger.tabs.get(e.tabId);
   let hasSpace = await messenger.spaces.query({ isSelfOwned: true, id: tab.spaceId });
 
@@ -18,7 +19,8 @@ async function loadSpaces() {
   let { spaces } = await messenger.storage.local.get({ spaces: [] });
 
   for (let space of spaces) {
-    messenger.spaces.create(space.name, space.url, { defaultIcons: space.icon, title: space.title });
+    await messenger.spaces.create(space.name, space.url, { defaultIcons: space.icon, title: space.title });
+    messenger.birdbox.updateCookieStore(space.name, space.container || "firefox-default");
   }
 }
 
@@ -103,6 +105,8 @@ function initListeners() {
       let ownSpaces = await messenger.spaces.query({ isSelfOwned: true });
       let spaceMap = Object.fromEntries(ownSpaces.map(space => [space.name, space]));
 
+      console.log(spaces);
+
       for (let spaceData of spaces) {
         if (spaceData.name in spaceMap) {
           await messenger.spaces.update(spaceMap[spaceData.name].id, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
@@ -111,6 +115,8 @@ function initListeners() {
           await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
           delete spaceMap[spaceData.name];
         }
+
+        await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
       }
 
       for (let space of Object.values(spaceMap)) {

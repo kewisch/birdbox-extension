@@ -28,8 +28,21 @@
   "permissions": [
     "tabs",
     "storage",
+    "cookies",
+    "contextualIdentities",
     "webRequest",
     "webRequestBlocking",
     "<all_urls>"
-  ]
+  ],
+  "experiment_apis": {
+    "birdbox": {
+      "schema": "experiment/birdbox.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "experiment/ext-birdbox.js",
+        "events": ["startup"],
+        "paths": [["birdbox"]]
+      }
+    }
+  }
 }

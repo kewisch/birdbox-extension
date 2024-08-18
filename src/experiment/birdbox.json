@@ -1,0 +1,16 @@
+[
+  {
+    "namespace": "birdbox",
+    "functions": [
+      {
+        "name": "updateCookieStore",
+        "async": true,
+        "type": "function",
+        "parameters": [
+          { "type": "string", "name": "spaceName" },
+          { "type": "string", "name": "cookieStoreId" }
+        ]
+      }
+    ]
+  }
+]

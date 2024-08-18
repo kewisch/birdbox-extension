@@ -88,7 +88,7 @@ body {
   margin-right: 10px;
 }
 
-button {
+button, select {
   border: 1px solid #bdc3c7;
   background: none;
   border-radius: 4px;

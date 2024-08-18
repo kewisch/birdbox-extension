@@ -34,6 +34,7 @@ function selectSpace(spaceItem) {
     spaceItem.classList.add("selected");
     document.getElementById("title").value = spaceItem._spaceData.title ?? "";
     document.getElementById("url").value = spaceItem._spaceData.url ?? "";
+    document.getElementById("container").value = spaceItem._spaceData.container ?? "firefox-default";
   }
 }
 
