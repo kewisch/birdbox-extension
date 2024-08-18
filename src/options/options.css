@@ -8,15 +8,14 @@ html, body {
 }
 
 body {
-  background: -moz-Dialog;
-  color: -moz-DialogText;
+  background: -moz-dialog;
+  color: -moz-dialogtext;
   font-family: -apple-system, sans-serif;
-
   display: flex;
   flex-direction: row;
   height: 100vh;
   width: 100%;
-  background-color: light-dark(#ffffff, #3f3f46);
+  background-color: light-dark(#fff, #3f3f46);
 }
 
 .sidebar {

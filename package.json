@@ -17,13 +17,15 @@
   "scripts": {
     "build": "web-ext build -s src -o",
     "clean": "rm -f web-ext-artifacts",
-    "lint": "commitlint -f origin/main && eslint"
+    "lint": "commitlint -f origin/main && stylelint src && eslint"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@stylistic/eslint-plugin": "^2.6.4",
     "eslint": "^9.9.0",
+    "stylelint": "^16.8.2",
+    "stylelint-config-standard": "^36.0.1",
     "web-ext": "^8.2.0"
   }
 }
