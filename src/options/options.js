@@ -116,6 +116,12 @@ async function deleteSpace() {
   let spaceElement = getSelectedSpace();
   spaceElement._spaceData = {};
   await flush();
+
+  let nextSpace = spaceElement.previousElementSibling || spaceElement.nextElementSibling;
+  if (nextSpace?.classList.contains("existing-space")) {
+    selectSpace(nextSpace);
+  }
+
   spaceElement.remove();
 
   if (document.querySelectorAll("#spaces-list > .space-item.existing-space").length == 0) {
