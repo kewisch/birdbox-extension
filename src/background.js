@@ -3,11 +3,10 @@ async function onBeforeSendHeaders(e) {
     return undefined;
   }
 
-  let ownSpaces = await messenger.spaces.query({ isSelfOwned: true });
-  let spaceSet = new Set(ownSpaces.map(space => space.id));
   let tab = await messenger.tabs.get(e.tabId);
+  let hasSpace = await messenger.spaces.query({ isSelfOwned: true, id: tab.spaceId });
 
-  if (spaceSet.has(tab.spaceId)) {
+  if (hasSpace) {
     let foundHdr = e.requestHeaders.find(hdr => hdr.name.toLowerCase() == "user-agent");
     foundHdr.value = foundHdr.value.replace(/Thunderbird/g, "Firefox");
     return { requestHeaders: e.requestHeaders };
