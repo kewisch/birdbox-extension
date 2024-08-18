@@ -5,14 +5,26 @@ async function onBeforeSendHeaders(e) {
 
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1913581
   let tab = await messenger.tabs.get(e.tabId);
-  let hasSpace = await messenger.spaces.query({ isSelfOwned: true, id: tab.spaceId });
-
-  if (hasSpace) {
-    let foundHdr = e.requestHeaders.find(hdr => hdr.name.toLowerCase() == "user-agent");
-    foundHdr.value = foundHdr.value.replace(/Thunderbird/g, "Firefox");
-    return { requestHeaders: e.requestHeaders };
+  let spaceInfo = await messenger.spaces.query({ isSelfOwned: true, id: tab.spaceId });
+  if (!spaceInfo.length) {
+    return undefined;
   }
-  return undefined;
+
+  // TODO this isn't really performant, see if we can change this to a lookup
+  let { spaces } = await messenger.storage.local.get({ spaces: [] });
+  let thisSpace = spaces.find(spc => spc.name == spaceInfo[0].name);
+
+  let foundHdr = e.requestHeaders.find(hdr => hdr.name.toLowerCase() == "user-agent");
+  if (!foundHdr) {
+    return undefined;
+  }
+
+  if (thisSpace.useragent) {
+    foundHdr.value = thisSpace.useragent;
+  } else {
+    foundHdr.value = foundHdr.value.replace(/Thunderbird/g, "Firefox");
+  }
+  return { requestHeaders: e.requestHeaders };
 }
 
 async function loadSpaces() {
@@ -104,8 +116,6 @@ function initListeners() {
 
       let ownSpaces = await messenger.spaces.query({ isSelfOwned: true });
       let spaceMap = Object.fromEntries(ownSpaces.map(space => [space.name, space]));
-
-      console.log(spaces);
 
       for (let spaceData of spaces) {
         if (spaceData.name in spaceMap) {

@@ -157,6 +157,7 @@ async function main() {
   document.getElementById("settings-form").addEventListener("submit", (e) => event.preventDefault());
   document.getElementById("delete").addEventListener("click", deleteSpace);
   document.getElementById("refresh-icon").addEventListener("click", refreshIcon);
+  document.getElementById("useragent").placeholder = navigator.userAgent.replace(/Thunderbird/g, "Firefox");
 
 
   // Initialize Spaces
