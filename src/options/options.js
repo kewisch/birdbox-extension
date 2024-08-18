@@ -53,7 +53,7 @@ async function changeForm(event) {
 
   if (event.target.id == "url") {
     try {
-      await fetchIcon(spaceElement);
+      await fetchMetadata(spaceElement);
     } catch (e) {
       console.error(e);
     }
@@ -62,7 +62,7 @@ async function changeForm(event) {
   await flush();
 }
 
-async function fetchIcon(spaceElement) {
+async function fetchMetadata(spaceElement) {
   if (!spaceElement._spaceData.url) {
     return;
   }
@@ -101,14 +101,12 @@ async function fetchIcon(spaceElement) {
 }
 
 function validateSpace(space) {
-  console.log(space);
   return space.title && space.url;
 }
 
 async function flush() {
   let spaces = [...document.querySelectorAll(".space-item.existing-space")];
   let data = spaces.map(space => space._spaceData).filter(validateSpace);
-  console.log(data);
 
   await messenger.storage.local.set({ spaces: data });
   await browser.runtime.sendMessage({ action: "flush" });
@@ -119,6 +117,10 @@ async function deleteSpace() {
   spaceElement._spaceData = {};
   await flush();
   spaceElement.remove();
+
+  if (document.querySelectorAll("#spaces-list > .space-item.existing-space").length == 0) {
+    selectSpace(createSpaceItem());
+  }
 }
 
 async function refreshIcon() {
@@ -129,12 +131,13 @@ async function refreshIcon() {
     return;
   }
 
-  let [tab, ..._otherTabs] = await messenger.tabs.query({ spaceId: space.id });
-  if (tab) {
-    spaceElement._spaceData.icon = tab.favIconUrl;
+  let tabs = await messenger.tabs.query({ spaceId: space.id });
+  if (tabs.length) {
+    spaceElement._spaceData.icon = tabs[0].favIconUrl;
+    updateSpaceItem(spaceElement);
     await flush();
   } else {
-    await fetchIcon(spaceElement);
+    await fetchMetadata(spaceElement);
   }
 }
 
@@ -144,6 +147,7 @@ async function main() {
     selectSpace(event.target.closest(".space-item"));
   });
   document.getElementById("settings-form").addEventListener("change", changeForm);
+  document.getElementById("settings-form").addEventListener("submit", (e) => event.preventDefault());
   document.getElementById("delete").addEventListener("click", deleteSpace);
   document.getElementById("refresh-icon").addEventListener("click", refreshIcon);
 
