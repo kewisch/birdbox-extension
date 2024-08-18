@@ -102,7 +102,7 @@ async function fetchMetadata(spaceElement) {
 }
 
 function validateSpace(space) {
-  return space.title && space.url;
+  return !!space.url;
 }
 
 async function flush() {
