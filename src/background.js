@@ -80,7 +80,7 @@ function initListeners() {
         new MutationObserver((mutations) => {
             let title = mutations[0].target.textContent;
 
-            let match = title?.match(/(\d+)/);
+            let match = title?.match(/\(\d+\)/);
             browser.runtime.sendMessage({ action: "badge", count: match?.[1] || "" });
         }).observe(
             document.querySelector("title"),
