@@ -7,7 +7,8 @@
   "default_locale": "en",
   "browser_specific_settings": {
     "gecko": {
-      "id": "birdbox@mozilla.kewis.ch"
+      "id": "birdbox@mozilla.kewis.ch",
+      "strict_max_version": "131.*"
     }
   },
 
