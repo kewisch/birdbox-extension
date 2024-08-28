@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 async function onBeforeSendHeaders(e) {
   if (e.tabId == -1) {
     return undefined;
@@ -77,6 +81,8 @@ function initListeners() {
           return;
         }
 
+        let psl = (await import(browser.runtime.getURL("/background/libs/psl.min.js"))).default;
+
         new MutationObserver((mutations) => {
             let title = mutations[0].target.textContent;
 
@@ -86,6 +92,25 @@ function initListeners() {
             document.querySelector("title"),
             { subtree: true, characterData: true, childList: true }
         );
+
+        window.addEventListener("click", (event) => {
+          let anchor = event.target.closest("a");
+          if (!anchor) {
+            return;
+          }
+          let url = new URL(anchor.getAttribute("href"), window.location);
+
+          // TODO just comparing domains might not work everywhere, e.g. a service using different
+          // related domains. This either needs to be a preference, or we need to define this list
+          // per-service.
+          let winDomain = psl.parse(window.location.hostname).domain;
+          let urlDomain = psl.parse(url.hostname).domain;
+
+          if (winDomain != urlDomain) {
+            browser.runtime.sendMessage({ action: "openLink", href: url.href });
+            event.preventDefault();
+          }
+        }, { capture: true });
       } + ")()"
     }],
   });
@@ -137,6 +162,9 @@ function initListeners() {
       return space?.isSelfOwned;
     } else if (request.action == "badge") {
       await messenger.spaces.update(sender.tab.spaceId, { badgeText: request.count });
+      return true;
+    } else if (request.action == "openLink") {
+      await messenger.windows.openDefaultBrowser(request.href);
       return true;
     }
 

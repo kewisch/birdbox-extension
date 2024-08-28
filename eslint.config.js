@@ -8,7 +8,8 @@ export default [
       "**/*.js",
       "!src/**/*.js",
       "!test/**/*.js",
-      "!eslint.config.js"
+      "!eslint.config.js",
+      "src/background/libs/**/*.js"
     ]
   },
   js.configs.recommended,
