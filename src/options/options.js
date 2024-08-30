@@ -40,7 +40,7 @@ async function selectSpace(spaceItem) {
     document.getElementById("title").value = data.title ?? "";
     document.getElementById("url").value = data.url ?? "";
     document.getElementById("container").value = data.container ?? "firefox-default";
-    document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(data.url);
+    document.getElementById("notifications").checked = data.url ? await messenger.birdbox.checkNotificationPermission(data.url) : false;
     document.getElementById("startup").checked = data.startup;
     document.getElementById("internal-links").value = data.internalLinks?.join("\n") ?? "";
     document.getElementById("internal-links").placeholder = data.url ? new URL(data.url).hostname : "";
@@ -102,7 +102,7 @@ async function changeForm(event) {
       console.error(e);
     }
 
-    document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(event.target.url);
+    document.getElementById("notifications").checked = event.target.url ? await messenger.birdbox.checkNotificationPermission(event.target.url) : null;
     document.getElementById("internal-links").setAttribute("placeholder", event.target.value);
   } else if (event.target.id == "notifications") {
     messenger.birdbox.updateNotifications(spaceData.url, event.target.checked);
