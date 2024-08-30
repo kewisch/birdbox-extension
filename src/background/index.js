@@ -34,9 +34,19 @@ async function onBeforeSendHeaders(e) {
 async function loadSpaces() {
   let { spaces } = await messenger.storage.local.get({ spaces: [] });
 
+  let [lastTab, ..._rest] = await messenger.tabs.query({ currentWindow: true, active: true });
+
   for (let space of spaces) {
-    await messenger.spaces.create(space.name, space.url, { defaultIcons: space.icon, title: space.title });
+    let spaceInfo = await messenger.spaces.create(space.name, space.url, { defaultIcons: space.icon, title: space.title });
     messenger.birdbox.updateCookieStore(space.name, space.container || "firefox-default");
+
+    if (space.startup) {
+      await messenger.spaces.open(spaceInfo.id);
+    }
+  }
+
+  if (lastTab) {
+    await messenger.tabs.update(lastTab.id, { active: true });
   }
 }
 

@@ -41,6 +41,7 @@ async function selectSpace(spaceItem) {
     document.getElementById("url").value = data.url ?? "";
     document.getElementById("container").value = data.container ?? "firefox-default";
     document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(data.url);
+    document.getElementById("startup").checked = data.startup;
     document.getElementById("internal-links").value = data.internalLinks?.join("\n") ?? "";
     document.getElementById("internal-links").placeholder = data.url ? new URL(data.url).hostname : "";
   }
