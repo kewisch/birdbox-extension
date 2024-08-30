@@ -74,7 +74,12 @@ body {
   justify-self: end;
 }
 
-#settings-form > input, #settings-form > select {
+#settings-form > label.top {
+  align-self: start;
+  padding-block-start: 5px;
+}
+
+#settings-form > input, #settings-form > select, #settings-form > textarea {
   grid-column: control;
 }
 
@@ -88,7 +93,7 @@ body {
   justify-self: stretch;
 }
 
-#settings-form input, #settings-form button, #settings-form select {
+#settings-form input, #settings-form button, #settings-form select, #settings-form textarea {
   padding: 5px;
   border: 1px solid #bdc3c7;
   border-radius: 4px;
@@ -97,4 +102,8 @@ body {
 
 #settings-form button:active {
   background: revert;
+}
+
+#settings-form textarea:invalid {
+  border: 1px solid red;
 }

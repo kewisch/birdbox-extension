@@ -1,3 +1,6 @@
+import psl from "../background/libs/psl.min.js";
+
+
 function createSpaceItem(spaceData = {}) {
   if (!spaceData.name) {
     spaceData.name = crypto.randomUUID().replace(/-/g, "_");
@@ -38,6 +41,8 @@ async function selectSpace(spaceItem) {
     document.getElementById("url").value = data.url ?? "";
     document.getElementById("container").value = data.container ?? "firefox-default";
     document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(data.url);
+    document.getElementById("internal-links").value = data.internalLinks?.join("\n") ?? "";
+    document.getElementById("internal-links").placeholder = data.url ? new URL(data.url).hostname : "";
   }
 }
 
@@ -45,14 +50,48 @@ function getSelectedSpace() {
   return document.querySelector(".space-item.selected");
 }
 
+function parseInternalLinks(spaceData, value) {
+  let errors = [];
+  let lines = new Set(value.split("\n").reduce((acc, val) => {
+    if (val.startsWith("http:") || val.startsWith("https:")) {
+      let url = new URL(val);
+      if (psl.isValid(url.hostname)) {
+        acc.push(url.hostname);
+      } else {
+        errors.push("Invalid Domain: " + url.hostname);
+      }
+    } else if (psl.isValid(val)) {
+      acc.push(val);
+    } else if (val.trim() != "") {
+      errors.push("Invalid Domain: " + val);
+    }
+    return acc;
+  }, []));
+
+  spaceData.internalLinks = [...lines];
+
+  let linkElement = document.getElementById("internal-links");
+  let customErrors = errors.join("\n");
+  linkElement.setCustomValidity(customErrors);
+  linkElement.reportValidity();
+  linkElement.title = customErrors;
+
+  if (!customErrors) {
+    linkElement.value = spaceData.internalLinks.join("\n");
+  }
+  return lines;
+}
+
 async function changeForm(event) {
   let spaceElement = getSelectedSpace();
-  let space = spaceElement._spaceData;
+  let spaceData = spaceElement._spaceData;
 
-  if (event.target.type == "checkbox") {
-    space[event.target.id] = event.target.checked;
+  if (event.target.id == "internal-links") {
+    parseInternalLinks(spaceData, event.target.value.trim());
+  } else if (event.target.type == "checkbox") {
+    spaceData[event.target.id] = event.target.checked;
   } else {
-    space[event.target.id] = event.target.value.trim();
+    spaceData[event.target.id] = event.target.value.trim();
   }
 
   if (event.target.id == "url") {
@@ -63,8 +102,9 @@ async function changeForm(event) {
     }
 
     document.getElementById("notifications").checked = await messenger.birdbox.checkNotificationPermission(event.target.url);
+    document.getElementById("internal-links").setAttribute("placeholder", event.target.value);
   } else if (event.target.id == "notifications") {
-    messenger.birdbox.updateNotifications(space.url, event.target.checked);
+    messenger.birdbox.updateNotifications(spaceData.url, event.target.checked);
   }
 
   await flush();

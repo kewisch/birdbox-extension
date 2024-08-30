@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spaces Options</title>
     <link rel="stylesheet" href="options.css">
-    <script src="options.js" defer></script>
+    <script type="module" src="options.js" defer></script>
 </head>
 <body>
     <aside class="sidebar">
@@ -19,7 +19,7 @@
     <main class="settings">
         <section aria-labelledby="space-title">
             <h2 id="space-title">Edit Space</h2>
-            <form id="settings-form" novalidate>
+            <form id="settings-form">
               <label for="url">URL:</label>
               <input type="url" id="url" name="url" placeholder="https://example.com">
 
@@ -37,6 +37,9 @@
                 <option value="firefox-container-3">Banking</option>
                 <option value="firefox-container-4">Shopping</option>
               </select>
+
+              <label for="internal-links" class="top" title="Links are opened in an external browser window, aside from these domains. One domain per line. The app URL is included by default">Internal Link Domains:</label>
+              <textarea id="internal-links" rows="4"></textarea>
 
               <div class="row checkbox" title="Please note that permissions can only be enabled per domain, this setting will affect other spaces as well">
                 <input type="checkbox" id="notifications" name="notifications">

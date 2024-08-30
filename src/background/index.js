@@ -40,6 +40,35 @@ async function loadSpaces() {
   }
 }
 
+async function flush() {
+  let { spaces } = await messenger.storage.local.get({ spaces: [] });
+
+  let ownSpaces = await messenger.spaces.query({ isSelfOwned: true });
+  let spaceMap = Object.fromEntries(ownSpaces.map(space => [space.name, space]));
+
+  await Promise.all(spaces.map(async spaceData => {
+    if (spaceData.name in spaceMap) {
+      let spaceId = spaceMap[spaceData.name].id;
+      await messenger.spaces.update(spaceId, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
+      delete spaceMap[spaceData.name];
+
+      let tabs = await messenger.tabs.query({ spaceId });
+      await Promise.all(tabs.map(tab => {
+        return messenger.tabs.sendMessage(tab.id, { action: "updateSpaceSettings", space: spaceData });
+      }));
+    } else {
+      await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
+    }
+
+    await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
+  }));
+
+  for (let space of Object.values(spaceMap)) {
+    await messenger.spaces.remove(space.id);
+  }
+}
+
+
 function initListeners() {
   browser.webRequest.onBeforeSendHeaders.addListener(
     onBeforeSendHeaders,
@@ -55,111 +84,17 @@ function initListeners() {
     }
   });
 
-  browser.contentScripts.register({
-    allFrames: true,
-    matches: ["<all_urls>"],
-    runAt: "document_start",
-    js: [{
-      code: "(" + function() {
-        Object.defineProperty(navigator, "userAgent", {
-            value: navigator.userAgent.replace(/Thunderbird/g, "Firefox"),
-            configurable: false,
-            enumerable: true,
-            writable: false
-        });
-      } + ")()"
-    }],
-  });
-
-  browser.contentScripts.register({
-    matches: ["<all_urls>"],
-    runAt: "document_end",
-    js: [{
-      code: "(" + async function() {
-        let ok = await browser.runtime.sendMessage({ action: "checkSpace" });
-        if (!ok) {
-          return;
-        }
-
-        let psl = (await import(browser.runtime.getURL("/background/libs/psl.min.js"))).default;
-
-        new MutationObserver((mutations) => {
-            let title = mutations[0].target.textContent;
-
-            let match = title?.match(/\(\d+\)/);
-            browser.runtime.sendMessage({ action: "badge", count: match?.[1] || "" });
-        }).observe(
-            document.querySelector("title"),
-            { subtree: true, characterData: true, childList: true }
-        );
-
-        window.addEventListener("click", (event) => {
-          let anchor = event.target.closest("a");
-          if (!anchor) {
-            return;
-          }
-          let url = new URL(anchor.getAttribute("href"), window.location);
-
-          // TODO just comparing domains might not work everywhere, e.g. a service using different
-          // related domains. This either needs to be a preference, or we need to define this list
-          // per-service.
-          let winDomain = psl.parse(window.location.hostname).domain;
-          let urlDomain = psl.parse(url.hostname).domain;
-
-          if (winDomain != urlDomain) {
-            browser.runtime.sendMessage({ action: "openLink", href: url.href });
-            event.preventDefault();
-          }
-        }, { capture: true });
-      } + ")()"
-    }],
-  });
-
-  // browser.contentScripts.register({
-  //  matches: ["<all_urls>"],
-  //  runAt: "document_end",
-  //  js: [{
-  //    code: "(" + async function() {
-  //      let icon = document.querySelector("link[rel~='icon']");
-  //      let response = await fetch(icon?.href || (window.location.origin + "/favicon.ico"));
-  //      let blob = await response.blob();
-  //      let reader = new FileReader();
-  //      reader.onloadend = function() {
-  //        browser.runtime.sendMessage({
-  //          action: "icon",
-  //          icon: reader.result
-  //        });
-  //      }
-  //      reader.readAsDataURL(blob);
-  //    } + ")()"
-  //  }],
-  // });
-
   browser.runtime.onMessage.addListener(async (request, sender) => {
     if (request.action == "flush") {
-      let { spaces } = await messenger.storage.local.get({ spaces: [] });
-
-      let ownSpaces = await messenger.spaces.query({ isSelfOwned: true });
-      let spaceMap = Object.fromEntries(ownSpaces.map(space => [space.name, space]));
-
-      for (let spaceData of spaces) {
-        if (spaceData.name in spaceMap) {
-          await messenger.spaces.update(spaceMap[spaceData.name].id, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
-          delete spaceMap[spaceData.name];
-        } else {
-          await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
-          delete spaceMap[spaceData.name];
-        }
-
-        await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
-      }
-
-      for (let space of Object.values(spaceMap)) {
-        await messenger.spaces.remove(space.id);
-      }
+      return flush();
     } else if (request.action == "checkSpace") {
       let space = await messenger.spaces.get(sender.tab.spaceId);
-      return space?.isSelfOwned;
+      if (!space?.isSelfOwned) {
+        return null;
+      }
+
+      let { spaces } = await messenger.storage.local.get({ spaces: [] });
+      return spaces.find(spaceData => spaceData.name == space.name);
     } else if (request.action == "badge") {
       await messenger.spaces.update(sender.tab.spaceId, { badgeText: request.count });
       return true;
