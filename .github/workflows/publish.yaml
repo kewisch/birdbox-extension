@@ -47,6 +47,6 @@ jobs:
           cmd: sign
           source: ${{ steps.web-ext-build.outputs.target }}
           channel: listed
-          apiUrlPrefix: "https://addons.thunderbird.net/api/v3"
+          apiUrlPrefix: "https://addons.thunderbird.net/api/v4"
           apiKey: ${{ secrets.AMO_SIGN_KEY }}
           apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
