@@ -27,13 +27,6 @@ jobs:
       - name: "build"
         run: npm run build
 
-      - name: "Attach release assets"
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh release upload ${{ github.event.release.tag_name }} \
-            web-ext-artifacts/*.zip
-
       - name: "web-ext build"
         id: web-ext-build
         uses: kewisch/action-web-ext@v1
@@ -50,3 +43,10 @@ jobs:
           apiUrlPrefix: "https://addons.thunderbird.net/api/v4"
           apiKey: ${{ secrets.AMO_SIGN_KEY }}
           apiSecret: ${{ secrets.AMO_SIGN_SECRET }}
+
+      - name: "Attach release assets"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload ${{ github.event.release.tag_name }} \
+            web-ext-artifacts/*.zip
