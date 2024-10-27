@@ -5,6 +5,7 @@
 html, body {
   padding: 0;
   margin: 0;
+  color-scheme: light dark;
 }
 
 body {
@@ -15,11 +16,11 @@ body {
   flex-direction: row;
   height: 100vh;
   width: 100%;
-  background-color: light-dark(#fff, #3f3f46);
+  background-color: light-dark(#fff, #27272a);
 }
 
 .sidebar {
-  background-color: light-dark(#e8e8e8, #252525);
+  background-color: light-dark(#e8e8e8, #18181b);
   color: -moz-dialogtext;
   border-radius: 10px 0 0 10px;
 }
@@ -63,6 +64,7 @@ body {
   grid-template-columns: [label] auto [control] 1fr;
   grid-gap: 15px;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 #settings-form > .nostretch {
