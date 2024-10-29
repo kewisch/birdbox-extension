@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Spaces</title>
+    <link rel="stylesheet" href="browse.css">
+    <script type="module" src="browse.js" defer></script>
+</head>
+  <template id="space-card-template">
+    <div class="card">
+      <img height="48" width="48" src="#">
+      <span class="name"></span>
+    </div>
+  </template>
+  <h1 class="noselect">Add New Space</h1>
+  <p class="noselect">
+    Birdbox gives you all the space you need. Select from a range of web applications to make your
+    bird fly the way you want.
+  </p>
+
+  <div id="popup">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name of the service">
+
+    <label for="custom-server">Custom Server:</label>
+    <div id="custom-server-container" class="control">
+      <span id="url-prefix" class="url-label">.slack.com</span>
+      <input type="text" id="custom-server" name="custom-server" placeholder="Service URL (https://...)">
+      <span id="url-suffix" class="url-label">.slack.com</span>
+    </div>
+
+    <label for="container">Container:</label>
+    <select name="container" id="container" class="nostretch">
+      <option value="firefox-default">Default</option>
+      <option value="firefox-container-1">Personal</option>
+      <option value="firefox-container-2">Work</option>
+      <option value="firefox-container-3">Banking</option>
+      <option value="firefox-container-4">Shopping</option>
+    </select>
+    <div class="row checkbox">
+      <input type="checkbox" id="startup" name="startup">
+      <label for="startup">Load on Startup</label>
+    </div>
+    <div class="row end">
+        <button id="add">Add Space</button>
+    </div>
+  </div>
+
+  <div id="cards">
+  </div>
+<body>

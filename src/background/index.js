@@ -14,6 +14,10 @@ async function onBeforeSendHeaders(e) {
     return undefined;
   }
 
+  if (spaceInfo[0].name == "birdbox_add") {
+    return undefined;
+  }
+
   // TODO this isn't really performant, see if we can change this to a lookup
   let { spaces } = await messenger.storage.local.get({ spaces: [] });
   let thisSpace = spaces.find(spc => spc.name == spaceInfo[0].name);
@@ -44,6 +48,8 @@ async function loadSpaces() {
       await messenger.spaces.open(spaceInfo.id);
     }
   }
+
+  await messenger.spaces.create("birdbox_add", browser.runtime.getURL("options/browse.html"), { defaultIcons: "/images/plus.svg", title: "Birdbox" });
 
   if (lastTab) {
     await messenger.tabs.update(lastTab.id, { active: true });
@@ -76,6 +82,8 @@ async function flush() {
   for (let space of Object.values(spaceMap)) {
     await messenger.spaces.remove(space.id);
   }
+
+  await messenger.spaces.create("birdbox_add", browser.runtime.getURL("options/browse.html"), { defaultIcons: "/images/plus.svg", title: "Birdbox" });
 }
 
 

@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card:hover {
+  background-color: color-mix(in srgb, currentcolor, transparent 90%);
+}
+
+.card.selected {
+  background-color: color-mix(in srgb, currentcolor, transparent 70%);
+}
+
+.card:active {
+  background-color: color-mix(in srgb, currentcolor, transparent 60%);
+}
+
+
+.noselect {
+  user-select: none;
+}
+
+#popup {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+  z-index: 10;
+  width: 500px;
+  grid-template-columns: [label] auto [control] 1fr;
+  grid-gap: 15px;
+  align-items: center;
+}
+
+#popup > label {
+  grid-column: label;
+  justify-self: end;
+}
+
+#popup.attached {
+  display: grid;
+}
+
+#popup > input, #popup > select, #popup > textarea, .control {
+  grid-column: control;
+}
+
+#popup > .row.end {
+  grid-column: 1 / -1;
+  justify-self: end;
+}
+
+#popup > .row.checkbox {
+  grid-column: control;
+  justify-self: stretch;
+}
+
+#popup input, #popup button, #popup select, #popup textarea {
+  padding: 5px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  background: none;
+}
+
+.url-label {
+  display: none;
+  border: 0 solid #bdc3c7;
+  align-items: center;
+  font-size: 0.8rem;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 3px 5px;
+  user-select: none;
+}
+
+#url-prefix {
+  border-inline-end-width: 1px;
+  left: 0;
+}
+
+#url-suffix {
+  border-inline-start-width: 1px;
+	right: 0;
+}
+
+#custom-server-container {
+  display: flex;
+  position: relative;
+}
+
+#custom-server-container.prefix #url-prefix {
+  display: flex;
+}
+
+#custom-server-container.suffix #url-suffix {
+  display: flex;
+}
+
+#custom-server {
+  flex: 1;
+}
+
+
+#popup button:active {
+  background: revert;
+}
+
+#popup textarea:invalid {
+  border: 1px solid red;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#cards {
+  display: flex;
+  flex-flow: row wrap;
+}
