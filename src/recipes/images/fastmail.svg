@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 205 205" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<desc>Fastmail</desc>
+<path d="m168.67 57.185a80.391 80.391 0 0 1-133.77 89.2l-17.81 11.86a101.78 101.78 0 0 0 169.38-112.91z" fill="#69b3e7"/>
+<path d="m21.155 101.41a80.39 80.39 0 0 1 147.52-44.23l17.8-11.86a101.78 101.78 0 1 0-169.38 112.92l17.81-11.86a80 80 0 0 1-13.75-44.97z" fill="#0067b9"/>
+<path d="m53.155 133.67h93.37a3.41 3.41 0 0 0 3.41-3.41v-61.08z" fill="#333e48"/>
+<path class="opacity" d="m101.54 101.41-48.39-32.23v64.52z" fill="#ffc107"/>
+</svg>

@@ -41,7 +41,7 @@ async function main() {
 
   for (let space of spaces) {
     let card = cardTemplate.content.cloneNode(true);
-    card.querySelector("img").src = space.icon;
+    card.querySelector("img").src = browser.runtime.getURL(`/recipes/images/${space.id}.svg`);
     card.querySelector(".name").textContent = space.name;
     card.querySelector(".card")._spaceData = space;
     cards.appendChild(card);
