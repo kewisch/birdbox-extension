@@ -49,11 +49,26 @@ async function loadSpaces() {
     }
   }
 
-  await messenger.spaces.create("birdbox_add", browser.runtime.getURL("options/browse.html"), { defaultIcons: "/images/plus.svg", title: "Birdbox" });
+  await createSpaceBrowser();
 
   if (lastTab) {
     await messenger.tabs.update(lastTab.id, { active: true });
   }
+}
+
+async function createSpaceBrowser() {
+  await messenger.spaces.create(
+    "birdbox_add",
+    browser.runtime.getURL("options/browse.html"),
+    {
+      title: "Birdbox",
+      themeIcons: [{
+        light: "/images/plus_light.svg",
+        dark: "/images/plus_dark.svg",
+        size: 32
+      }]
+    }
+  );
 }
 
 async function flush() {
@@ -83,7 +98,7 @@ async function flush() {
     await messenger.spaces.remove(space.id);
   }
 
-  await messenger.spaces.create("birdbox_add", browser.runtime.getURL("options/browse.html"), { defaultIcons: "/images/plus.svg", title: "Birdbox" });
+  await createSpaceBrowser();
 }
 
 
