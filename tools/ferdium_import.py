@@ -14,6 +14,12 @@ from pathlib import Path
 #
 # Usage: python ferdium_import.py <path/to/ferdium-recipes>
 
+EXCLUDE_RECIPES = {
+    "google-calendar",  # This recipe uses remote script execution
+    "weekplan",  # Unclear license (Apache 2 vs MIT)
+    # WhatsApp includes an unnecessary remote image, but too high profile to remove
+}
+
 
 def gitroot():
     startpath = Path.cwd()
@@ -26,6 +32,13 @@ def gitroot():
             return path.absolute()
 
     return None
+
+
+def delete_subdirectories(directory_path):
+    for item in os.listdir(directory_path):
+        item_path = os.path.join(directory_path, item)
+        if os.path.isdir(item_path):
+            shutil.rmtree(item_path)
 
 
 def read_package_json(file_path):
@@ -56,6 +69,11 @@ def process_package_directory(package_dir, output_directory):
         return None
 
     package_data = read_package_json(package_json_path)
+    pkgid = package_data.get("id")
+
+    if pkgid in EXCLUDE_RECIPES:
+        print(f"Skipping {package_dir} because it was excluded")
+        return None
 
     if not is_mit(package_dir, package_data):
         print(f"Skipping {package_dir} because it is not MIT licensed")
@@ -65,10 +83,7 @@ def process_package_directory(package_dir, output_directory):
         print(f"Skipping {package_dir} because it is lacking a service name")
         return None
 
-    if os.path.exists(icon_svg_path):
-        pkgid = package_data.get("id")
-        shutil.copy(icon_svg_path, output_directory / "recipes" / "images" / f"{pkgid}.svg")
-        os.chmod(output_directory / "recipes" / "images" / f"{pkgid}.svg", 0o664)
+    shutil.copytree(package_dir, output_directory / "recipes" / pkgid)
 
     return package_data
 
@@ -77,6 +92,8 @@ def walk_and_process_packages(root_directory, output_directory):
     """Walks through the root directory and processes each package directory."""
     packages = []
     root_directory = Path(root_directory)
+
+    delete_subdirectories(output_directory / "recipes")
 
     for package_dir in root_directory.rglob("*"):
         if package_dir.is_dir() and (package_dir / "package.json").exists():

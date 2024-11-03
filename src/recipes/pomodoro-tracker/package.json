@@ -1,0 +1,10 @@
+{
+  "id": "pomodoro-tracker",
+  "name": "Pomodoro Tracker",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://pomodoro-tracker.com",
+    "hasNotificationSound": true
+  }
+}

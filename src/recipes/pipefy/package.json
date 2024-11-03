@@ -1,0 +1,12 @@
+{
+  "id": "pipefy",
+  "name": "Pipefy",
+  "version": "1.2.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://app.pipefy.com/",
+    "hasCustomUrl": true,
+    "hasHostedOption": true,
+    "hasIndirectMessages": true
+  }
+}

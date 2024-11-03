@@ -1,0 +1,10 @@
+{
+  "id": "monicahq",
+  "name": "Monica HQ",
+  "version": "1.4.1",
+  "license": "MIT",
+  "repository": "https://github.com/jkbecker/recipe-monica",
+  "config": {
+    "hasCustomUrl": true
+  }
+}

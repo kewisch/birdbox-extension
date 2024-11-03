@@ -1,0 +1,10 @@
+{
+  "id": "gadugadu",
+  "name": "Gadu-Gadu",
+  "version": "1.3.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://www.gg.pl",
+    "hasNotificationSound": true
+  }
+}

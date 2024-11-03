@@ -1,0 +1,9 @@
+{
+  "id": "pleroma",
+  "name": "Pleroma",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "hasCustomUrl": true
+  }
+}

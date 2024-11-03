@@ -1,0 +1,12 @@
+{
+  "id": "lark",
+  "name": "Lark",
+  "version": "0.3.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamId}.larksuite.com/messenger/",
+    "hasTeamId": true,
+    "urlInputSuffix": ".larksuite.com",
+    "hasNotificationSound": true
+  }
+}

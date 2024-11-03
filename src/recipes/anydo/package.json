@@ -1,0 +1,10 @@
+{
+  "id": "anydo",
+  "name": "Any.do",
+  "version": "1.3.1",
+  "license": "MIT",
+  "repository": "https://github.com/chappy84/recipe-anydo",
+  "config": {
+    "serviceURL": "https://desktop.any.do/"
+  }
+}

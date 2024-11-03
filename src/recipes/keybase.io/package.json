@@ -1,0 +1,10 @@
+{
+  "id": "keybase.io",
+  "name": "Keybase",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://keybase.io/login",
+    "hasNotificationSound": true
+  }
+}

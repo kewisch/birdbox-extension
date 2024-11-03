@@ -1,0 +1,10 @@
+{
+  "id": "asana",
+  "name": "Asana",
+  "version": "1.3.2",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://app.asana.com",
+    "hasNotificationSound": true
+  }
+}

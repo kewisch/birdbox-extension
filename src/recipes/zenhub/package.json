@@ -1,0 +1,11 @@
+{
+  "id": "zenhub",
+  "name": "ZenHub",
+  "version": "1.3.2",
+  "license": "MIT",
+  "repository": "https://github.com/mordaroso/recipe-franz-zenhub",
+  "config": {
+    "hasTeamId": true,
+    "serviceURL": "https://app.zenhub.com/workspaces/{teamId}/board"
+  }
+}

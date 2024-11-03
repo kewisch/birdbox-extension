@@ -1,0 +1,10 @@
+{
+  "id": "snapdrop",
+  "name": "Snapdrop",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "http://snapdrop.net/",
+    "hasNotificationSound": true
+  }
+}

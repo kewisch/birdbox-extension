@@ -41,7 +41,7 @@ async function main() {
 
   for (let space of spaces) {
     let card = cardTemplate.content.cloneNode(true);
-    card.querySelector("img").src = browser.runtime.getURL(`/recipes/images/${space.id}.svg`);
+    card.querySelector("img").src = browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);
     card.querySelector(".name").textContent = space.name;
     card.querySelector(".card")._spaceData = space;
     cards.appendChild(card);
@@ -125,6 +125,7 @@ async function main() {
         icon: space.icon,
         container: document.getElementById("container").value,
         startup: document.getElementById("startup").checked,
+        ferdiumId: space.id,
       });
     }
   });

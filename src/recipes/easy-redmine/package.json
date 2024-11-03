@@ -1,0 +1,10 @@
+{
+  "id": "easy-redmine",
+  "name": "Easy Redmine",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamID}.easyredmine.com",
+    "hasTeamId": true
+  }
+}

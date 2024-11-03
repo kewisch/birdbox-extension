@@ -1,0 +1,9 @@
+{
+  "id": "trello",
+  "name": "Trello",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://trello.com/"
+  }
+}

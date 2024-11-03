@@ -1,0 +1,13 @@
+{
+  "id": "facebookpages",
+  "name": "Facebook Pages",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://facebook.com/{teamId}/",
+    "urlInputPrefix": "https://facebook.com/",
+    "hasNotificationSound": true,
+    "hasTeamId": true,
+    "message": "Insert your page name in team, e.g. meetfranz"
+  }
+}

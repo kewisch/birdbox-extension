@@ -1,0 +1,9 @@
+{
+  "id": "simplenote",
+  "name": "Simplenote",
+  "version": "1.4.2",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://app.simplenote.com/"
+  }
+}

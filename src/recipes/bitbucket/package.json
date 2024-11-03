@@ -1,0 +1,11 @@
+{
+  "id": "bitbucket",
+  "name": "BitBucket",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://bitbucket.org/dashboard/overview",
+    "hasHostedOption": true,
+    "hasCustomUrl": true
+  }
+}

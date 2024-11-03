@@ -1,0 +1,10 @@
+{
+  "id": "zalo",
+  "name": "Zalo",
+  "version": "1.5.2",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://chat.zalo.me/",
+    "hasNotificationSound": true
+  }
+}

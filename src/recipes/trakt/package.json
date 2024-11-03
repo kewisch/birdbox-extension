@@ -1,0 +1,9 @@
+{
+  "id": "trakt",
+  "name": "Trakt",
+  "version": "1.2.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://trakt.tv"
+  }
+}

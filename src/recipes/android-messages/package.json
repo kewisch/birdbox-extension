@@ -1,0 +1,10 @@
+{
+  "id": "android-messages",
+  "name": "Android Messages",
+  "version": "2.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://messages.google.com/web",
+    "hasNotificationSound": true
+  }
+}

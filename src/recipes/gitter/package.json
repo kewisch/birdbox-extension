@@ -1,0 +1,10 @@
+{
+  "id": "gitter",
+  "name": "Gitter",
+  "version": "1.3.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://gitter.im",
+    "hasNotificationSound": true
+  }
+}

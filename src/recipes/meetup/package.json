@@ -1,0 +1,10 @@
+{
+  "id": "meetup",
+  "name": "Meetup",
+  "version": "1.2.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://meetup.com",
+    "hasIndirectMessages": true
+  }
+}

@@ -41,7 +41,8 @@ async function loadSpaces() {
   let [lastTab, ..._rest] = await messenger.tabs.query({ currentWindow: true, active: true });
 
   for (let space of spaces) {
-    let spaceInfo = await messenger.spaces.create(space.name, space.url, { defaultIcons: space.icon, title: space.title });
+    let icon = space.ferdiumId ? browser.runtime.getURL(`/recipes/${space.ferdiumId}/icon.svg`) : space.icon;
+    let spaceInfo = await messenger.spaces.create(space.name, space.url, { defaultIcons: icon, title: space.title });
     messenger.birdbox.updateCookieStore(space.name, space.container || "firefox-default");
 
     if (space.startup) {
@@ -78,9 +79,10 @@ async function flush() {
   let spaceMap = Object.fromEntries(ownSpaces.map(space => [space.name, space]));
 
   await Promise.all(spaces.map(async spaceData => {
+    let icon = spaceData.ferdiumId ? browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/icon.svg`) : spaceData.icon;
     if (spaceData.name in spaceMap) {
       let spaceId = spaceMap[spaceData.name].id;
-      await messenger.spaces.update(spaceId, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
+      await messenger.spaces.update(spaceId, spaceData.url, { defaultIcons: icon, title: spaceData.title });
       delete spaceMap[spaceData.name];
 
       let tabs = await messenger.tabs.query({ spaceId });
@@ -88,7 +90,7 @@ async function flush() {
         return messenger.tabs.sendMessage(tab.id, { action: "updateSpaceSettings", space: spaceData });
       }));
     } else {
-      await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: spaceData.icon, title: spaceData.title });
+      await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: icon, title: spaceData.title });
     }
 
     await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
@@ -127,13 +129,42 @@ function initListeners() {
       }
 
       let { spaces } = await messenger.storage.local.get({ spaces: [] });
-      return spaces.find(spaceData => spaceData.name == space.name);
+      let spaceData = spaces.find(spaceData_ => spaceData_.name == space.name);
+
+      if (spaceData?.ferdiumId && request.loadContentScript) {
+        console.log("executing script", spaceData.contentScript);
+        await browser.tabs.executeScript(sender.tab.id, {
+          file: "/content/ferdium_env.js"
+        });
+
+        // Some recipes will have a function at the end that is not serializable. Add a null value
+        // to avoid errors.
+        let webviewCode = await fetch(browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/webview.js`)).then(resp => resp.text());
+        await browser.tabs.executeScript(sender.tab.id, {
+          code: webviewCode + "; null;"
+        });
+
+        await browser.tabs.executeScript(sender.tab.id, {
+          file: "/content/ferdium_exec.js"
+        });
+      }
+
+      return space;
+    } else if (request.action == "injectCSS") {
+      await browser.tabs.insertCSS(sender.tab.id, {
+        file: request.path
+      });
     } else if (request.action == "badge") {
-      await messenger.spaces.update(sender.tab.spaceId, { badgeText: request.count });
+      await messenger.spaces.update(sender.tab.spaceId, { badgeText: (request.direct || "").toString() });
       return true;
     } else if (request.action == "openLink") {
       await messenger.windows.openDefaultBrowser(request.href);
       return true;
+    } else if (request.action == "loadContentScript") {
+      let space = await messenger.spaces.get(sender.tab.spaceId);
+      if (!space?.isSelfOwned) {
+        return null;
+      }
     }
 
     return undefined;

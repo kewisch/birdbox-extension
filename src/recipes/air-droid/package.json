@@ -1,0 +1,11 @@
+{
+  "id": "air-droid",
+  "name": "AirDroid",
+  "version": "1.3.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "http://web.airdroid.com/",
+    "message": "AirDroid allows you to access and manage your Android phone or tablet from Windows, Mac or the Web, wirelessly, for free. Transfer files between your devices, and share files to your friends.",
+    "hasNotificationSound": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "voxer",
+  "name": "Voxer",
+  "version": "1.3.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://web.voxer.com",
+    "hasNotificationSound": true
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "gitlab",
+  "name": "GitLab",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://gitlab.com/users/sign_in",
+    "hasHostedOption": true,
+    "hasCustomUrl": true
+  }
+}

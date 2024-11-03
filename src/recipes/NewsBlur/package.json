@@ -1,0 +1,10 @@
+{
+  "id": "NewsBlur",
+  "name": "NewsBlur",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://newsblur.com",
+    "hasNotificationSound": true
+  }
+}

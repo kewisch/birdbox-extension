@@ -1,0 +1,9 @@
+{
+  "id": "paymo",
+  "name": "Paymo",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://app.paymoapp.com/auth/login"
+  }
+}

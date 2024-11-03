@@ -1,0 +1,14 @@
+{
+  "id": "kimaicloud",
+  "name": "Kimai Cloud",
+  "version": "1.5.1",
+  "license": "MIT",
+  "repository": "https://github.com/kimai-cloud/recipe-kimaicloud",
+  "config": {
+    "serviceURL": "https://{teamId}.kimai.cloud",
+    "urlInputSuffix": ".kimai.cloud",
+    "hasHostedOption": true,
+    "hasTeamId": true,
+    "hasCustomUrl": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "toggl",
+  "name": "Toggl",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://www.toggl.com/app/timer",
+    "hasNotificationSound": true
+  }
+}

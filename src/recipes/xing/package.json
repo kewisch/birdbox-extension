@@ -1,0 +1,9 @@
+{
+  "id": "xing",
+  "name": "XING",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://www.xing.com/messenger/global"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "airtable",
+  "name": "Airtable",
+  "version": "1.4.1",
+  "license": "MIT",
+  "repository": "https://github.com/transnat/recipe-airtable",
+  "config": {
+    "serviceURL": "https://airtable.com"
+  }
+}

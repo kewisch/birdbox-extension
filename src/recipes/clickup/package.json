@@ -1,0 +1,11 @@
+{
+  "id": "clickup",
+  "name": "ClickUp",
+  "version": "2.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://app.clickup.com",
+    "hasCustomUrl": true,
+    "hasNotificationSound": true
+  }
+}

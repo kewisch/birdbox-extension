@@ -1,0 +1,11 @@
+{
+  "id": "zulip",
+  "name": "Zulip",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "hasNotificationSound": true,
+    "hasIndirectMessages": true,
+    "hasCustomUrl": true
+  }
+}

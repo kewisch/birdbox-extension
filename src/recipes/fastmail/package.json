@@ -1,0 +1,10 @@
+{
+  "id": "fastmail",
+  "name": "FastMail",
+  "version": "2.4.2",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://www.fastmail.com/mail/",
+    "message": "Get private, secure, ad-free email hosting for you or your business"
+  }
+}

@@ -1,0 +1,14 @@
+.app-wrapper-web .app,
+.app-wrapper-web .two,
+.app-wrapper-web .three,
+.app-wrapper-web .h70RQ
+{
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+}
+
+/* fix for blank spaces regarding view width on screens larger than 1080p */
+.app-wrapper-web ._aigs {
+  max-width: none !important;
+}

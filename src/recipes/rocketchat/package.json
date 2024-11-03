@@ -1,0 +1,13 @@
+{
+  "id": "rocketchat",
+  "name": "Rocket.Chat",
+  "version": "1.5.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamId}.rocket.chat",
+    "hasNotificationSound": true,
+    "hasCustomUrl": true,
+    "hasTeamId": true,
+    "urlInputSuffix": ".rocket.chat"
+  }
+}

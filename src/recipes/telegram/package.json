@@ -1,0 +1,10 @@
+{
+  "id": "telegram",
+  "name": "Telegram",
+  "version": "3.4.5",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://web.telegram.org",
+    "hasNotificationSound": true
+  }
+}

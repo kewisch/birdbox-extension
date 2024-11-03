@@ -150,16 +150,6 @@
         }
     },
     {
-        "id": "weekplan",
-        "name": "Weekplan",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/minipada/recipe-weekplan",
-        "config": {
-            "serviceURL": "https://next.weekplan.net/"
-        }
-    },
-    {
         "id": "dingtalk",
         "name": "Dingtalk",
         "version": "1.2.1",
@@ -375,6 +365,30 @@
         }
     },
     {
+        "id": "somtoday",
+        "name": "SomToday",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://inloggen.somtoday.nl",
+            "hasDirectMessages": true,
+            "hasNotificationSound": true
+        }
+    },
+    {
+        "id": "viva-engage",
+        "name": "Viva Engage",
+        "version": "1.0.0",
+        "license": "MIT",
+        "aliases": [
+            "yammer"
+        ],
+        "config": {
+            "serviceURL": "https://engage.cloud.microsoft",
+            "hasIndirectMessages": true
+        }
+    },
+    {
         "id": "bard",
         "name": "Bard",
         "version": "1.1.2",
@@ -402,6 +416,26 @@
             "serviceURL": "https://www.chatwork.com/login.php",
             "hasNotificationSound": true,
             "hasIndirectMessages": true
+        }
+    },
+    {
+        "id": "voetbal-nl",
+        "name": "Voetbal",
+        "version": "1.0.1",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://voetbal.nl/inloggen",
+            "hasDirectMessages": true,
+            "hasNotificationSound": true
+        }
+    },
+    {
+        "id": "duckduckgo-ai-chat",
+        "name": "DuckDuckGo AI Chat",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://duckduckgo.com/aichat"
         }
     },
     {
@@ -914,7 +948,7 @@
     {
         "id": "yahoo-mail",
         "name": "Yahoo Mail",
-        "version": "1.3.1",
+        "version": "1.3.2",
         "license": "MIT",
         "config": {
             "serviceURL": "https://mail.yahoo.com",
@@ -1347,6 +1381,15 @@
         }
     },
     {
+        "id": "quora",
+        "name": "Quora",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://www.quora.com"
+        }
+    },
+    {
         "id": "ntfy",
         "name": "ntfy",
         "version": "1.1.1",
@@ -1492,6 +1535,15 @@
         }
     },
     {
+        "id": "jsoncrack",
+        "name": "JSON Crack",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://app.jsoncrack.com/"
+        }
+    },
+    {
         "id": "clickup",
         "name": "ClickUp",
         "version": "2.4.1",
@@ -1520,6 +1572,15 @@
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
             "hasCustomUrl": true
+        }
+    },
+    {
+        "id": "daily-dev",
+        "name": "Daily.dev",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://app.daily.dev"
         }
     },
     {
@@ -1850,6 +1911,15 @@
         }
     },
     {
+        "id": "pastebin",
+        "name": "Pastebin",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://pastebin.com/"
+        }
+    },
+    {
         "id": "youtubemusic",
         "name": "YouTube Music",
         "version": "1.4.1",
@@ -1859,18 +1929,13 @@
         }
     },
     {
-        "id": "google-calendar",
-        "name": "Google Calendar",
-        "version": "2.4.2",
+        "id": "affine",
+        "name": "Affine",
+        "version": "1.0.0",
         "license": "MIT",
-        "aliases": [
-            "google-calendar",
-            "gCalendar"
-        ],
         "config": {
-            "serviceURL": "https://calendar.google.com/u/0/",
             "hasCustomUrl": true,
-            "hasNotificationSound": true
+            "serviceURL": "https://{affine}/"
         }
     },
     {
@@ -1963,16 +2028,6 @@
         }
     },
     {
-        "id": "yammer",
-        "name": "Yammer",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.yammer.com/login",
-            "hasIndirectMessages": true
-        }
-    },
-    {
         "id": "xing",
         "name": "XING",
         "version": "1.4.1",
@@ -1998,6 +2053,15 @@
         "license": "MIT",
         "config": {
             "serviceURL": "https://mastodeck.com"
+        }
+    },
+    {
+        "id": "hastebin",
+        "name": "Hastebin",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://www.toptal.com/developers/hastebin"
         }
     },
     {
@@ -2225,6 +2289,15 @@
         }
     },
     {
+        "id": "google-gemini",
+        "name": "Google Gemini",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://gemini.google.com"
+        }
+    },
+    {
         "id": "figma",
         "name": "Figma",
         "version": "1.3.1",
@@ -2438,7 +2511,7 @@
     {
         "id": "bluesky",
         "name": "Bluesky",
-        "version": "1.1.3",
+        "version": "1.1.4",
         "license": "MIT",
         "config": {
             "serviceURL": "https://bsky.app/"
@@ -2507,6 +2580,15 @@
         }
     },
     {
+        "id": "replit",
+        "name": "Replit",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://replit.com/login"
+        }
+    },
+    {
         "id": "confluence",
         "name": "Confluence",
         "version": "1.2.1",
@@ -2548,6 +2630,15 @@
         "config": {
             "serviceURL": "https://duo.google.com/?web",
             "hasNotificationSound": true
+        }
+    },
+    {
+        "id": "claude-ai",
+        "name": "claude.ai",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://claude.ai"
         }
     },
     {
@@ -2639,10 +2730,10 @@
     {
         "id": "zoom",
         "name": "Zoom",
-        "version": "1.4.1",
+        "version": "1.4.2",
         "license": "MIT",
         "config": {
-            "serviceURL": "https://zoom.us/join",
+            "serviceURL": "https://app.zoom.us/wc/home",
             "hasNotificationSound": true
         }
     },
@@ -2675,6 +2766,15 @@
         "repository": "https://github.com/lmnet/franz-recipe-notion",
         "config": {
             "serviceURL": "https://habitica.com"
+        }
+    },
+    {
+        "id": "cara",
+        "name": "Cara",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://cara.app"
         }
     },
     {
@@ -2782,6 +2882,15 @@
         "config": {
             "serviceURL": "https://meetup.com",
             "hasIndirectMessages": true
+        }
+    },
+    {
+        "id": "rydoo",
+        "name": "Rydoo",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://app.rydoo.com/"
         }
     },
     {
@@ -3110,6 +3219,16 @@
         }
     },
     {
+        "id": "mdaemon",
+        "name": "MDaemon Worldclient",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "hasCustomUrl": true,
+            "hasNotificationSound": true
+        }
+    },
+    {
         "id": "tawk",
         "name": "Tawk.to",
         "version": "1.4.1",
@@ -3127,6 +3246,16 @@
         "config": {
             "serviceURL": "https://lastpass.com/?ac=1&lpnorefresh=1",
             "hasNotificationSound": true
+        }
+    },
+    {
+        "id": "sonarqube",
+        "name": "SonarQube",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "hasCustomUrl": true,
+            "serviceURL": "https://{sonarqube}/"
         }
     },
     {
@@ -3458,6 +3587,15 @@
         }
     },
     {
+        "id": "phanpy",
+        "name": "Phanpy",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://phanpy.social/"
+        }
+    },
+    {
         "id": "amazon-web-services",
         "name": "Amazon Web Services",
         "version": "1.3.1",
@@ -3534,6 +3672,15 @@
         "license": "MIT",
         "config": {
             "hasCustomUrl": true
+        }
+    },
+    {
+        "id": "80lv",
+        "name": "80LV",
+        "version": "1.0.0",
+        "license": "MIT",
+        "config": {
+            "serviceURL": "https://80.lv"
         }
     },
     {

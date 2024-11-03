@@ -1,0 +1,11 @@
+{
+  "id": "canvas",
+  "name": "Canvas",
+  "version": "1.2.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamId}.instructure.com/",
+    "hasTeamId": true,
+    "message": "Your canvas TeamID is your school's initials eg MIT, FIU, UCF etc."
+  }
+}

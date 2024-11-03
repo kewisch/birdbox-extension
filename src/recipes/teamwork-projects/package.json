@@ -1,0 +1,12 @@
+{
+  "id": "teamwork-projects",
+  "name": "Teamwork Projects",
+  "version": "0.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamId}.teamwork.com/",
+    "hasNotificationSound": true,
+    "urlInputSuffix": ".teamwork.com",
+    "hasTeamId": true
+  }
+}

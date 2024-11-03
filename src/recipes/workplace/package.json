@@ -1,0 +1,12 @@
+{
+  "id": "workplace",
+  "name": "Workplace",
+  "version": "1.5.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamId}.workplace.com/chat",
+    "hasNotificationSound": true,
+    "hasTeamId": true,
+    "urlInputSuffix": ".workplace.com"
+  }
+}

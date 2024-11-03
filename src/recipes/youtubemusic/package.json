@@ -1,0 +1,9 @@
+{
+  "id": "youtubemusic",
+  "name": "YouTube Music",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://music.youtube.com/"
+  }
+}

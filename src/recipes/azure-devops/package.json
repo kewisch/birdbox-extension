@@ -1,0 +1,12 @@
+{
+  "id": "azure-devops",
+  "name": "Azure DevOps",
+  "version": "1.4.1",
+  "license": "MIT",
+  "aliases": [
+    "azdo"
+  ],
+  "config": {
+    "serviceURL": "https://dev.azure.com/"
+  }
+}

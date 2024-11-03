@@ -1,0 +1,14 @@
+{
+  "id": "jira",
+  "name": "Jira",
+  "version": "1.5.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://{teamId}.atlassian.net",
+    "urlInputSuffix": ".atlassian.net",
+    "hasHostedOption": true,
+    "hasTeamId": true,
+    "hasCustomUrl": true,
+    "hasNotificationSound": true
+  }
+}

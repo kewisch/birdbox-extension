@@ -1,0 +1,9 @@
+{
+  "id": "pocket",
+  "name": "Pocket",
+  "version": "1.4.1",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://getpocket.com/a/queue/list/"
+  }
+}

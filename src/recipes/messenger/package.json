@@ -1,0 +1,10 @@
+{
+  "id": "messenger",
+  "name": "Messenger",
+  "version": "1.8.4",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://messenger.com",
+    "hasNotificationSound": true
+  }
+}

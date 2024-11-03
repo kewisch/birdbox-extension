@@ -1,0 +1,10 @@
+{
+  "id": "zoho",
+  "name": "Zoho Mail",
+  "version": "1.4.2",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://www.zoho.com/mail/login.html",
+    "hasNotificationSound": true
+  }
+}

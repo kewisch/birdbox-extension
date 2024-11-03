@@ -1,0 +1,112 @@
+/* Copied from: https://github.com/AykutSarac/linkedin-dark with added dark scrollbars from https://github.com/Jordy3D/Jordy3D.github.io */
+
+:root {
+  /* Body background */
+  --color-background-canvas: #202225 !important;
+
+  /* Cards background color */
+  --white: #36393f !important;
+
+  /* Mostly titles, hrefs & links */
+  --black-a90: #FFF !important;
+  
+  /* Borders mostly */
+  --black-a30: #25252549 !important;
+
+  /* Mostly used for general text color, paragraphs, placeholders etc. */
+  --black-a60: #99AAB5 !important;
+
+  /* Message chat color */
+  --color-text-low-emphasis: #99AAB5 !important;
+
+  /* Disabled text color */
+  --color-text-disabled: #5f7673 !important;
+
+  /* Headers, buttons, svgs */
+  --blue-70: #FFF !important;
+
+  /* Link embed card bg */
+  --voyager-color-background-container-tint-2: #2f3136 !important;
+
+  --color-background-container-tint: #2f3136 !important;
+
+  --color-action: #99AAB5 !important;
+
+  /* Message active chat */
+  --voyager-color-action-selected: #2f3136 !important;
+
+  /* Home search input bg color */
+  --voyager-color-background-input-search: #40444b !important;
+
+  --voyager-color-background-comment: #2f3136 !important;
+  --color-background-brand-accent-4: #2f3136 !important;
+
+  /* Used for links */
+  --color-brand-accent-1: #7289DA !important;
+  --warm-red-70: #7289DA !important;
+
+  /* Active button background */
+  --color-checked: #3ba55c !important;
+
+}
+
+/*Dark Scrollbar*/
+::-webkit-scrollbar
+{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track
+{
+  background: #fff0 !important;
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: #1f2f38;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+  background: #1a2a33;
+}
+
+/* Job updates, events, quotes etc. card background embedded post items */
+.job-card-square__main,
+.feed-shared-carousel-job__content,
+div[class^='feed-shared-article'],
+div[class^='feed-shared-event'],
+div[class^='feed-shared-update-v2__update-content-wrapper'],
+div[class^='feed-shared-entity'],
+div[class^='feed-shared-announcement'],
+section[class^='discover-entity-type-card'] {
+  background: var(--voyager-color-background-comment) !important;
+}
+
+/* See more, featured item card etc. */
+.org-about-module__content-box,
+.artdeco-container-card-action-bar,
+.artdeco-card__actions,
+div[class^='pab-featured-item'] > div {
+  background: var(--voyager-color-background-comment) !important;
+}
+
+/* Messages text color */
+.msg-s-event-listitem__body {
+  color: var(--color-text-low-emphasis) !important;
+}
+
+/* Comments and share post input color */
+.share-box-feed-entry__wrapper .display-flex .artdeco-button,
+.comments-comment-texteditor  {
+  background: var(--voyager-color-background-input-search) !important;
+}
+
+.feed-shared-update-v2__commentary span a {
+  color: #57F287 !important;
+}
+
+/* Navbar */
+header[class^='global-nav'] {
+  background: #2f3136 !important;
+}
