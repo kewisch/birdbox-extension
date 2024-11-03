@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Birdbox",
-  "description": "Maintain your favorite websites as spaces within Thunderbird",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   "version": "1.2.2",
   "author": "Philipp Kewisch",
   "default_locale": "en",

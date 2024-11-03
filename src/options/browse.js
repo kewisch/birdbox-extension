@@ -31,6 +31,15 @@ function resetPopup() {
   document.getElementById("startup").checked = false;
 }
 
+function localize() {
+  for (let node of document.querySelectorAll("[data-l10n-id]")) {
+    node.textContent = messenger.i18n.getMessage(node.dataset.l10nId);
+  }
+  for (let node of document.querySelectorAll("[data-l10n-attr-placeholder]")) {
+    node.setAttribute("placeholder", messenger.i18n.getMessage(node.dataset.l10nAttrPlaceholder));
+  }
+}
+
 async function main() {
   let spaces = await fetch("/recipes/spaces.json").then(resp => resp.json());
 
@@ -89,13 +98,12 @@ async function main() {
     popup.classList.add("attached");
 
     if (space.config.hasTeamId) {
-      customServerLabel.textContent = "Team:";
-      customServer.placeholder = "Team";
+      customServerLabel.textContent = messenger.i18n.getMessage("browse.team.label");
+      customServer.placeholder = messenger.i18n.getMessage("browse.team.placeholder");
     } else {
-      customServerLabel.textContent = "Custom Server:";
-      customServer.placeholder = "Service URL (https://...)";
+      customServerLabel.textContent = messenger.i18n.getMessage("browse.customServer.label");
+      customServer.placeholder = messenger.i18n.getMessage("browse.customServer.placeholder");
     }
-
 
     urlPrefix.textContent = space.config.urlInputPrefix;
     urlSuffix.textContent = space.config.urlInputSuffix;
@@ -138,3 +146,4 @@ async function main() {
 }
 
 main();
+localize();

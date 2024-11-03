@@ -1,1 +1,59 @@
-{}
+{
+  "extensionName": {
+    "message": "Birdbox"
+  },
+  "extensionDescription": {
+    "message": "Maintain your favorite websites as spaces within Thunderbird"
+  },
+  "browse.title": {
+    "message": "Add New Spaces"
+  },
+  "browse.intro": {
+    "message": "Birdbox gives you all the space you need. Select from a range of web applications to make your bird fly the way you want."
+  },
+  "browse.name.label": {
+    "message": "Name:"
+  },
+  "browse.name.placeholder": {
+    "message": "Name of the service"
+  },
+  "browse.customServer.label": {
+    "message": "Custom Server:"
+  },
+  "browse.customServer.placeholder": {
+    "message": "Service URL (https://...)"
+  },
+  "browse.container.label": {
+    "message": "Container:"
+  },
+  "browse.container.default": {
+    "message": "Default"
+  },
+  "browse.container.1": {
+    "message": "Personal"
+  },
+  "browse.container.2": {
+    "message": "Work"
+  },
+  "browse.container.3": {
+    "message": "Banking"
+  },
+  "browse.container.4": {
+    "message": "Shopping"
+  },
+  "browse.loadStartup.label": {
+    "message": "Load on Startup"
+  },
+  "browse.addSpace.button": {
+    "message": "Add Space"
+  },
+  "browse.customService.label": {
+    "message": "Custom Service"
+  },
+  "browse.team.label": {
+    "message": "Team:"
+  },
+  "browse.team.placeholder": {
+    "message": "Team"
+  }
+}
