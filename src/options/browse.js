@@ -48,6 +48,18 @@ async function main() {
 
   spaces.sort((a, b) => a.name.localeCompare(b.name));
 
+  let customCard = cardTemplate.content.cloneNode(true);
+  customCard.querySelector("img").src = browser.runtime.getURL("/images/addon.svg");
+  customCard.querySelector(".name").textContent = messenger.i18n.getMessage("browse.customService.label");
+  customCard.querySelector(".card")._spaceData = {
+    name: messenger.i18n.getMessage("browse.customService.label"),
+    icon: browser.runtime.getURL("/images/addon.svg"),
+    config: {
+      hasCustomUrl: true
+    }
+  };
+  cards.appendChild(customCard);
+
   for (let space of spaces) {
     let card = cardTemplate.content.cloneNode(true);
     card.querySelector("img").src = browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);
