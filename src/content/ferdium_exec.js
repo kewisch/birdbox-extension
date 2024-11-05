@@ -22,7 +22,7 @@
 
   // Here are the ferdium settings shared with the webview
   const settings = {
-    id: spaceData.ferdiumId, // TODO this might need to be the space uuid
+    id: spaceData.name,
     spellcheckerLanguage: false,
     isDarkModeEnabled: false,
     isProgressbarEnabled: false,
@@ -31,7 +31,7 @@
       contrast: 90,
       sepia: 10
     },
-    team: "", // TODO
+    team: spaceData.teamId,
     url: spaceData.url,
     hasCustomIcon: false,
     onlyShowFavoritesInUnreadCount: false,

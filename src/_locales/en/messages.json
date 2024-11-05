@@ -11,17 +11,29 @@
   "browse.intro": {
     "message": "Birdbox gives you all the space you need. Select from a range of web applications to make your bird fly the way you want."
   },
+  "browse.editExisting.label": {
+    "message": "Edit existing spaces"
+  },
+  "browse.addNew.label": {
+    "message": "Add New Space"
+  },
   "browse.name.label": {
     "message": "Name:"
   },
   "browse.name.placeholder": {
     "message": "Name of the service"
   },
+  "browse.serviceURL.label": {
+    "message": "Service Location:"
+  },
   "browse.customServer.label": {
     "message": "Custom Server:"
   },
   "browse.customServer.placeholder": {
     "message": "Service URL (https://...)"
+  },
+  "browse.useragent.label": {
+    "message": "User Agent:"
   },
   "browse.container.label": {
     "message": "Container:"
@@ -41,11 +53,29 @@
   "browse.container.4": {
     "message": "Shopping"
   },
+  "browse.internalLinks.title": {
+    "message": "Links are opened in an external browser window, aside from these domains. One domain per line. The app URL is included by default"
+  },
+  "browse.internalLinks.label": {
+    "message": "Internal Link Domains:"
+  },
+  "browse.notifications.label": {
+    "message": "Enable Notifications"
+  },
+  "browse.notifications.title": {
+    "message": "Please note that permissions can only be enabled per domain, this setting will affect other spaces as well"
+  },
   "browse.loadStartup.label": {
     "message": "Load on Startup"
   },
   "browse.addSpace.button": {
     "message": "Add Space"
+  },
+  "browse.deleteSpace.button": {
+    "message": "Delete Space"
+  },
+  "browse.reloadIcon.button": {
+    "message": "Reload Icon"
   },
   "browse.customService.label": {
     "message": "Custom Service"

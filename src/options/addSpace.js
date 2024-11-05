@@ -15,36 +15,27 @@ async function addSpace(data) {
 
 function unselect() {
   document.querySelector(".card.selected")?.classList.remove("selected");
-  document.getElementById("popup")?.classList.remove("attached");
+  document.getElementById("add-space-popup")?.classList.remove("attached");
 }
 
 function resetPopup() {
-  let customServer = document.getElementById("custom-server");
+  let customServer = document.getElementById("add-space-custom-server");
   customServer.value = "";
   customServer.style.paddingInlineStart = "";
   customServer.style.paddingInlineEnd = "";
 
-  let customServerContainer = document.getElementById("custom-server-container");
+  let customServerContainer = document.getElementById("add-space-custom-server-field");
   customServerContainer.classList.remove("suffix", "prefix");
 
-  document.getElementById("container").selectedIndex = 0;
-  document.getElementById("startup").checked = false;
+  document.getElementById("add-space-container").selectedIndex = 0;
+  document.getElementById("add-space-startup").checked = false;
 }
 
-function localize() {
-  for (let node of document.querySelectorAll("[data-l10n-id]")) {
-    node.textContent = messenger.i18n.getMessage(node.dataset.l10nId);
-  }
-  for (let node of document.querySelectorAll("[data-l10n-attr-placeholder]")) {
-    node.setAttribute("placeholder", messenger.i18n.getMessage(node.dataset.l10nAttrPlaceholder));
-  }
-}
-
-async function main() {
+async function initAddSpaces() {
   let spaces = await fetch("/recipes/spaces.json").then(resp => resp.json());
 
   let cardTemplate = document.getElementById("space-card-template");
-  let cards = document.getElementById("cards");
+  let cards = document.getElementById("add-space-cards");
 
   spaces.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -69,7 +60,7 @@ async function main() {
   }
 
   cards.addEventListener("click", async (event) => {
-    let popup = document.getElementById("popup");
+    let popup = document.getElementById("add-space-popup");
     let card = event.target.closest(".card");
     if (!card || !card._spaceData) {
       return;
@@ -95,13 +86,13 @@ async function main() {
     popup._spaceData = space;
     resetPopup();
 
-    let customServerLabel = document.querySelector("label[for='custom-server']");
-    let customServer = document.getElementById("custom-server");
-    let customServerContainer = document.getElementById("custom-server-container");
-    let urlPrefix = document.getElementById("url-prefix");
-    let urlSuffix = document.getElementById("url-suffix");
+    let customServerLabel = document.querySelector("label[for='add-space-custom-server']");
+    let customServer = document.getElementById("add-space-custom-server");
+    let customServerContainer = document.getElementById("add-space-custom-server-field");
+    let urlPrefix = document.getElementById("add-space-url-prefix");
+    let urlSuffix = document.getElementById("add-space-url-suffix");
 
-    document.getElementById("name").value = space.name;
+    document.getElementById("add-space-name").value = space.name;
     customServerContainer.classList.toggle("hidden", !hasCustom);
     customServerLabel.classList.toggle("hidden", !hasCustom);
     customServerContainer.classList.toggle("suffix", Boolean(space.config.hasTeamId && space.config.urlInputSuffix));
@@ -132,21 +123,30 @@ async function main() {
     let space = document.querySelector(".card.selected")?._spaceData;
     if (space) {
       let targetUrl = space.config.serviceURL;
-      let customServer = document.getElementById("custom-server").value;
+      let teamId = null;
+      let customServer = document.getElementById("add-space-custom-server").value;
       if (space.config.hasTeamId) {
         targetUrl = space.config.serviceURL.replace(/{teamId}/g, customServer);
+        teamId = customServer;
       } else if (space.config.hasCustomUrl) {
         targetUrl = customServer;
       }
 
       addSpace({
-        title: document.getElementById("name").value,
+        title: document.getElementById("add-space-name").value,
         url: targetUrl,
         icon: space.icon,
-        container: document.getElementById("container").value,
-        startup: document.getElementById("startup").checked,
+        container: document.getElementById("add-space-container").value,
+        startup: document.getElementById("add-space-startup").checked,
         ferdiumId: space.id,
+        teamId: teamId,
       });
+    }
+  });
+
+  document.getElementById("add-mode").addEventListener("click", (event) => {
+    if (!event.target.closest("#add-space-popup, .card.selected")) {
+      unselect();
     }
   });
 
@@ -155,7 +155,10 @@ async function main() {
       unselect();
     }
   });
+
+  document.getElementById("edit-spaces-button").addEventListener('click', () => {
+    document.querySelector(".page-container").classList.toggle('active');
+  });
 }
 
-main();
-localize();
+initAddSpaces();
