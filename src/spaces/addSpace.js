@@ -4,17 +4,18 @@
 
 const POPUP_WIDTH = 500;
 
+import { createSpaceItem } from "./editSpace.js";
+
 async function addSpace(data) {
-  // This is hurting my eyes more every time I see it
-  let { spaces } = await messenger.storage.local.get({ spaces: [] });
   data.name = crypto.randomUUID().replace(/-/g, "_");
-  spaces.push(data);
-  await messenger.storage.local.set({ spaces });
-  await browser.runtime.sendMessage({ action: "flush" });
+  await browser.runtime.sendMessage({ action: "addSpace", space: data });
+
+  createSpaceItem(data);
+  unselect();
 }
 
 function unselect() {
-  document.querySelector(".card.selected")?.classList.remove("selected");
+  document.querySelector("#add-mode .card.selected")?.classList.remove("selected");
   document.getElementById("add-space-popup")?.classList.remove("attached");
 }
 
@@ -156,8 +157,8 @@ async function initAddSpaces() {
     }
   });
 
-  document.getElementById("edit-spaces-button").addEventListener('click', () => {
-    document.querySelector(".page-container").classList.toggle('active');
+  document.getElementById("edit-spaces-button").addEventListener("click", () => {
+    location.hash = "#edit";
   });
 }
 

@@ -11,6 +11,9 @@
   "browse.intro": {
     "message": "Birdbox gives you all the space you need. Select from a range of web applications to make your bird fly the way you want."
   },
+  "browse.noSpaces.label": {
+    "message": "Click 'Add Space' on the side to get started."
+  },
   "browse.editExisting.label": {
     "message": "Edit existing spaces"
   },

@@ -28,6 +28,10 @@ html, body {
   overflow: auto;
 }
 
+.page-container.notransition .mode {
+  transition: none !important;
+}
+
 #add-mode {
   background-color: #f0f0f0;
   z-index: 1;
@@ -35,7 +39,7 @@ html, body {
 }
 
 #edit-mode {
-  top: -100vh;  /* Start below the add mode */
+  top: -100vh;
   z-index: 0;
   display: flex;
   flex-direction: row;
@@ -43,11 +47,11 @@ html, body {
   padding: 10px;
 }
 
-.page-container.active #add-mode {
+.page-container.edit #add-mode {
   transform: translateY(100%);
 }
 
-.page-container.active #edit-mode {
+.page-container.edit #edit-mode {
   transform: translateY(100%);
 }
 
@@ -244,7 +248,7 @@ button.primary-button:active {
   cursor: pointer;
   border-radius: 4px;
 }
-#edit-spaces-list .space-item .name {
+#edit-spaces-list .space-item > * {
   user-select: none;
 }
 
@@ -278,6 +282,13 @@ button.primary-button:active {
   max-width: 700px;
 }
 
+#edit-settings.no-spaces form {
+  display: none;
+}
+#edit-settings:not(.no-spaces) .no-spaces-info {
+  display: none;
+}
+
 #edit-settings h2 {
   margin: 0 0 20px;
 }
@@ -290,10 +301,10 @@ button.primary-button:active {
   margin-bottom: 10px;
 }
 
-#edit-settings-form[data-ferdium-id] #url,
-#edit-settings-form[data-ferdium-id] label[for='url'],
-#edit-settings-form[data-ferdium-id] #useragent,
-#edit-settings-form[data-ferdium-id] label[for='useragent'],
-#edit-settings-form[data-ferdium-id] #refresh-icon {
+#edit-settings-form[data-ferdium-id] #edit-space-url,
+#edit-settings-form[data-ferdium-id] label[for='edit-space-url'],
+#edit-settings-form[data-ferdium-id] #edit-space-useragent,
+#edit-settings-form[data-ferdium-id] label[for='edit-space-useragent'],
+#edit-settings-form[data-ferdium-id] #edit-space-refresh-icon {
   display: none;
 }

@@ -2,12 +2,17 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+import SpaceStorage from "./spaceStorage.js";
+
+let gSpaceStorage = new SpaceStorage();
+
 async function onBeforeSendHeaders(e) {
   if (e.tabId == -1) {
     return undefined;
   }
 
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1913581
+  // We would love to allow filtering webRequest by spaceId
   let tab = await messenger.tabs.get(e.tabId);
   let spaceInfo = await messenger.spaces.query({ isSelfOwned: true, id: tab.spaceId });
   if (!spaceInfo.length) {
@@ -18,17 +23,15 @@ async function onBeforeSendHeaders(e) {
     return undefined;
   }
 
-  // TODO this isn't really performant, see if we can change this to a lookup
-  let { spaces } = await messenger.storage.local.get({ spaces: [] });
-  let thisSpace = spaces.find(spc => spc.name == spaceInfo[0].name);
+  let space = gSpaceStorage.byName(spaceInfo[0].name);
 
   let foundHdr = e.requestHeaders.find(hdr => hdr.name.toLowerCase() == "user-agent");
   if (!foundHdr) {
     return undefined;
   }
 
-  if (thisSpace.useragent) {
-    foundHdr.value = thisSpace.useragent;
+  if (space.useragent) {
+    foundHdr.value = space.useragent;
   } else {
     foundHdr.value = foundHdr.value.replace(/Thunderbird/g, "Firefox");
   }
@@ -36,23 +39,21 @@ async function onBeforeSendHeaders(e) {
 }
 
 async function loadSpaces() {
-  let { spaces } = await messenger.storage.local.get({ spaces: [] });
-
   let [lastTab, ..._rest] = await messenger.tabs.query({ currentWindow: true, active: true });
+  let openedSomeTab = false;
 
-  for (let space of spaces) {
-    let icon = space.ferdiumId ? browser.runtime.getURL(`/recipes/${space.ferdiumId}/icon.svg`) : space.icon;
-    let spaceInfo = await messenger.spaces.create(space.name, space.url, { defaultIcons: icon, title: space.title });
-    messenger.birdbox.updateCookieStore(space.name, space.container || "firefox-default");
+  await gSpaceStorage.init();
 
-    if (space.startup) {
-      await messenger.spaces.open(spaceInfo.id);
+  await Promise.all(gSpaceStorage.map(async (spaceData) => {
+    if (spaceData.startup) {
+      messenger.spaces.open(spaceData.id);
+      openedSomeTab = true;
     }
-  }
+  }));
 
   await createSpaceBrowser();
 
-  if (lastTab) {
+  if (lastTab && openedSomeTab) {
     await messenger.tabs.update(lastTab.id, { active: true });
   }
 }
@@ -60,9 +61,9 @@ async function loadSpaces() {
 async function createSpaceBrowser() {
   await messenger.spaces.create(
     "birdbox_add",
-    browser.runtime.getURL("options/browse.html"),
+    browser.runtime.getURL("/spaces/browse.html#add"),
     {
-      title: "Birdbox",
+      title: messenger.i18n.getMessage("browse.title"),
       themeIcons: [{
         light: "/images/plus_light.svg",
         dark: "/images/plus_dark.svg",
@@ -71,38 +72,6 @@ async function createSpaceBrowser() {
     }
   );
 }
-
-async function flush() {
-  let { spaces } = await messenger.storage.local.get({ spaces: [] });
-
-  let ownSpaces = await messenger.spaces.query({ isSelfOwned: true });
-  let spaceMap = Object.fromEntries(ownSpaces.map(space => [space.name, space]));
-
-  await Promise.all(spaces.map(async spaceData => {
-    let icon = spaceData.ferdiumId ? browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/icon.svg`) : spaceData.icon;
-    if (spaceData.name in spaceMap) {
-      let spaceId = spaceMap[spaceData.name].id;
-      await messenger.spaces.update(spaceId, spaceData.url, { defaultIcons: icon, title: spaceData.title });
-      delete spaceMap[spaceData.name];
-
-      let tabs = await messenger.tabs.query({ spaceId });
-      await Promise.all(tabs.map(tab => {
-        return messenger.tabs.sendMessage(tab.id, { action: "updateSpaceSettings", space: spaceData });
-      }));
-    } else {
-      await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: icon, title: spaceData.title });
-    }
-
-    await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
-  }));
-
-  for (let space of Object.values(spaceMap)) {
-    await messenger.spaces.remove(space.id);
-  }
-
-  await createSpaceBrowser();
-}
-
 
 function initListeners() {
   browser.webRequest.onBeforeSendHeaders.addListener(
@@ -114,25 +83,29 @@ function initListeners() {
   messenger.runtime.onInstalled.addListener(({ reason }) => {
     if (reason == "install") {
       setTimeout(() => {
-        browser.runtime.openOptionsPage();
+        browser.tabs.create({ url: browser.runtime.getURL("/spaces/browse.html") });
       }, 100);
     }
   });
 
   browser.runtime.onMessage.addListener(async (request, sender) => {
-    if (request.action == "flush") {
-      return flush();
+    if (request.action == "addSpace") {
+      await gSpaceStorage.add(request.space);
+    } else if (request.action == "updateSpace") {
+      await gSpaceStorage.update(request.space, request.create ?? false);
+    } else if (request.action == "removeSpace") {
+      await gSpaceStorage.remove(request.spaceName, request.missingOk ?? false);
+    } else if (request.action == "getAllSpaces") {
+      return gSpaceStorage.getAll();
     } else if (request.action == "checkSpace") {
       let space = await messenger.spaces.get(sender.tab.spaceId);
       if (!space?.isSelfOwned) {
         return null;
       }
 
-      let { spaces } = await messenger.storage.local.get({ spaces: [] });
-      let spaceData = spaces.find(spaceData_ => spaceData_.name == space.name);
+      let spaceData = gSpaceStorage.byName(space.name);
 
       if (spaceData?.ferdiumId && request.loadContentScript) {
-        console.log("executing script", spaceData.contentScript);
         await browser.tabs.executeScript(sender.tab.id, {
           file: "/content/ferdium_env.js"
         });
@@ -156,18 +129,20 @@ function initListeners() {
       });
     } else if (request.action == "badge") {
       await messenger.spaces.update(sender.tab.spaceId, { badgeText: (request.direct || "").toString() });
-      return true;
     } else if (request.action == "openLink") {
       await messenger.windows.openDefaultBrowser(request.href);
-      return true;
-    } else if (request.action == "loadContentScript") {
-      let space = await messenger.spaces.get(sender.tab.spaceId);
-      if (!space?.isSelfOwned) {
-        return null;
+    } else if (request.action == "closeOtherOptions") {
+      let tabs = await messenger.tabs.query({ url: messenger.runtime.getURL("/spaces/browse.html") + "*" });
+      for (let tab of tabs) {
+        if (tab.id != sender.tab.id) {
+          await messenger.tabs.remove(tab.id);
+        }
       }
+    } else {
+      return undefined;
     }
 
-    return undefined;
+    return true;
   });
 }
 

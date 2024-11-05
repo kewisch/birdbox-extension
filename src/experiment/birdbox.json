@@ -27,6 +27,12 @@
         "parameters": [
           { "type": "string", "name": "uri" }
         ]
+      },
+      {
+        "name": "moveAddLast",
+        "async": true,
+        "type": "function",
+        "parameters": []
       }
     ]
   }

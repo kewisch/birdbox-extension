@@ -4,7 +4,7 @@
 
 import psl from "../background/libs/psl.min.js";
 
-function createSpaceItem(spaceData = {}) {
+export function createSpaceItem(spaceData = {}) {
   if (!spaceData.name) {
     spaceData.name = crypto.randomUUID().replace(/-/g, "_");
   }
@@ -21,6 +21,7 @@ function createSpaceItem(spaceData = {}) {
   updateSpaceItem(spaceElement);
 
   spacesList.insertBefore(spaceElementFragment, document.getElementById("edit-new-space"));
+  document.getElementById("edit-settings").classList.remove("no-spaces");
 
   return spaceElement;
 }
@@ -115,11 +116,13 @@ async function changeForm(event) {
 
     document.getElementById("edit-space-notifications").checked = event.target.url ? await messenger.birdbox.checkNotificationPermission(event.target.url) : null;
     document.getElementById("edit-space-internal-links").setAttribute("placeholder", event.target.value);
-  } else if (event.target.name == "notifications") {
-    messenger.birdbox.updateNotifications(spaceData.url, event.target.checked);
   }
 
-  await flush();
+  if (validateSpace(spaceData)) {
+    await browser.runtime.sendMessage({ action: "updateSpace", space: spaceData, create: true });
+  } else {
+    await browser.runtime.sendMessage({ action: "removeSpace", spaceName: spaceData.name, missingOk: true });
+  }
 }
 
 async function fetchMetadata(spaceElement) {
@@ -164,18 +167,9 @@ function validateSpace(space) {
   return !!space.url;
 }
 
-async function flush() {
-  let spaces = [...document.querySelectorAll(".space-item.existing-space")];
-  let data = spaces.map(space => space._spaceData).filter(validateSpace);
-
-  await messenger.storage.local.set({ spaces: data });
-  await browser.runtime.sendMessage({ action: "flush" });
-}
-
 async function deleteSpace() {
   let spaceElement = getSelectedSpace();
-  spaceElement._spaceData = {};
-  await flush();
+  await browser.runtime.sendMessage({ action: "removeSpace", spaceName: spaceElement._spaceData.name });
 
   let nextSpace = spaceElement.previousElementSibling || spaceElement.nextElementSibling;
   if (nextSpace?.classList.contains("existing-space")) {
@@ -185,7 +179,7 @@ async function deleteSpace() {
   spaceElement.remove();
 
   if (document.querySelectorAll("#edit-spaces-list > .space-item.existing-space").length == 0) {
-    await selectSpace(createSpaceItem());
+    document.getElementById("edit-settings").classList.add("no-spaces");
   }
 }
 
@@ -201,18 +195,26 @@ async function refreshIcon() {
   if (tabs.length) {
     spaceElement._spaceData.icon = tabs[0].favIconUrl;
     updateSpaceItem(spaceElement);
-    await flush();
+    await browser.runtime.sendMessage({ action: "updateSpace", space: spaceElement._spaceData });
   } else {
     await fetchMetadata(spaceElement);
   }
 }
 
-async function initEditSpaces() {
+async function loadEditSpaces() {
+  // Initialize Spaces
+  let spaces = await browser.runtime.sendMessage({ action: "getAllSpaces" });
+  spaces.forEach(createSpaceItem);
+
+ await selectSpace(document.querySelector(".space-item.existing-space"));
+}
+
+function initEditListeners() {
   // Initialize Listeners
   document.getElementById("edit-spaces-list").addEventListener("click", (event) => {
     let spaceElem = event.target.closest(".space-item, .card");
     if (spaceElem?.classList.contains("new-space")) {
-      document.querySelector(".page-container").classList.toggle('active');
+      location.hash = "#add";
     } else {
       selectSpace(spaceElem);
     }
@@ -222,14 +224,7 @@ async function initEditSpaces() {
   document.getElementById("edit-space-delete").addEventListener("click", deleteSpace);
   document.getElementById("edit-space-refresh-icon").addEventListener("click", refreshIcon);
   document.getElementById("edit-space-useragent").placeholder = navigator.userAgent.replace(/Thunderbird/g, "Firefox");
-
-  // Initialize Spaces
-  let { spaces } = await messenger.storage.local.get({ spaces: [] });
-  spaces.forEach(createSpaceItem);
-  if (!spaces.length) {
-    createSpaceItem();
-  }
-  await selectSpace(document.querySelector(".space-item.existing-space"));
 }
 
-initEditSpaces();
+initEditListeners();
+loadEditSpaces();

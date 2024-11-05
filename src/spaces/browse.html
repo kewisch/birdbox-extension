@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-l10n-id="browse.title"></title>
     <link rel="stylesheet" href="browse.css">
-    <script type="module" src="localize.js" defer></script>
     <script type="module" src="editSpace.js" defer></script>
     <script type="module" src="addSpace.js" defer></script>
+    <script type="module" src="common.js" defer></script>
 </head>
   <template id="space-card-template">
     <div class="card space-item">
@@ -67,9 +67,11 @@
           </div>
         </div>
       </aside>
-      <main id="edit-settings">
+      <main id="edit-settings" class="no-spaces">
           <section aria-labelledby="edit-space-title">
               <h2 id="edit-space-title">Edit Space</h2>
+              <p class="no-spaces-info" data-l10n-id="browse.intro"></p>
+              <p class="no-spaces-info" data-l10n-id="browse.noSpaces.label"></p>
               <form id="edit-settings-form" class="space-settings">
                 <label for="edit-space-url" data-l10n-id="browse.serviceURL.label"></label>
                 <input type="url" id="edit-space-url" name="url" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="">

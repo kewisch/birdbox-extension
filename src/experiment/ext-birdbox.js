@@ -183,7 +183,12 @@ this.birdbox = class extends ExtensionAPI {
         },
 
         async updateNotifications(uriSpec, enabled) {
-          let uri = Services.io.newURI(uriSpec);
+          let uri;
+          try {
+            uri = Services.io.newURI(uriSpec);
+          } catch (e) {
+            throw new ExtensionError("Invalid URI: " + uriSpec, { cause: e });
+          }
           let principal = Services.scriptSecurityManager.createContentPrincipal(uri, {});
 
           if (enabled) {
@@ -197,6 +202,16 @@ this.birdbox = class extends ExtensionAPI {
           let uri = Services.io.newURI(uriSpec);
           let principal = Services.scriptSecurityManager.createContentPrincipal(uri, {});
           return !!Services.perms.testExactPermissionFromPrincipal(principal, "desktop-notification");
+        },
+
+        async moveAddLast() {
+          for (let window of ExtensionSupport.openWindows) {
+            let container = window.document.getElementById("spacesToolbarAddonsContainer");
+            let addButton = window.document.getElementById("birdbox_mozilla_kewis_ch-spacesButton-birdbox_add");
+            if (container && addButton) {
+              container.appendChild(addButton);
+            }
+          }
         }
       },
     };
