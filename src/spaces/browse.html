@@ -25,14 +25,14 @@
       <h1 class="noselect" data-l10n-id="browse.title"></h1>
       <p class="noselect" data-l10n-id="browse.intro"></p>
 
-      <div id="add-space-popup" class="space-settings">
+      <form id="add-space-popup" class="space-settings">
         <label for="add-space-name" data-l10n-id="browse.name.label"></label>
-        <input type="text" id="add-space-name" name="name" data-l10n-attr-placeholder="browse.name.placeholder" placeholder="">
+        <input type="text" id="add-space-name" name="name" required="true" minlength="1" data-l10n-attr-placeholder="browse.name.placeholder" placeholder="">
 
         <label for="add-space-custom-server" data-l10n-id="browse.customServer.label"></label>
         <div id="add-space-custom-server-field" class="control">
           <span id="add-space-url-prefix" class="url-label"></span>
-          <input type="text" id="add-space-custom-server" name="custom-server" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="">
+          <input type="text" id="add-space-custom-server" required="true" minlength="1" name="custom-server" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="">
           <span id="add-space-url-suffix" class="url-label"></span>
         </div>
 
@@ -51,7 +51,7 @@
         <div class="row end">
             <button id="add" class="primary-button" data-l10n-id="browse.addSpace.button"></button>
         </div>
-      </div>
+      </form>
 
       <div id="add-space-cards" class="space-cards-container">
       </div>
@@ -72,7 +72,7 @@
               <h2 id="edit-space-title">Edit Space</h2>
               <p class="no-spaces-info" data-l10n-id="browse.intro"></p>
               <p class="no-spaces-info" data-l10n-id="browse.noSpaces.label"></p>
-              <form id="edit-settings-form" class="space-settings">
+              <form id="edit-settings-form" class="space-settings showfailure">
                 <label for="edit-space-url" data-l10n-id="browse.serviceURL.label"></label>
                 <input type="url" id="edit-space-url" name="url" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="">
 

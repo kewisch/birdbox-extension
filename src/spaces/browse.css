@@ -109,6 +109,7 @@ html, body {
   grid-column: control;
   justify-self: stretch;
 }
+
 .space-settings > .row.checkbox > label {
   user-select: none;
 }
@@ -120,8 +121,11 @@ html, body {
   background: none;
 }
 
-.space-settings textarea:invalid {
-  border: 1px solid red;
+.space-settings.showfailure textarea:invalid,
+.space-settings.showfailure input:invalid,
+.space-settings textarea:invalid:focus,
+.space-settings input:invalid:focus {
+  outline: 1px solid red;
 }
 
 button.primary-button {
@@ -186,7 +190,7 @@ button.primary-button:active {
   display: none;
 }
 
-.url-label {
+#add-space-custom-server-field .url-label {
   display: none;
   border: 0 solid #bdc3c7;
   align-items: center;
@@ -198,30 +202,30 @@ button.primary-button:active {
   user-select: none;
 }
 
-#url-prefix {
+#add-space-custom-server-field #add-space-url-prefix {
   border-inline-end-width: 1px;
   left: 0;
 }
 
-#url-suffix {
+#add-space-custom-server-field #add-space-url-suffix {
   border-inline-start-width: 1px;
 	right: 0;
 }
 
-#custom-server-container {
+#add-space-custom-server-field {
   display: flex;
   position: relative;
 }
 
-#custom-server-container.prefix #url-prefix {
+#add-space-custom-server-field.prefix #add-space-url-prefix {
   display: flex;
 }
 
-#custom-server-container.suffix #url-suffix {
+#add-space-custom-server-field.suffix #add-space-url-suffix {
   display: flex;
 }
 
-#custom-server {
+#add-space-custom-server {
   flex: 1;
 }
 
@@ -248,14 +252,16 @@ button.primary-button:active {
   cursor: pointer;
   border-radius: 4px;
 }
+
 #edit-spaces-list .space-item > * {
   user-select: none;
 }
 
-@media (max-width: 1000px) {
+@media (width <= 1000px) {
   #edit-spaces-list .space-item .name {
     display: none;
   }
+
   #edit-spaces-list .space-item {
     width: auto;
   }
@@ -285,6 +291,7 @@ button.primary-button:active {
 #edit-settings.no-spaces form {
   display: none;
 }
+
 #edit-settings:not(.no-spaces) .no-spaces-info {
   display: none;
 }

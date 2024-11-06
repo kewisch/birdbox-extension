@@ -25,11 +25,15 @@ function resetPopup() {
   customServer.style.paddingInlineStart = "";
   customServer.style.paddingInlineEnd = "";
 
+  document.getElementById("add-space-url-prefix").textContent = "";
+  document.getElementById("add-space-url-suffix").textContent = "";
+
   let customServerContainer = document.getElementById("add-space-custom-server-field");
   customServerContainer.classList.remove("suffix", "prefix");
 
   document.getElementById("add-space-container").selectedIndex = 0;
   document.getElementById("add-space-startup").checked = false;
+  document.getElementById("add-space-popup").classList.remove("showfailure");
 }
 
 async function initAddSpaces() {
@@ -77,7 +81,9 @@ async function initAddSpaces() {
       left = rect.right - POPUP_WIDTH;
     }
 
-    popup.style.top = `${rect.bottom + window.scrollY}px`;
+    let scrollTop = document.getElementById("add-mode").scrollTop;
+
+    popup.style.top = `${rect.bottom + scrollTop}px`;
     popup.style.left = `${left}px`;
     card.classList.add("selected");
 
@@ -98,6 +104,14 @@ async function initAddSpaces() {
     customServerLabel.classList.toggle("hidden", !hasCustom);
     customServerContainer.classList.toggle("suffix", Boolean(space.config.hasTeamId && space.config.urlInputSuffix));
     customServerContainer.classList.toggle("prefix", Boolean(space.config.hasTeamId && space.config.urlInputPrefix));
+
+    if (hasCustom) {
+      customServer.setAttribute("required", "true");
+      customServer.setAttribute("minlength", "1");
+    } else {
+      customServer.removeAttribute("required");
+      customServer.removeAttribute("minlength");
+    }
 
     popup.classList.add("attached");
 
@@ -121,6 +135,10 @@ async function initAddSpaces() {
   });
 
   document.getElementById("add").addEventListener("click", () => {
+    if (!document.getElementById("add-space-popup").checkValidity()) {
+      document.getElementById("add-space-popup").classList.add("showfailure");
+      return;
+    }
     let space = document.querySelector(".card.selected")?._spaceData;
     if (space) {
       let targetUrl = space.config.serviceURL;
@@ -159,6 +177,29 @@ async function initAddSpaces() {
 
   document.getElementById("edit-spaces-button").addEventListener("click", () => {
     location.hash = "#edit";
+  });
+
+  document.getElementById("add-space-popup").addEventListener("submit", (e) => event.preventDefault());
+
+  document.getElementById("add-space-custom-server").addEventListener("input", () => {
+    let urlPrefix = document.getElementById("add-space-url-prefix");
+    let urlSuffix = document.getElementById("add-space-url-suffix");
+    let customServer = document.getElementById("add-space-custom-server");
+    let url = urlPrefix.textContent + customServer.value + urlSuffix.textContent;
+    console.log(url);
+
+    if (!url.includes("://")) {
+      url = "https://" + url;
+    }
+
+    try {
+      new URL(url); // eslint-disable-line no-new
+      customServer.setCustomValidity([]);
+    } catch (e) {
+      customServer.setCustomValidity(["Invalid URL: " + url]);
+    }
+
+    customServer.reportValidity();
   });
 }
 

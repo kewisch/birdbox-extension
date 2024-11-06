@@ -13,7 +13,6 @@ export default class SpaceStorage {
     }
 
     let { spaces } = await messenger.storage.local.get({ spaces: [] });
-    console.log(spaces, new Error().stack);
     for (let space of spaces) {
       await this.add(space, false);
     }
