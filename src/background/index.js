@@ -3,8 +3,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import SpaceStorage from "./spaceStorage.js";
+import FerdiumBackground from "./ferdiumBackground.js";
+import webextPatterns from "./webextPatterns.js";
 
 let gSpaceStorage = new SpaceStorage();
+let gFerdiumBackground = new FerdiumBackground();
 
 async function onBeforeSendHeaders(e) {
   if (e.tabId == -1) {
@@ -25,17 +28,45 @@ async function onBeforeSendHeaders(e) {
 
   let space = gSpaceStorage.byName(spaceInfo[0].name);
 
-  let foundHdr = e.requestHeaders.find(hdr => hdr.name.toLowerCase() == "user-agent");
-  if (!foundHdr) {
-    return undefined;
+  let hdrMap = Object.fromEntries(e.requestHeaders.map(hdr => [hdr.name.toLowerCase(), hdr]));
+  let ferdium = await gFerdiumBackground.get(space.ferdiumId);
+
+  // User Agent
+  if ("user-agent" in hdrMap) {
+    if (space.useragent) {
+      hdrMap["user-agent"].value = space.useragent;
+    } else if ("overrideUserAgent" in ferdium) {
+      // Ferdium we also replace Thunderbird with Firefox, since the recipes obviously don't take
+      // Thunderbird into account.
+      hdrMap["user-agent"].value = ferdium.overrideUserAgent().replace(/Thunderbird/g, "Firefox");
+      console.log("FRD", ferdium.overrideUserAgent(), "---", hdrMap["user-agent"]);
+    } else {
+      hdrMap["user-agent"].value = hdrMap["user-agent"].value.replace(/Thunderbird/g, "Firefox");
+    }
   }
 
-  if (space.useragent) {
-    foundHdr.value = space.useragent;
-  } else {
-    foundHdr.value = foundHdr.value.replace(/Thunderbird/g, "Firefox");
+  // Add headers from Ferdium
+  if ("modifyRequestHeaders" in ferdium) {
+    for (let { headers, requestFilters } of ferdium.modifyRequestHeaders() || []) {
+      if (webextPatterns.doesUrlMatchPatterns(e.url, ...requestFilters.urls)) {
+        for (let [name, value] of Object.entries(headers)) {
+          let lowerName = name.toLowerCase();
+          if (lowerName == "user-agent") {
+            continue;
+          }
+          if (lowerName in hdrMap) {
+            hdrMap[lowerName].value = value;
+          } else {
+            hdrMap[lowerName] = { name, value };
+          }
+        }
+      }
+    }
   }
-  return { requestHeaders: e.requestHeaders };
+
+
+  console.log({ requestHeaders: Object.values(hdrMap) });
+  return { requestHeaders: Object.values(hdrMap) };
 }
 
 async function loadSpaces() {
@@ -138,6 +169,9 @@ function initListeners() {
           await messenger.tabs.remove(tab.id);
         }
       }
+    } else if (request.action == "validateFerdiumUrl") {
+      let validator = gFerdiumBackground.get(request.ferdiumId)?.validateUrl;
+      return validator ? !!validator(request.url) : null;
     } else {
       return undefined;
     }

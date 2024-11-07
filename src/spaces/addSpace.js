@@ -130,33 +130,6 @@ async function clickCard(event) {
   if (space.config.hasTeamId && space.config.urlInputPrefix) {
     customServer.style.paddingInlineStart = `${urlPrefix.clientWidth + 5}px`;
   }
-
-  let ferdium = await loadFerdiumBackground(space.id);
-  customServer._ferdiumValidate = ferdium.validateUrl?.bind(ferdium);
-}
-
-async function loadFerdiumBackground(ferdiumId) {
-  window.module = {};
-
-  let { promise, resolve, reject } = Promise.withResolvers();
-
-
-  let script = document.createElement("script");
-  script.src = browser.runtime.getURL(`/recipes/${ferdiumId}/index.js`);
-  script.id = "background-" + ferdiumId;
-  script.addEventListener("load", resolve);
-  document.head.appendChild(script);
-
-  await promise;
-
-  var base = class {};
-
-  if (window.module) {
-    let ferdiumClass = window.module.exports(base);
-    delete window.module;
-    return new ferdiumClass();
-  }
-  return new base();
 }
 
 async function validateCustomServer() {
@@ -171,17 +144,21 @@ async function validateCustomServer() {
   }
 
   let errors = [];
-  if (customServer._ferdiumValidate) {
-    let valid = await customServer._ferdiumValidate(url);
-    if (!valid) {
-      errors.push(`Not a valid ${popup._spaceData.name} URL`);
-    }
-  } else {
+  let valid = await browser.runtime.sendMessage({
+    action: "validateFerdiumUrl",
+    ferdiumId: popup._spaceData.ferdiumId,
+    url: url
+  });
+
+  if (valid === null) {
+    // null means no validator, just use a simple URL validation
     try {
       new URL(url); // eslint-disable-line no-new
     } catch (e) {
       errors.push("Invalid URL: " + url);
     }
+  } else if (!valid) {
+    errors.push(`Not a valid ${popup._spaceData.name} URL`);
   }
 
   customServer.setCustomValidity(errors);
