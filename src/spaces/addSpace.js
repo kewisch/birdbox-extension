@@ -130,27 +130,73 @@ async function clickCard(event) {
   if (space.config.hasTeamId && space.config.urlInputPrefix) {
     customServer.style.paddingInlineStart = `${urlPrefix.clientWidth + 5}px`;
   }
+
+  let ferdium = await loadFerdiumBackground(space.id);
+  customServer._ferdiumValidate = ferdium.validateUrl?.bind(ferdium);
 }
 
-function validateCustomServer() {
+async function loadFerdiumBackground(ferdiumId) {
+  window.module = {};
+
+  let { promise, resolve, reject } = Promise.withResolvers();
+
+
+  let script = document.createElement("script");
+  script.src = browser.runtime.getURL(`/recipes/${ferdiumId}/index.js`);
+  script.id = "background-" + ferdiumId;
+  script.addEventListener("load", resolve);
+  document.head.appendChild(script);
+
+  await promise;
+
+  var base = class {};
+
+  if (window.module) {
+    let ferdiumClass = window.module.exports(base);
+    delete window.module;
+    return new ferdiumClass();
+  }
+  return new base();
+}
+
+async function validateCustomServer() {
+  let popup = document.getElementById("add-space-popup");
   let urlPrefix = document.getElementById("add-space-url-prefix");
   let urlSuffix = document.getElementById("add-space-url-suffix");
   let customServer = document.getElementById("add-space-custom-server");
   let url = urlPrefix.textContent + customServer.value + urlSuffix.textContent;
-  console.log(url);
 
-  if (!url.includes("://")) {
+  if (url && !url.includes("://")) {
     url = "https://" + url;
   }
 
-  try {
-    new URL(url); // eslint-disable-line no-new
-    customServer.setCustomValidity([]);
-  } catch (e) {
-    customServer.setCustomValidity(["Invalid URL: " + url]);
+  let errors = [];
+  if (customServer._ferdiumValidate) {
+    let valid = await customServer._ferdiumValidate(url);
+    if (!valid) {
+      errors.push(`Not a valid ${popup._spaceData.name} URL`);
+    }
+  } else {
+    try {
+      new URL(url); // eslint-disable-line no-new
+    } catch (e) {
+      errors.push("Invalid URL: " + url);
+    }
   }
 
+  customServer.setCustomValidity(errors);
   customServer.reportValidity();
+}
+
+function debounce(func, delay) {
+  let timeoutId;
+
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
 }
 
 async function initAddSpaces() {
@@ -183,7 +229,7 @@ async function initAddSpaces() {
 
   cards.addEventListener("click", clickCard);
   document.getElementById("add-space-add-button").addEventListener("click", clickAddSpace);
-  document.getElementById("add-space-custom-server").addEventListener("input", validateCustomServer);
+  document.getElementById("add-space-custom-server").addEventListener("input", debounce(validateCustomServer, 500));
   document.getElementById("add-space-popup").addEventListener("submit", (e) => event.preventDefault());
   document.getElementById("add-mode").addEventListener("click", (event) => {
     if (!event.target.closest("#add-space-popup, .card.selected")) {
