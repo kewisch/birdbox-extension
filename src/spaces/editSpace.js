@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import psl from "../background/libs/psl.min.js";
+import { setupCustomServer, getTargetUrl } from "./common.js";
 
 export function createSpaceItem(spaceData = {}) {
   if (!spaceData.name) {
@@ -21,7 +22,11 @@ export function createSpaceItem(spaceData = {}) {
   updateSpaceItem(spaceElement);
 
   spacesList.insertBefore(spaceElementFragment, document.getElementById("edit-new-space"));
-  document.getElementById("edit-settings").classList.remove("no-spaces");
+  let editSettings = document.getElementById("edit-settings");
+  if (editSettings.classList.contains("no-spaces")) {
+    selectSpace(document.querySelector(".space-item.existing-space"));
+    editSettings.classList.remove("no-spaces");
+  }
 
   return spaceElement;
 }
@@ -37,20 +42,28 @@ function updateSpaceItem(spaceElement) {
 
 async function selectSpace(spaceItem) {
   document.querySelector(".space-item.selected")?.classList.remove("selected");
+  document.getElementById("edit-space-debug").textContent = "";
+
   if (spaceItem) {
     let data = spaceItem._spaceData;
 
     spaceItem.classList.add("selected");
     document.getElementById("edit-space-name").value = data.title ?? "";
-    document.getElementById("edit-space-url").value = data.url ?? "";
     document.getElementById("edit-space-useragent").value = data.useragent ?? "";
     document.getElementById("edit-space-container").value = data.container ?? "firefox-default";
     document.getElementById("edit-space-notifications").checked = data.url ? await messenger.birdbox.checkNotificationPermission(data.url) : false;
     document.getElementById("edit-space-startup").checked = data.startup;
     document.getElementById("edit-space-internal-links").value = data.internalLinks?.join("\n") ?? "";
     document.getElementById("edit-space-internal-links").placeholder = data.url ? new URL(data.url).hostname : "";
+    document.getElementById("edit-space-debug").textContent = JSON.stringify(data, null, 2);
 
-    document.getElementById("edit-space-url").disabled = !!data.ferdiumId;
+    setupCustomServer("edit", data);
+    if (data.teamId) {
+      document.getElementById("edit-space-custom-server").value = data.teamId ?? "";
+    } else {
+      document.getElementById("edit-space-custom-server").value = data.url ?? "";
+    }
+
     if (data.ferdiumId) {
       document.getElementById("edit-settings-form").dataset.ferdiumId = data.ferdiumId;
     } else {
@@ -101,6 +114,10 @@ async function changeForm(event) {
 
   if (event.target.name == "internal-links") {
     parseInternalLinks(spaceData, event.target.value.trim());
+  } else if (event.target.name == "custom-server") {
+    let { targetUrl, teamId } = getTargetUrl("edit", spaceData);
+    spaceData.url = targetUrl;
+    spaceData.teamId = teamId;
   } else if (event.target.type == "checkbox") {
     spaceData[event.target.name] = event.target.checked;
   } else {
@@ -201,7 +218,7 @@ async function refreshIcon() {
   }
 }
 
-async function loadEditSpaces() {
+export async function loadEditSpaces() {
   // Initialize Spaces
   let spaces = await browser.runtime.sendMessage({ action: "getAllSpaces" });
   spaces.forEach(createSpaceItem);
@@ -209,7 +226,7 @@ async function loadEditSpaces() {
  await selectSpace(document.querySelector(".space-item.existing-space"));
 }
 
-function initEditListeners() {
+export async function initEditListeners() {
   // Initialize Listeners
   document.getElementById("edit-spaces-list").addEventListener("click", (event) => {
     let spaceElem = event.target.closest(".space-item, .card");
@@ -224,7 +241,8 @@ function initEditListeners() {
   document.getElementById("edit-space-delete").addEventListener("click", deleteSpace);
   document.getElementById("edit-space-refresh-icon").addEventListener("click", refreshIcon);
   document.getElementById("edit-space-useragent").placeholder = navigator.userAgent.replace(/Thunderbird/g, "Firefox");
-}
 
-initEditListeners();
-loadEditSpaces();
+  if (await browser.runtime.sendMessage({ action: "debugEnabled" })) {
+    document.getElementById("edit-space-debug").removeAttribute("hidden");
+  }
+}

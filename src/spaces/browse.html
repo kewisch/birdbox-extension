@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-l10n-id="browse.title"></title>
     <link rel="stylesheet" href="browse.css">
-    <script type="module" src="editSpace.js" defer></script>
-    <script type="module" src="addSpace.js" defer></script>
-    <script type="module" src="common.js" defer></script>
+    <script type="module" src="index.js" defer></script>
 </head>
   <template id="space-card-template">
     <div class="card space-item">
@@ -27,13 +25,13 @@
 
       <form id="add-space-popup" class="space-settings">
         <label for="add-space-name" data-l10n-id="browse.name.label"></label>
-        <input type="text" id="add-space-name" name="name" required="true" minlength="1" data-l10n-attr-placeholder="browse.name.placeholder" placeholder="">
+        <input type="text" id="add-space-name" name="name" required="true" minlength="1" data-l10n-attr-placeholder="browse.name.placeholder" placeholder="" autocomplete="off">
 
         <label for="add-space-custom-server" data-l10n-id="browse.customServer.label"></label>
-        <div id="add-space-custom-server-field" class="control">
-          <span id="add-space-url-prefix" class="url-label"></span>
-          <input type="text" id="add-space-custom-server" required="true" minlength="1" name="custom-server" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="">
-          <span id="add-space-url-suffix" class="url-label"></span>
+        <div id="add-space-custom-server-field" class="control custom-server-field">
+          <span id="add-space-url-prefix" class="url-label url-prefix"></span>
+          <input type="text" id="add-space-custom-server" required="true" minlength="1" name="custom-server" class="custom-server" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="" autocomplete="off">
+          <span id="add-space-url-suffix" class="url-label url-suffix"></span>
         </div>
 
         <label for="add-space-container" data-l10n-id="browse.container.label"></label>
@@ -44,10 +42,17 @@
           <option value="firefox-container-3" data-l10n-id="browse.container.3"></option>
           <option value="firefox-container-4" data-l10n-id="browse.container.4"></option>
         </select>
+
+        <div class="row checkbox" data-l10n-attr-title="browse.notifications.title" title="">
+          <input type="checkbox" id="add-space-notifications" name="notifications" checked>
+          <label for="add-space-notifications" data-l10n-id="browse.notifications.label"></label>
+        </div>
+
         <div class="row checkbox">
           <input type="checkbox" id="add-space-startup" name="startup">
           <label for="add-space-startup" data-l10n-id="browse.loadStartup.label"></label>
         </div>
+
         <div class="row end">
             <button id="add-space-add-button" class="primary-button" data-l10n-id="browse.addSpace.button"></button>
         </div>
@@ -73,11 +78,15 @@
               <p class="no-spaces-info" data-l10n-id="browse.intro"></p>
               <p class="no-spaces-info" data-l10n-id="browse.noSpaces.label"></p>
               <form id="edit-settings-form" class="space-settings showfailure">
-                <label for="edit-space-url" data-l10n-id="browse.serviceURL.label"></label>
-                <input type="url" id="edit-space-url" name="url" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="">
-
                 <label for="edit-space-name" data-l10n-id="browse.name.label"></label>
-                <input type="text" id="edit-space-name" name="name" data-l10n-attr-placeholder="browse.name.placeholder" placeholder="">
+                <input type="text" id="edit-space-name" name="name" data-l10n-attr-placeholder="browse.name.placeholder" placeholder="" autocomplete="off">
+
+                <label for="edit-space-custom-server" data-l10n-id="browse.customServer.label"></label>
+                <div id="edit-space-custom-server-field" class="control custom-server-field">
+                  <span id="edit-space-url-prefix" class="url-label url-prefix"></span>
+                  <input type="text" id="edit-space-custom-server" required="true" minlength="1" name="custom-server" class="custom-server" data-l10n-attr-placeholder="browse.customServer.placeholder" placeholder="" autocomplete="off">
+                  <span id="edit-space-url-suffix" class="url-label url-suffix"></span>
+                </div>
 
                 <label for="edit-space-useragent" data-l10n-id="browse.useragent.label"></label>
                 <input type="text" id="edit-space-useragent" name="useragent" placeholder="">
@@ -98,6 +107,7 @@
                   <input type="checkbox" id="edit-space-notifications" name="notifications">
                   <label for="edit-space-notifications" data-l10n-id="browse.notifications.label"></label>
                 </div>
+
                 <div class="row checkbox">
                   <input type="checkbox" id="edit-space-startup" name="startup">
                   <label for="edit-space-startup" data-l10n-id="browse.loadStartup.label"></label>
@@ -108,6 +118,7 @@
                     <button id="edit-space-delete" data-l10n-id="browse.deleteSpace.button"></button>
                 </div>
               </form>
+              <pre id="edit-space-debug" name="debug" hidden="true"></pre>
           </section>
       </main>
     </div>

@@ -5,6 +5,7 @@
 const POPUP_WIDTH = 500;
 
 import { createSpaceItem } from "./editSpace.js";
+import { setupCustomServer, getTargetUrl } from "./common.js";
 
 function unselect() {
   document.querySelector("#add-mode .card.selected")?.classList.remove("selected");
@@ -24,6 +25,7 @@ function resetPopup() {
   customServerContainer.classList.remove("suffix", "prefix");
 
   document.getElementById("add-space-container").selectedIndex = 0;
+  document.getElementById("add-space-notifications").checked = true;
   document.getElementById("add-space-startup").checked = false;
   document.getElementById("add-space-popup").classList.remove("showfailure");
 }
@@ -35,15 +37,7 @@ async function clickAddSpace() {
   }
   let space = document.querySelector(".card.selected")?._spaceData;
   if (space) {
-    let targetUrl = space.config.serviceURL;
-    let teamId = null;
-    let customServer = document.getElementById("add-space-custom-server").value;
-    if (space.config.hasTeamId) {
-      targetUrl = space.config.serviceURL.replace(/{teamId}/g, customServer);
-      teamId = customServer;
-    } else if (space.config.hasCustomUrl) {
-      targetUrl = customServer;
-    }
+    let { teamId, targetUrl } = getTargetUrl("add", space);
 
     let data = {
       name: crypto.randomUUID().replace(/-/g, "_"),
@@ -51,8 +45,10 @@ async function clickAddSpace() {
       url: targetUrl,
       icon: space.icon,
       container: document.getElementById("add-space-container").value,
+      notifications: document.getElementById("add-space-notifications").checked,
       startup: document.getElementById("add-space-startup").checked,
       ferdiumId: space.id,
+      ferdiumConfig: space.config,
       teamId: teamId,
     };
 
@@ -86,79 +82,38 @@ async function clickCard(event) {
   card.classList.add("selected");
 
   // Setup data
-  let space = card._spaceData;
-  let hasCustom = space.config.hasCustomUrl || space.config.hasTeamId;
-  popup._spaceData = space;
   resetPopup();
-
-  let customServerLabel = document.querySelector("label[for='add-space-custom-server']");
-  let customServer = document.getElementById("add-space-custom-server");
-  let customServerContainer = document.getElementById("add-space-custom-server-field");
-  let urlPrefix = document.getElementById("add-space-url-prefix");
-  let urlSuffix = document.getElementById("add-space-url-suffix");
-
-  document.getElementById("add-space-name").value = space.name;
-  customServerContainer.classList.toggle("hidden", !hasCustom);
-  customServerLabel.classList.toggle("hidden", !hasCustom);
-  customServerContainer.classList.toggle("suffix", Boolean(space.config.hasTeamId && space.config.urlInputSuffix));
-  customServerContainer.classList.toggle("prefix", Boolean(space.config.hasTeamId && space.config.urlInputPrefix));
-
-  if (hasCustom) {
-    customServer.setAttribute("required", "true");
-    customServer.setAttribute("minlength", "1");
-  } else {
-    customServer.removeAttribute("required");
-    customServer.removeAttribute("minlength");
-  }
-
+  popup._spaceData = card._spaceData;
   popup.classList.add("attached");
-
-  if (space.config.hasTeamId) {
-    customServerLabel.textContent = messenger.i18n.getMessage("browse.team.label");
-    customServer.placeholder = messenger.i18n.getMessage("browse.team.placeholder");
-  } else {
-    customServerLabel.textContent = messenger.i18n.getMessage("browse.customServer.label");
-    customServer.placeholder = messenger.i18n.getMessage("browse.customServer.placeholder");
-  }
-
-  urlPrefix.textContent = space.config.urlInputPrefix;
-  urlSuffix.textContent = space.config.urlInputSuffix;
-
-  if (space.config.hasTeamId && space.config.urlInputSuffix) {
-    customServer.style.paddingInlineEnd = `${urlSuffix.clientWidth + 5}px`;
-  }
-  if (space.config.hasTeamId && space.config.urlInputPrefix) {
-    customServer.style.paddingInlineStart = `${urlPrefix.clientWidth + 5}px`;
-  }
+  setupCustomServer("add", popup._spaceData);
+  document.getElementById("add-space-name").value = popup._spaceData.name;
 }
 
 async function validateCustomServer() {
-  let popup = document.getElementById("add-space-popup");
-  let urlPrefix = document.getElementById("add-space-url-prefix");
-  let urlSuffix = document.getElementById("add-space-url-suffix");
   let customServer = document.getElementById("add-space-custom-server");
-  let url = urlPrefix.textContent + customServer.value + urlSuffix.textContent;
-
-  if (url && !url.includes("://")) {
-    url = "https://" + url;
+  if (!customServer.hasAttribute("required")) {
+    return;
   }
 
+  let spaceData = document.getElementById("add-space-popup")._spaceData;
+  let { targetUrl } = getTargetUrl("add", spaceData);
   let errors = [];
+
   let valid = await browser.runtime.sendMessage({
     action: "validateFerdiumUrl",
-    ferdiumId: popup._spaceData.ferdiumId,
-    url: url
+    ferdiumId: spaceData.ferdiumId,
+    url: targetUrl
   });
 
   if (valid === null) {
     // null means no validator, just use a simple URL validation
     try {
-      new URL(url); // eslint-disable-line no-new
+      new URL(targetUrl); // eslint-disable-line no-new
     } catch (e) {
-      errors.push("Invalid URL: " + url);
+      errors.push("Invalid URL: " + targetUrl);
     }
   } else if (!valid) {
-    errors.push(`Not a valid ${popup._spaceData.name} URL`);
+    errors.push(`Not a valid ${spaceData.name} URL`);
   }
 
   customServer.setCustomValidity(errors);
@@ -176,7 +131,8 @@ function debounce(func, delay) {
   };
 }
 
-async function initAddSpaces() {
+
+export async function initAddSpaces() {
   let spaces = await fetch("/recipes/spaces.json").then(resp => resp.json());
 
   let cardTemplate = document.getElementById("space-card-template");
@@ -222,5 +178,3 @@ async function initAddSpaces() {
     location.hash = "#edit";
   });
 }
-
-initAddSpaces();

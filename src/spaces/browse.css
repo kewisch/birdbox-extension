@@ -190,7 +190,7 @@ button.primary-button:active {
   display: none;
 }
 
-#add-space-custom-server-field .url-label {
+.custom-server-field .url-label {
   display: none;
   border: 0 solid #bdc3c7;
   align-items: center;
@@ -202,30 +202,30 @@ button.primary-button:active {
   user-select: none;
 }
 
-#add-space-custom-server-field #add-space-url-prefix {
+.custom-server-field .url-prefix {
   border-inline-end-width: 1px;
   left: 0;
 }
 
-#add-space-custom-server-field #add-space-url-suffix {
+.custom-server-field .url-suffix {
   border-inline-start-width: 1px;
 	right: 0;
 }
 
-#add-space-custom-server-field {
+.custom-server-field {
   display: flex;
   position: relative;
 }
 
-#add-space-custom-server-field.prefix #add-space-url-prefix {
+.custom-server-field.prefix .url-prefix {
   display: flex;
 }
 
-#add-space-custom-server-field.suffix #add-space-url-suffix {
+.custom-server-field.suffix .url-suffix {
   display: flex;
 }
 
-#add-space-custom-server {
+.custom-server {
   flex: 1;
 }
 
@@ -288,7 +288,8 @@ button.primary-button:active {
   max-width: 700px;
 }
 
-#edit-settings.no-spaces form {
+#edit-settings.no-spaces form,
+#edit-settings.no-spaces #edit-space-debug {
   display: none;
 }
 
@@ -308,8 +309,6 @@ button.primary-button:active {
   margin-bottom: 10px;
 }
 
-#edit-settings-form[data-ferdium-id] #edit-space-url,
-#edit-settings-form[data-ferdium-id] label[for='edit-space-url'],
 #edit-settings-form[data-ferdium-id] #edit-space-useragent,
 #edit-settings-form[data-ferdium-id] label[for='edit-space-useragent'],
 #edit-settings-form[data-ferdium-id] #edit-space-refresh-icon {

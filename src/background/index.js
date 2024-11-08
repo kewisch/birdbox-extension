@@ -4,10 +4,11 @@
 
 import SpaceStorage from "./spaceStorage.js";
 import FerdiumBackground from "./ferdiumBackground.js";
-import webextPatterns from "./webextPatterns.js";
+import webextPatterns from "./libs/webextPatterns.js";
 
 let gSpaceStorage = new SpaceStorage();
 let gFerdiumBackground = new FerdiumBackground();
+let gIsDebug = false;
 
 async function onBeforeSendHeaders(e) {
   if (e.tabId == -1) {
@@ -111,7 +112,9 @@ function initListeners() {
     ["blocking", "requestHeaders"]
   );
 
-  messenger.runtime.onInstalled.addListener(({ reason }) => {
+  messenger.runtime.onInstalled.addListener(({ reason, temporary }) => {
+    gIsDebug = temporary;
+
     if (reason == "install") {
       setTimeout(() => {
         browser.tabs.create({ url: browser.runtime.getURL("/spaces/browse.html") });
@@ -162,6 +165,8 @@ function initListeners() {
       await messenger.spaces.update(sender.tab.spaceId, { badgeText: (request.direct || "").toString() });
     } else if (request.action == "openLink") {
       await messenger.windows.openDefaultBrowser(request.href);
+    } else if (request.action == "debugEnabled") {
+      return gIsDebug;
     } else if (request.action == "closeOtherOptions") {
       let tabs = await messenger.tabs.query({ url: messenger.runtime.getURL("/spaces/browse.html") + "*" });
       for (let tab of tabs) {
