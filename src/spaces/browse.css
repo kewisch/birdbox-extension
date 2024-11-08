@@ -129,7 +129,7 @@ html, body {
 }
 
 button:active {
-  background-color: color-mix(in srgb, currentColor, transparent 90%);
+  background-color: color-mix(in srgb, currentcolor, transparent 90%);
 }
 
 button.primary-button {
