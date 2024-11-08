@@ -5,7 +5,7 @@
 const POPUP_WIDTH = 500;
 
 import { createSpaceItem } from "./editSpace.js";
-import { setupCustomServer, getTargetUrl } from "./common.js";
+import { setupCustomServer, getTargetUrl, DEFAULT_IMAGE } from "./common.js";
 
 function unselect() {
   document.querySelector("#add-mode .card.selected")?.classList.remove("selected");
@@ -39,11 +39,16 @@ async function clickAddSpace() {
   if (space) {
     let { teamId, targetUrl } = getTargetUrl("add", space);
 
+    let icon = space.icon;
+    if (!icon) {
+      icon = space.id ? browser.runtime.getURL(`/recipes/${space.id}/icon.svg`) : DEFAULT_IMAGE;
+    }
+
     let data = {
       name: crypto.randomUUID().replace(/-/g, "_"),
       title: document.getElementById("add-space-name").value,
       url: targetUrl,
-      icon: space.icon,
+      icon: icon,
       container: document.getElementById("add-space-container").value,
       notifications: document.getElementById("add-space-notifications").checked,
       startup: document.getElementById("add-space-startup").checked,
@@ -141,11 +146,11 @@ export async function initAddSpaces() {
   spaces.sort((a, b) => a.name.localeCompare(b.name));
 
   let customCard = cardTemplate.content.cloneNode(true);
-  customCard.querySelector("img").src = browser.runtime.getURL("/images/addon.svg");
+  customCard.querySelector("img").src = DEFAULT_IMAGE;
   customCard.querySelector(".name").textContent = messenger.i18n.getMessage("browse.customService.label");
   customCard.querySelector(".card")._spaceData = {
     name: messenger.i18n.getMessage("browse.customService.label"),
-    icon: browser.runtime.getURL("/images/addon.svg"),
+    icon: DEFAULT_IMAGE,
     config: {
       hasCustomUrl: true
     }

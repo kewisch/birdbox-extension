@@ -45,8 +45,16 @@ export default class SpaceStorage {
     return [...this.#spaces];
   }
 
+  #getIcon(spaceData) {
+    let icon = spaceData.icon;
+    if (!icon) {
+      icon = browser.runtime.getURL(spaceData.ferdiumId ? `/recipes/${spaceData.ferdiumId}/icon.svg` : "/images/addon.svg");
+    }
+    return icon;
+  }
+
   async add(spaceData, flush = true) {
-    let icon = spaceData.ferdiumId ? browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/icon.svg`) : spaceData.icon;
+    let icon = this.#getIcon(spaceData);
     let tbSpace = await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: icon, title: spaceData.title });
     await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
     await messenger.birdbox.updateNotifications(spaceData.url, !!spaceData.notifications);
@@ -74,7 +82,7 @@ export default class SpaceStorage {
     this.#spaces[existingIndex] = spaceData;
     this.#spaceByName[spaceData.name] = spaceData;
 
-    let icon = spaceData.ferdiumId ? browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/icon.svg`) : spaceData.icon;
+    let icon = this.#getIcon(spaceData);
     await messenger.spaces.update(spaceId, spaceData.url, { defaultIcons: icon, title: spaceData.title });
 
     let tabs = await messenger.tabs.query({ spaceId });

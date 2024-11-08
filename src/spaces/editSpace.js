@@ -3,14 +3,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import psl from "../background/libs/psl.min.js";
-import { setupCustomServer, getTargetUrl } from "./common.js";
+import { setupCustomServer, getTargetUrl, DEFAULT_IMAGE } from "./common.js";
 
 export function createSpaceItem(spaceData = {}) {
   if (!spaceData.name) {
     spaceData.name = crypto.randomUUID().replace(/-/g, "_");
   }
-  if (!spaceData.icon && !spaceData.ferdiumId) {
-    spaceData.icon = "/images/addon.svg";
+  if (!spaceData.icon) {
+    spaceData.icon = DEFAULT_IMAGE;
   }
 
   let spacesList = document.getElementById("edit-spaces-list");
@@ -36,7 +36,7 @@ function updateSpaceItem(spaceElement) {
   spaceElement.title = spaceData.title ?? "";
   spaceElement.querySelector(".name").textContent = spaceData.title ?? "";
 
-  let icon = spaceData.ferdiumId ? browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/icon.svg`) : spaceData.icon;
+  let icon = spaceData.icon || DEFAULT_IMAGE;
   spaceElement.querySelector("img").src = icon;
 }
 
@@ -147,32 +147,45 @@ async function fetchMetadata(spaceElement) {
     return;
   }
 
-  let resp = await fetch(spaceElement._spaceData.url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
+  let imageData = DEFAULT_IMAGE;
+  let pageTitle = "";
+  try {
+    let resp = await fetch(spaceElement._spaceData.url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
+    let data = await resp.text();
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(data, "text/html");
+    let icon = doc.querySelector("link[rel~='icon']");
 
-  let data = await resp.text();
-  let parser = new DOMParser();
-  let doc = parser.parseFromString(data, "text/html");
-  let icon = doc.querySelector("link[rel~='icon']");
-  let titleElement = document.getElementById("edit-space-name");
+    pageTitle = doc.querySelector("title")?.textContent ?? "";
 
-  let iconUrl = new URL(icon?.getAttribute("href") ?? "/favicon.ico", spaceElement._spaceData.url);
-  resp = await fetch(iconUrl, { cache: "no-cache", signal: AbortSignal.timeout(5000) });
-  data = await resp.blob();
-  let imageData = await new Promise((resolve, reject) => {
-    let reader = new FileReader();
-    reader.onloadend = function() {
-      if (reader.error) {
-        resolve("/images/addon.svg");
-      } else {
-        resolve(reader.result);
+    let iconUrl = new URL(icon?.getAttribute("href") ?? "/favicon.ico", spaceElement._spaceData.url);
+    resp = await fetch(iconUrl, { cache: "no-cache", signal: AbortSignal.timeout(5000) });
+    data = await resp.blob();
+    imageData = await new Promise((resolve, reject) => {
+      if (!resp.ok) {
+        resolve(DEFAULT_IMAGE);
+        return;
       }
-    };
 
-    reader.readAsDataURL(data);
-  });
+      let reader = new FileReader();
+      reader.onloadend = function() {
+        if (reader.error) {
+          reject(reader.error);
+        } else {
+          resolve(reader.result);
+        }
+      };
 
+      reader.readAsDataURL(data);
+    });
+  } catch (e) {
+    // Pass on any other read errors
+  }
+
+
+  let titleElement = document.getElementById("edit-space-name");
   if (!titleElement.value) {
-    titleElement.value = doc.querySelector("title")?.textContent ?? "";
+    titleElement.value = pageTitle;
     spaceElement._spaceData.title = titleElement.value;
   }
 
@@ -212,10 +225,10 @@ async function refreshIcon() {
   if (tabs.length) {
     spaceElement._spaceData.icon = tabs[0].favIconUrl;
     updateSpaceItem(spaceElement);
-    await browser.runtime.sendMessage({ action: "updateSpace", space: spaceElement._spaceData });
   } else {
     await fetchMetadata(spaceElement);
   }
+  await browser.runtime.sendMessage({ action: "updateSpace", space: spaceElement._spaceData });
 }
 
 export async function loadEditSpaces() {

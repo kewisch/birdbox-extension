@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+export const DEFAULT_IMAGE = browser.runtime.getURL("/images/addon.svg");
+
 export function initLocalize() {
   for (let node of document.querySelectorAll("[data-l10n-id]")) {
     node.textContent = messenger.i18n.getMessage(node.dataset.l10nId);
