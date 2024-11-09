@@ -313,8 +313,8 @@ button.primary-button:active {
   margin-bottom: 10px;
 }
 
-#edit-settings-form[data-ferdium-id] #edit-space-useragent,
-#edit-settings-form[data-ferdium-id] label[for='edit-space-useragent'],
-#edit-settings-form[data-ferdium-id] #edit-space-refresh-icon {
+#edit-settings-form:not(.custom-service) #edit-space-useragent,
+#edit-settings-form:not(.custom-service) label[for='edit-space-useragent'],
+#edit-settings-form:not(.custom-service) #edit-space-refresh-icon {
   display: none;
 }

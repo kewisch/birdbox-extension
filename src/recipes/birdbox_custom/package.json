@@ -1,0 +1,10 @@
+{
+  "id": "birdbox_custom",
+  "name": "Custom Service",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/kewisch/birdbox-extension",
+  "config": {
+    "hasCustomUrl": true
+  }
+}

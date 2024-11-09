@@ -148,16 +148,6 @@ export async function loadAddSpaces() {
 
   spaces.sort((a, b) => a.name.localeCompare(b.name));
 
-  spaces.unshift({
-    id: "_custom",
-    name: messenger.i18n.getMessage("browse.customService.label"),
-    icon: DEFAULT_IMAGE,
-    config: {
-      hasCustomUrl: true
-    }
-  });
-  featured.unshift("_custom");
-
   for (let space of spaces) {
     let card = cardTemplate.content.cloneNode(true);
     card.querySelector("img").src = space.icon || browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);

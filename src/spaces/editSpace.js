@@ -64,11 +64,7 @@ async function selectSpace(spaceItem) {
       document.getElementById("edit-space-custom-server").value = data.url ?? "";
     }
 
-    if (data.ferdiumId) {
-      document.getElementById("edit-settings-form").dataset.ferdiumId = data.ferdiumId;
-    } else {
-      delete document.getElementById("edit-settings-form").dataset.ferdiumId;
-    }
+    document.getElementById("edit-settings-form").classList.toggle("custom-service", data.ferdiumId == "birdbox_custom");
   }
 }
 

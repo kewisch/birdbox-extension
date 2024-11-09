@@ -7,6 +7,7 @@ export default [
     ignores: [
       "**/*.js",
       "!src/**/*.js",
+      "!extra_recipes/**/*.js",
       "!test/**/*.js",
       "!eslint.config.js",
       "src/background/libs/**/*.js",
@@ -417,6 +418,15 @@ export default [
         Cc: true,
         ChromeUtils: true,
         Services: true,
+      }
+    }
+  },
+  {
+    files: ["extra_recipes/**/*.js"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node
       }
     }
   },

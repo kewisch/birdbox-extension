@@ -92,15 +92,13 @@ def process_package_directory(package_dir, output_directory):
 def walk_and_process_packages(root_directory, output_directory):
     """Walks through the root directory and processes each package directory."""
     packages = []
-    root_directory = Path(root_directory)
-
-    delete_subdirectories(output_directory / "recipes")
 
     for package_dir in root_directory.rglob("*"):
         if package_dir.is_dir() and (package_dir / "package.json").exists():
             package_info = process_package_directory(package_dir, output_directory)
             if package_info:
                 packages.append(package_info)
+
 
     return packages
 
@@ -112,11 +110,15 @@ def write_to_json_file(output_path, data):
 
 
 def main():
-    root_directory = Path(sys.argv[1]) / "recipes"
+    ferdium_recipes = Path(sys.argv[1]) / "recipes"
     output_directory = gitroot() / "src"
 
-    packages_data = walk_and_process_packages(root_directory, output_directory)
-    write_to_json_file(output_directory / "recipes" / "spaces.json", packages_data)
+    delete_subdirectories(output_directory / "recipes")
+
+    extra_data = walk_and_process_packages(gitroot() / "extra_recipes", output_directory)
+    ferdium_data = walk_and_process_packages(ferdium_recipes, output_directory)
+
+    write_to_json_file(output_directory / "recipes" / "spaces.json", extra_data + ferdium_data)
 
 
 if __name__ == "__main__":
