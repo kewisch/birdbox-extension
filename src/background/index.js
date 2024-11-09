@@ -40,7 +40,6 @@ async function onBeforeSendHeaders(e) {
       // Ferdium we also replace Thunderbird with Firefox, since the recipes obviously don't take
       // Thunderbird into account.
       hdrMap["user-agent"].value = ferdium.overrideUserAgent().replace(/Thunderbird/g, "Firefox");
-      console.log("FRD", ferdium.overrideUserAgent(), "---", hdrMap["user-agent"]);
     } else {
       hdrMap["user-agent"].value = hdrMap["user-agent"].value.replace(/Thunderbird/g, "Firefox");
     }
@@ -65,8 +64,6 @@ async function onBeforeSendHeaders(e) {
     }
   }
 
-
-  console.log({ requestHeaders: Object.values(hdrMap) });
   return { requestHeaders: Object.values(hdrMap) };
 }
 

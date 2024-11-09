@@ -14,16 +14,6 @@ async function main() {
     }
   });
 
-  new MutationObserver((mutations) => {
-      let title = mutations[0].target.textContent;
-
-      let match = title?.match(/\(\d+\)/);
-      browser.runtime.sendMessage({ action: "badge", count: match?.[1] || "" });
-  }).observe(
-      document.querySelector("title"),
-      { subtree: true, characterData: true, childList: true }
-  );
-
   window.addEventListener("click", (event) => {
     let anchor = event.target.closest("a");
     if (!anchor) {
@@ -31,7 +21,7 @@ async function main() {
     }
     let url = new URL(anchor.getAttribute("href"), window.location);
 
-    if (window.origin != url.origin && !spaceData.internalLinks.some(host => url.hostname.endsWith(host))) {
+    if (window.origin != url.origin && !spaceData.internalLinks?.some(host => url.hostname.endsWith(host))) {
       browser.runtime.sendMessage({ action: "openLink", href: url.href });
       event.preventDefault();
     }

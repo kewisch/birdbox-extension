@@ -40,10 +40,9 @@
 
   // This is the main Ferdium object we'll pass to the webview
   let _looper = null;
-  let _browser = browser;
   let ferdium = {
     setBadge(direct, indirect) {
-      _browser.runtime.sendMessage({ action: "badge", direct, indirect });
+      browser.runtime.sendMessage({ action: "badge", direct, indirect });
     },
 
     setDialogTitle(title) {
@@ -52,14 +51,14 @@
 
     injectCSS(...paths) {
       for (let path of paths) {
-        let fullPath = _browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/${path}`);
-        _browser.runtime.sendMessage({ action: "injectCSS", path: fullPath });
+        let fullPath = browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/${path}`);
+        browser.runtime.sendMessage({ action: "injectCSS", path: fullPath });
       }
     },
 
     injectJSUnsafe(...paths) {
       for (let path of paths) {
-        let fullPath = _browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/${path}`);
+        let fullPath = browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/${path}`);
         let script = document.createElement("script");
         script.src = fullPath;
         document.documentElement.appendChild(script);
@@ -119,7 +118,7 @@
     },
 
     openNewWindow(url) {
-      _browser.runtime.sendMessage({ action: "openLink", href: url });
+      browser.runtime.sendMessage({ action: "openLink", href: url });
     },
 
     setAvatarImage(avatarUrl) {
@@ -137,9 +136,6 @@
     }
   };
   Object.freeze(ferdium);
-
-  browser = null; // eslint-disable-line no-global-assign
-  messenger = null;
 
   // Now let the recipe take over
   module.exports(ferdium, settings);
