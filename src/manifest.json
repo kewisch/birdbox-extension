@@ -9,7 +9,7 @@
     "gecko": {
       "id": "birdbox@mozilla.kewis.ch",
       "strict_min_version": "115.0",
-      "strict_max_version": "132.*"
+      "strict_max_version": "134.*"
     }
   },
 
