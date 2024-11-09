@@ -137,35 +137,47 @@ function debounce(func, delay) {
 }
 
 
-export async function initAddSpaces() {
+export async function loadAddSpaces() {
   let spaces = await fetch("/recipes/spaces.json").then(resp => resp.json());
+  let featured = await fetch("/recipes/featured.json").then(resp => resp.json());
 
   let cardTemplate = document.getElementById("space-card-template");
-  let cards = document.getElementById("add-space-cards");
+  let allCardsContainer = document.getElementById("add-space-all-cards");
+  let featuredCardsContainer = document.getElementById("add-space-featured-cards");
+  let cardMap = {};
 
   spaces.sort((a, b) => a.name.localeCompare(b.name));
 
-  let customCard = cardTemplate.content.cloneNode(true);
-  customCard.querySelector("img").src = DEFAULT_IMAGE;
-  customCard.querySelector(".name").textContent = messenger.i18n.getMessage("browse.customService.label");
-  customCard.querySelector(".card")._spaceData = {
+  spaces.unshift({
+    id: "_custom",
     name: messenger.i18n.getMessage("browse.customService.label"),
     icon: DEFAULT_IMAGE,
     config: {
       hasCustomUrl: true
     }
-  };
-  cards.appendChild(customCard);
+  });
+  featured.unshift("_custom");
 
   for (let space of spaces) {
     let card = cardTemplate.content.cloneNode(true);
-    card.querySelector("img").src = browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);
+    card.querySelector("img").src = space.icon || browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);
     card.querySelector(".name").textContent = space.name;
     card.querySelector(".card")._spaceData = space;
-    cards.appendChild(card);
+
+    cardMap[space.id] = card.firstElementChild;
+    allCardsContainer.appendChild(card);
   }
 
-  cards.addEventListener("click", clickCard);
+  for (let spaceId of featured) {
+    let card = cardMap[spaceId].cloneNode(true);
+    card._spaceData = cardMap[spaceId]._spaceData;
+    featuredCardsContainer.appendChild(card);
+  }
+}
+
+export async function initAddSpaces() {
+  document.getElementById("add-space-all-cards").addEventListener("click", clickCard);
+  document.getElementById("add-space-featured-cards").addEventListener("click", clickCard);
   document.getElementById("add-space-add-button").addEventListener("click", clickAddSpace);
   document.getElementById("add-space-custom-server").addEventListener("input", debounce(validateCustomServer, 500));
   document.getElementById("add-space-popup").addEventListener("submit", (e) => event.preventDefault());

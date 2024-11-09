@@ -4,10 +4,13 @@
 
 import { initHash, initLocalize } from "./common.js";
 import { initEditListeners, loadEditSpaces } from "./editSpace.js";
-import { initAddSpaces } from "./addSpace.js";
+import { initAddSpaces, loadAddSpaces } from "./addSpace.js";
 
 initLocalize();
 initHash();
+
 initEditListeners();
 loadEditSpaces();
+
 initAddSpaces();
+loadAddSpaces();
