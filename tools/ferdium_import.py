@@ -18,6 +18,7 @@ EXCLUDE_RECIPES = {
     "google-calendar",  # This recipe uses remote script execution
     "weekplan",  # Unclear license (Apache 2 vs MIT)
     # WhatsApp includes an unnecessary remote image, but too high profile to remove
+    "franz-custom-website", # We have our own
 }
 
 

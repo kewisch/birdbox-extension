@@ -1182,16 +1182,6 @@
         }
     },
     {
-        "id": "franz-custom-website",
-        "name": "Custom Website",
-        "version": "1.5.1",
-        "license": "MIT",
-        "repository": "https://github.com/meetfranz/recipe-custom-website",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
         "id": "lark",
         "name": "Lark",
         "version": "0.3.1",
