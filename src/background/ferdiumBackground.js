@@ -10,6 +10,14 @@ class FerdiumBase {
   send() {
     console.warn(`Warning: background send() function not implemented for ${this.id}`);
   }
+
+  validateUrl(url) {
+    return true;
+  }
+
+  overrideUserAgent() {
+    return navigator.userAgent;
+  }
 }
 
 export default class FerdiumBackground {

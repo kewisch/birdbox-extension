@@ -36,12 +36,10 @@ async function onBeforeSendHeaders(e) {
   if ("user-agent" in hdrMap) {
     if (space.useragent) {
       hdrMap["user-agent"].value = space.useragent;
-    } else if ("overrideUserAgent" in ferdium) {
+    } else {
       // Ferdium we also replace Thunderbird with Firefox, since the recipes obviously don't take
       // Thunderbird into account.
       hdrMap["user-agent"].value = ferdium.overrideUserAgent().replace(/Thunderbird/g, "Firefox");
-    } else {
-      hdrMap["user-agent"].value = hdrMap["user-agent"].value.replace(/Thunderbird/g, "Firefox");
     }
   }
 
@@ -140,7 +138,7 @@ function initListeners() {
   browser.webRequest.onBeforeRequest.addListener(
     onBeforeRequest,
     { urls: ["<all_urls>"] },
-    ["blocking", "requestBody"]
+    ["blocking"]
   );
 
   messenger.runtime.onInstalled.addListener(({ reason, temporary }) => {
@@ -187,7 +185,13 @@ function initListeners() {
         });
       }
 
-      return space;
+      if (!spaceData.useragent && spaceData?.ferdiumId) {
+        spaceData = Object.assign({}, spaceData);
+        let ferdiumBg = await gFerdiumBackground.get(spaceData.ferdiumId);
+        spaceData.useragent = ferdiumBg.overrideUserAgent().replace(/Thunderbird/g, "Firefox");
+      }
+
+      return spaceData;
     } else if (request.action == "injectCSS") {
       await browser.tabs.insertCSS(sender.tab.id, {
         file: request.path
@@ -206,8 +210,8 @@ function initListeners() {
         }
       }
     } else if (request.action == "validateFerdiumUrl") {
-      let validator = gFerdiumBackground.get(request.ferdiumId)?.validateUrl;
-      return validator ? !!validator(request.url) : null;
+      let ferdiumBg = await gFerdiumBackground.get(request.ferdiumId);
+      return ferdiumBg.validateUrl(request.url);
     } else {
       return undefined;
     }
