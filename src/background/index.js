@@ -67,6 +67,35 @@ async function onBeforeSendHeaders(e) {
   return { requestHeaders: Object.values(hdrMap) };
 }
 
+async function onBeforeRequest(e) {
+  if (e.type != "main_frame" || !e.originUrl || !e.url) {
+    return null;
+  }
+
+
+  let tab = await messenger.tabs.get(e.tabId);
+  if (!tab.spaceId) {
+    return null;
+  }
+
+  let space = await messenger.spaces.get(tab.spaceId);
+  if (!space?.isSelfOwned || space?.name == "birdbox_add") {
+    return null;
+  }
+
+  let spaceData = gSpaceStorage.byName(space.name);
+  let targetUrl = new URL(e.url);
+  let windowOrigin = new URL(e.originUrl).origin;
+  let originMismatch = windowOrigin != targetUrl.origin;
+  let linkMatches = host => targetUrl.hostname.endsWith(host);
+
+  if (originMismatch && !spaceData.internalLinks?.some(linkMatches)) {
+    messenger.windows.openDefaultBrowser(e.url);
+    return { cancel: true };
+  }
+  return null;
+}
+
 async function loadSpaces() {
   let [lastTab, ..._rest] = await messenger.tabs.query({ currentWindow: true, active: true });
   let openedSomeTab = false;
@@ -107,6 +136,11 @@ function initListeners() {
     onBeforeSendHeaders,
     { urls: ["<all_urls>"] },
     ["blocking", "requestHeaders"]
+  );
+  browser.webRequest.onBeforeRequest.addListener(
+    onBeforeRequest,
+    { urls: ["<all_urls>"] },
+    ["blocking", "requestBody"]
   );
 
   messenger.runtime.onInstalled.addListener(({ reason, temporary }) => {
