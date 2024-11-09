@@ -78,6 +78,10 @@ export function setupCustomServer(idPrefix, space) {
   if (config.hasTeamId && config.urlInputPrefix) {
     customServer.style.paddingInlineStart = `${urlPrefix.clientWidth + 5}px`;
   }
+
+  if (config.hasCustomUrl && !config.hasTeamId && config.serviceURL) {
+    customServer.value = config.serviceURL;
+  }
 }
 
 export function getTargetUrl(idPrefix, spaceData) {
