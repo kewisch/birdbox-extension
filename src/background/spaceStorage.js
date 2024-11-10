@@ -74,7 +74,7 @@ export default class SpaceStorage {
       if (!create) {
         throw new Error("Could not find space to update");
       }
-      await this.add(spaceData);
+      await this.add(spaceData, flush);
       return;
     }
 

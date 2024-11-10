@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-l10n-id="browse.title"></title>
     <link rel="stylesheet" href="browse.css">
+    <script type="module" src="details.js"></script>
     <script type="module" src="index.js"></script>
   </head>
   <body>
@@ -17,6 +18,81 @@
         <span class="name"></span>
       </div>
     </template>
+    <template id="space-details">
+      <form id="settings-form" class="space-settings showfailure">
+        <label for="space-name" data-l10n-id="browse.name.label"></label>
+        <input
+          type="text"
+          id="space-name"
+          class="space-name"
+          name="title"
+          data-l10n-attr-placeholder="browse.name.placeholder"
+          placeholder=""
+          autocomplete="off">
+        <label
+          for="space-custom-server"
+          class="custom-server-label"
+          data-l10n-id="browse.customServer.label"></label>
+        <div id="space-custom-server-field" class="control custom-server-field">
+          <span id="space-url-prefix" class="url-label url-prefix"></span>
+          <input
+            type="text"
+            id="space-custom-server"
+            required
+            minlength="1"
+            class="custom-server"
+            data-l10n-attr-placeholder="browse.customServer.placeholder"
+            placeholder=""
+            autocomplete="off">
+          <span id="space-url-suffix" class="url-label url-suffix"></span>
+        </div>
+
+        <label for="space-container" data-l10n-id="browse.container.label"></label>
+        <select id="space-container" class="space-container nostretch" name="container">
+          <option value="firefox-default" data-l10n-id="browse.container.default"></option>
+          <option value="firefox-container-1" data-l10n-id="browse.container.1"></option>
+          <option value="firefox-container-2" data-l10n-id="browse.container.2"></option>
+          <option value="firefox-container-3" data-l10n-id="browse.container.3"></option>
+          <option value="firefox-container-4" data-l10n-id="browse.container.4"></option>
+        </select>
+
+        <label for="space-useragent" data-l10n-id="browse.useragent.label" class="advanced"></label>
+        <div id="space-useragent-field" class="control advanced">
+          <select class="space-useragent-type" name="useragent-type" value="auto">
+            <option value="auto">Automatic</option>
+            <option value="custom">Custom</option>
+          </select>
+          <input
+            type="text"
+            id="space-useragent"
+            class="space-useragent"
+            name="useragent"
+            placeholder="">
+        </div>
+
+        <label
+          for="space-internal-links"
+          class="top advanced"
+          data-l10n-attr-title="browse.internalLinks.title"
+          data-l10n-id="browse.internalLinks.label"
+          title=""></label>
+        <textarea id="space-internal-links" class="internal-links advanced" rows="4"></textarea>
+
+        <div class="row checkbox" data-l10n-attr-title="browse.notifications.title" title="">
+          <input
+            type="checkbox"
+            id="space-notifications"
+            class="space-notifications"
+            name="notifications">
+          <label for="space-notifications" data-l10n-id="browse.notifications.label"></label>
+        </div>
+
+        <div class="row checkbox">
+          <input type="checkbox" id="space-startup" class="space-startup" name="startup">
+          <label for="space-startup" data-l10n-id="browse.loadStartup.label"></label>
+        </div>
+      </form>
+    </template>
 
     <div class="page-container">
       <!-- Add Mode -->
@@ -25,69 +101,21 @@
           <button
             id="edit-spaces-button"
             class="primary-button"
-            data-l10n-id="browse.editExisting.label"
-          ></button>
+            data-l10n-id="browse.editExisting.label"></button>
         </div>
         <h1 class="noselect" data-l10n-id="browse.title"></h1>
         <p class="noselect" data-l10n-id="browse.intro"></p>
 
-        <form id="add-space-popup" class="space-settings">
-          <label for="add-space-name" data-l10n-id="browse.name.label"></label>
-          <input
-            type="text"
-            id="add-space-name"
-            name="name"
-            required
-            minlength="1"
-            data-l10n-attr-placeholder="browse.name.placeholder"
-            placeholder=""
-            autocomplete="off"
-         >
-
-          <label for="add-space-custom-server" data-l10n-id="browse.customServer.label"></label>
-          <div id="add-space-custom-server-field" class="control custom-server-field">
-            <span id="add-space-url-prefix" class="url-label url-prefix"></span>
-            <input
-              type="text"
-              id="add-space-custom-server"
-              required
-              minlength="1"
-              name="custom-server"
-              class="custom-server"
-              data-l10n-attr-placeholder="browse.customServer.placeholder"
-              placeholder=""
-              autocomplete="off"
-           >
-            <span id="add-space-url-suffix" class="url-label url-suffix"></span>
-          </div>
-
-          <label for="add-space-container" data-l10n-id="browse.container.label"></label>
-          <select id="add-space-container" name="container" class="nostretch">
-            <option value="firefox-default" data-l10n-id="browse.container.default"></option>
-            <option value="firefox-container-1" data-l10n-id="browse.container.1"></option>
-            <option value="firefox-container-2" data-l10n-id="browse.container.2"></option>
-            <option value="firefox-container-3" data-l10n-id="browse.container.3"></option>
-            <option value="firefox-container-4" data-l10n-id="browse.container.4"></option>
-          </select>
-
-          <div class="row checkbox" data-l10n-attr-title="browse.notifications.title" title="">
-            <input type="checkbox" id="add-space-notifications" name="notifications" checked>
-            <label for="add-space-notifications" data-l10n-id="browse.notifications.label"></label>
-          </div>
-
-          <div class="row checkbox">
-            <input type="checkbox" id="add-space-startup" name="startup">
-            <label for="add-space-startup" data-l10n-id="browse.loadStartup.label"></label>
-          </div>
-
-          <div class="row end">
+        <div id="add-space-popup">
+          <space-details id="add-space-details"></space-details>
+          <div class="space-actions">
             <button
               id="add-space-add-button"
+              slot="buttons"
               class="primary-button"
-              data-l10n-id="browse.addSpace.button"
-            ></button>
+              data-l10n-id="browse.addSpace.button"></button>
           </div>
-        </form>
+        </div>
 
         <h2 data-l10n-id="browse.featured.label"></h2>
         <div id="add-space-featured-cards" class="space-cards-container"></div>
@@ -111,79 +139,17 @@
             <h2 id="edit-space-title">Edit Space</h2>
             <p class="no-spaces-info" data-l10n-id="browse.intro"></p>
             <p class="no-spaces-info" data-l10n-id="browse.noSpaces.label"></p>
-            <form id="edit-settings-form" class="space-settings showfailure">
-              <label for="edit-space-name" data-l10n-id="browse.name.label"></label>
-              <input
-                type="text"
-                id="edit-space-name"
-                name="name"
-                data-l10n-attr-placeholder="browse.name.placeholder"
-                placeholder=""
-                autocomplete="off"
-             >
-
-              <label
-                for="edit-space-custom-server"
-                data-l10n-id="browse.customServer.label"
-              ></label>
-              <div id="edit-space-custom-server-field" class="control custom-server-field">
-                <span id="edit-space-url-prefix" class="url-label url-prefix"></span>
-                <input
-                  type="text"
-                  id="edit-space-custom-server"
-                  required
-                  minlength="1"
-                  name="custom-server"
-                  class="custom-server"
-                  data-l10n-attr-placeholder="browse.customServer.placeholder"
-                  placeholder=""
-                  autocomplete="off"
-               >
-                <span id="edit-space-url-suffix" class="url-label url-suffix"></span>
-              </div>
-
-              <label for="edit-space-useragent" data-l10n-id="browse.useragent.label"></label>
-              <input type="text" id="edit-space-useragent" name="useragent" placeholder="">
-
-              <label for="edit-space-container" data-l10n-id="browse.container.label"></label>
-              <select id="edit-space-container" name="container" class="nostretch">
-                <option value="firefox-default" data-l10n-id="browse.container.default"></option>
-                <option value="firefox-container-1" data-l10n-id="browse.container.1"></option>
-                <option value="firefox-container-2" data-l10n-id="browse.container.2"></option>
-                <option value="firefox-container-3" data-l10n-id="browse.container.3"></option>
-                <option value="firefox-container-4" data-l10n-id="browse.container.4"></option>
-              </select>
-
-              <label
-                for="edit-space-internal-links"
-                class="top"
-                data-l10n-attr-title="browse.internalLinks.title"
-                data-l10n-id="browse.internalLinks.label"
-                title=""
-              ></label>
-              <textarea id="edit-space-internal-links" name="internal-links" rows="4"></textarea>
-
-              <div class="row checkbox" data-l10n-attr-title="browse.notifications.title" title="">
-                <input type="checkbox" id="edit-space-notifications" name="notifications">
-                <label
-                  for="edit-space-notifications"
-                  data-l10n-id="browse.notifications.label"
-                ></label>
-              </div>
-
-              <div class="row checkbox">
-                <input type="checkbox" id="edit-space-startup" name="startup">
-                <label for="edit-space-startup" data-l10n-id="browse.loadStartup.label"></label>
-              </div>
-
-              <div class="row end">
-                <button
-                  id="edit-space-refresh-icon"
-                  data-l10n-id="browse.reloadIcon.button"
-                ></button>
-                <button id="edit-space-delete" data-l10n-id="browse.deleteSpace.button"></button>
-              </div>
-            </form>
+            <space-details id="edit-space-settings" advanced></space-details>
+            <div class="space-actions">
+              <button
+                id="edit-space-refresh-icon"
+                slot="buttons"
+                data-l10n-id="browse.reloadIcon.button"></button>
+              <button
+                id="edit-space-delete"
+                slot="buttons"
+                data-l10n-id="browse.deleteSpace.button"></button>
+            </div>
             <pre id="edit-space-debug" hidden="true"></pre>
           </section>
         </main>

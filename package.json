@@ -17,7 +17,8 @@
   "scripts": {
     "build": "web-ext build -s src -o",
     "clean": "rm -f web-ext-artifacts",
-    "lint": "commitlint -f origin/main && stylelint src && eslint"
+    "lint": "commitlint -f origin/main && stylelint src && eslint",
+    "lintfix": "stylelint src --fix ; eslint --fix"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",

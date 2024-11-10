@@ -2,17 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import psl from "../background/libs/psl.min.js";
-import { setupCustomServer, getTargetUrl, DEFAULT_IMAGE } from "./common.js";
+const DEFAULT_IMAGE = browser.runtime.getURL("/images/addon.svg");
 
 export function createSpaceItem(spaceData = {}) {
-  if (!spaceData.name) {
-    spaceData.name = crypto.randomUUID().replace(/-/g, "_");
-  }
-  if (!spaceData.icon) {
-    spaceData.icon = DEFAULT_IMAGE;
-  }
-
   let spacesList = document.getElementById("edit-spaces-list");
   let spaceElementFragment = document.getElementById("space-card-template").content.cloneNode(true);
 
@@ -46,25 +38,12 @@ async function selectSpace(spaceItem) {
 
   if (spaceItem) {
     let data = spaceItem._spaceData;
+    let spaceSettings = document.getElementById("edit-space-settings");
+    spaceSettings.spaceData = data;
 
     spaceItem.classList.add("selected");
-    document.getElementById("edit-space-name").value = data.title ?? "";
-    document.getElementById("edit-space-useragent").value = data.useragent ?? "";
-    document.getElementById("edit-space-container").value = data.container ?? "firefox-default";
-    document.getElementById("edit-space-notifications").checked = data.url ? await messenger.birdbox.checkNotificationPermission(data.url) : false;
-    document.getElementById("edit-space-startup").checked = data.startup;
-    document.getElementById("edit-space-internal-links").value = data.internalLinks?.join("\n") ?? "";
-    document.getElementById("edit-space-internal-links").placeholder = data.url ? new URL(data.url).hostname : "";
+    spaceSettings.classList.toggle("custom-service", data.ferdiumId == "birdbox_custom");
     document.getElementById("edit-space-debug").textContent = JSON.stringify(data, null, 2);
-
-    setupCustomServer("edit", data);
-    if (data.teamId) {
-      document.getElementById("edit-space-custom-server").value = data.teamId ?? "";
-    } else {
-      document.getElementById("edit-space-custom-server").value = data.url ?? "";
-    }
-
-    document.getElementById("edit-settings-form").classList.toggle("custom-service", data.ferdiumId == "birdbox_custom");
   }
 }
 
@@ -72,69 +51,11 @@ function getSelectedSpace() {
   return document.querySelector(".space-item.selected");
 }
 
-function parseInternalLinks(spaceData, value) {
-  let errors = [];
-  let lines = new Set(value.split("\n").reduce((acc, val) => {
-    if (val.startsWith("http:") || val.startsWith("https:")) {
-      let url = new URL(val);
-      if (psl.isValid(url.hostname)) {
-        acc.push(url.hostname);
-      } else {
-        errors.push("Invalid Domain: " + url.hostname);
-      }
-    } else if (psl.isValid(val)) {
-      acc.push(val);
-    } else if (val.trim() != "") {
-      errors.push("Invalid Domain: " + val);
-    }
-    return acc;
-  }, []));
-
-  spaceData.internalLinks = [...lines];
-
-  let linkElement = document.getElementById("edit-space-internal-links");
-  let customErrors = errors.join("\n");
-  linkElement.setCustomValidity(customErrors);
-  linkElement.reportValidity();
-  linkElement.title = customErrors;
-
-  if (!customErrors) {
-    linkElement.value = spaceData.internalLinks.join("\n");
-  }
-  return lines;
-}
-
 async function changeForm(event) {
-  let spaceElement = getSelectedSpace();
-  let spaceData = spaceElement._spaceData;
-
-  if (event.target.name == "internal-links") {
-    parseInternalLinks(spaceData, event.target.value.trim());
-  } else if (event.target.name == "custom-server") {
-    let { targetUrl, teamId } = getTargetUrl("edit", spaceData);
-    spaceData.url = targetUrl;
-    spaceData.teamId = teamId;
-  } else if (event.target.type == "checkbox") {
-    spaceData[event.target.name] = event.target.checked;
+  if (validateSpace(event.detail)) {
+    await browser.runtime.sendMessage({ action: "updateSpace", space: event.detail, create: true });
   } else {
-    spaceData[event.target.name] = event.target.value.trim();
-  }
-
-  if (event.target.name == "url") {
-    try {
-      await fetchMetadata(spaceElement);
-    } catch (e) {
-      console.error(e);
-    }
-
-    document.getElementById("edit-space-notifications").checked = event.target.url ? await messenger.birdbox.checkNotificationPermission(event.target.url) : null;
-    document.getElementById("edit-space-internal-links").setAttribute("placeholder", event.target.value);
-  }
-
-  if (validateSpace(spaceData)) {
-    await browser.runtime.sendMessage({ action: "updateSpace", space: spaceData, create: true });
-  } else {
-    await browser.runtime.sendMessage({ action: "removeSpace", spaceName: spaceData.name, missingOk: true });
+    await browser.runtime.sendMessage({ action: "removeSpace", spaceName: event.detail.name, missingOk: true });
   }
 }
 
@@ -177,7 +98,6 @@ async function fetchMetadata(spaceElement) {
   } catch (e) {
     // Pass on any other read errors
   }
-
 
   let titleElement = document.getElementById("edit-space-name");
   if (!titleElement.value) {
@@ -245,11 +165,9 @@ export async function initEditListeners() {
       selectSpace(spaceElem);
     }
   });
-  document.getElementById("edit-settings-form").addEventListener("change", changeForm);
-  document.getElementById("edit-settings-form").addEventListener("submit", (e) => event.preventDefault());
+  document.getElementById("edit-space-settings").addEventListener("change", changeForm);
   document.getElementById("edit-space-delete").addEventListener("click", deleteSpace);
   document.getElementById("edit-space-refresh-icon").addEventListener("click", refreshIcon);
-  document.getElementById("edit-space-useragent").placeholder = navigator.userAgent.replace(/Thunderbird/g, "Firefox");
 
   if (await browser.runtime.sendMessage({ action: "debugEnabled" })) {
     document.getElementById("edit-space-debug").removeAttribute("hidden");

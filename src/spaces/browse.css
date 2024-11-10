@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 * {
   box-sizing: border-box;
 }
@@ -81,51 +85,11 @@ html, body {
 
 /* FORM STYLES */
 
-.space-settings > .nostretch {
-  justify-self: start;
-}
-
-.space-settings > label {
-  grid-column: label;
-  justify-self: end;
-  user-select: none;
-}
-
-.space-settings > label.top {
-  align-self: start;
-  padding-block-start: 5px;
-}
-
-.space-settings > input, .space-settings > select, .space-settings > textarea {
-  grid-column: control;
-}
-
-.space-settings > .row.end {
-  grid-column: 1 / -1;
-  justify-self: end;
-}
-
-.space-settings > .row.checkbox {
-  grid-column: control;
-  justify-self: stretch;
-}
-
-.space-settings > .row.checkbox > label {
-  user-select: none;
-}
-
-.space-settings input, .space-settings button, .space-settings select, .space-settings textarea {
+button {
   padding: 5px;
   border: 1px solid #bdc3c7;
   border-radius: 4px;
   background: none;
-}
-
-.space-settings.showfailure textarea:invalid,
-.space-settings.showfailure input:invalid,
-.space-settings textarea:invalid:focus,
-.space-settings input:invalid:focus {
-  outline: 1px solid red;
 }
 
 button:active {
@@ -146,8 +110,6 @@ button.primary-button:hover {
 button.primary-button:active {
   background-color: color-mix(in srgb, AccentColor, black 30%);
 }
-
-
 
 /* ADD SPACES */
 
@@ -177,7 +139,6 @@ button.primary-button:active {
 }
 
 #add-space-popup {
-  display: grid;
   position: absolute;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -185,52 +146,10 @@ button.primary-button:active {
   box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
   z-index: 10;
   width: 500px;
-  grid-template-columns: [label] auto [control] 1fr;
-  grid-gap: 15px;
-  align-items: center;
 }
 
 #add-space-popup:not(.attached) {
   display: none;
-}
-
-.custom-server-field .url-label {
-  display: none;
-  border: 0 solid #bdc3c7;
-  align-items: center;
-  font-size: 0.8rem;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	padding: 3px 5px;
-  user-select: none;
-}
-
-.custom-server-field .url-prefix {
-  border-inline-end-width: 1px;
-  left: 0;
-}
-
-.custom-server-field .url-suffix {
-  border-inline-start-width: 1px;
-	right: 0;
-}
-
-.custom-server-field {
-  display: flex;
-  position: relative;
-}
-
-.custom-server-field.prefix .url-prefix {
-  display: flex;
-}
-
-.custom-server-field.suffix .url-suffix {
-  display: flex;
-}
-
-.custom-server {
-  flex: 1;
 }
 
 /* EDIT SPACES */
@@ -249,7 +168,6 @@ button.primary-button:active {
   align-items: center;
   gap: 15px;
 }
-  
 
 #edit-spaces-list .space-item {
   padding: 7px;
@@ -292,29 +210,23 @@ button.primary-button:active {
   max-width: 700px;
 }
 
-#edit-settings.no-spaces form,
-#edit-settings.no-spaces #edit-space-debug {
-  display: none;
-}
-
-#edit-settings:not(.no-spaces) .no-spaces-info {
-  display: none;
-}
-
 #edit-settings h2 {
   margin: 0 0 20px;
 }
 
-#edit-settings-form {
-  display: grid;
-  grid-template-columns: [label] auto [control] 1fr;
-  grid-gap: 15px;
-  align-items: center;
-  margin-bottom: 10px;
+.space-actions {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
 }
 
-#edit-settings-form:not(.custom-service) #edit-space-useragent,
-#edit-settings-form:not(.custom-service) label[for='edit-space-useragent'],
-#edit-settings-form:not(.custom-service) #edit-space-refresh-icon {
+#edit-settings.no-spaces #edit-space-settings,
+#edit-settings.no-spaces .space-actions,
+#edit-settings.no-spaces #edit-space-debug,
+#edit-settings:not(.no-spaces) .no-spaces-info {
+  display: none;
+}
+
+#edit-space-settings:not(.custom-service) #edit-space-refresh-icon {
   display: none;
 }
