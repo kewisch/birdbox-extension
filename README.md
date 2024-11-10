@@ -1,7 +1,6 @@
 [![Checkin](https://github.com/kewisch/birdbox-extension/actions/workflows/ci.yaml/badge.svg)](https://github.com/kewisch/birdbox-extension/actions/workflows/ci.yaml)
 [![Active Users](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Faddons.thunderbird.net%2Fapi%2Fv4%2Faddons%2Faddon%2Fbirdbox%2F&query=%24.average_daily_users&label=Active%20Users)](https://addons.thunderbird.net/thunderbird/addon/birdbox/)
 
-
 Birdbox
 =======
 
