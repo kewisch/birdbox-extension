@@ -1,3832 +1,2959 @@
 [
     {
-        "id": "birdbox_custom",
-        "name": "Custom Service",
-        "version": "1.0.0",
-        "license": "MIT",
-        "repository": "https://github.com/kewisch/birdbox-extension",
-        "config": {
-            "hasCustomUrl": true
-        }
+        "recipeId": "80lv",
+        "recipeConfig": {
+            "serviceURL": "https://80.lv"
+        },
+        "title": "80LV"
     },
     {
-        "id": "scribens",
-        "name": "Scribens",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://scribens.{teamId}",
-            "urlInputPrefix": "https://scribens.",
-            "hasTeamId": true,
-            "message": "Insert your language in team, e.g. com for English or fr for french"
-        }
-    },
-    {
-        "id": "mirotalk-sfu",
-        "name": "MiroTalk SFU",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://sfu.mirotalk.com",
+        "recipeId": "anonaddy",
+        "recipeConfig": {
+            "serviceURL": "https://app.addy.io/",
             "hasCustomUrl": true,
-            "hasHostedOption": true,
-            "hasNotificationSound": true
-        }
+            "hasHostedOption": true
+        },
+        "title": "addy.io"
     },
     {
-        "id": "google-presentation",
-        "name": "Google Presentation",
-        "version": "2.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://docs.google.com/presentation/u/0/"
-        }
-    },
-    {
-        "id": "amazon-work-mail",
-        "name": "Amazon WorkMail",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.awsapps.com/mail",
-            "hasTeamId": true,
-            "urlInputSuffix": ".awsapps.com/mail"
-        }
-    },
-    {
-        "id": "freshservice",
-        "name": "Freshservice",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://freshservice.com"
-        }
-    },
-    {
-        "id": "stackexchange",
-        "name": "StackExchange",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://stackexchange.com/"
-        }
-    },
-    {
-        "id": "localazy",
-        "name": "Localazy",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://localazy.com/my/dashboard"
-        }
-    },
-    {
-        "id": "nextcloud-news",
-        "name": "Nextcloud News",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/csolisr/ferdium-recipes/tree/master/recipes/nextcloud-news/",
-        "config": {
-            "hasNotificationSound": true,
-            "hasTeamId": true,
-            "urlInputPrefix": "https://",
-            "urlInputSuffix": "/apps/news/",
-            "serviceURL": "https://{teamId}/apps/news/"
-        }
-    },
-    {
-        "id": "firefly",
-        "name": "Firefly",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
+        "recipeId": "affine",
+        "recipeConfig": {
             "hasCustomUrl": true,
-            "serviceURL": "https://{firefly}/"
-        }
+            "serviceURL": "https://{affine}/"
+        },
+        "title": "Affine"
     },
     {
-        "id": "nextcloud",
-        "name": "Nextcloud",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true,
-            "hasCustomUrl": true,
-            "serviceURL": "https://{nextcloud}/"
-        }
-    },
-    {
-        "id": "thelounge",
-        "name": "The Lounge",
-        "version": "1.4.2",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true,
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "freshdesk",
-        "name": "Freshdesk",
-        "version": "1.2.2",
-        "license": "MIT",
-        "repository": "https://github.com/fisknils/recipe-freshdesk",
-        "config": {
-            "serviceURL": "https://{teamId}.freshdesk.com/a/tickets/filters/unresolved",
-            "urlInputSuffix": ".freshdesk.com/a/tickets/filters/unresolved",
-            "hasTeamId": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "pocket",
-        "name": "Pocket",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://getpocket.com/a/queue/list/"
-        }
-    },
-    {
-        "id": "groupme",
-        "name": "GroupMe",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.groupme.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "dingtalk",
-        "name": "Dingtalk",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://im.dingtalk.com/",
-            "hasNotificationSound": true,
-            "disablewebsecurity": true
-        }
-    },
-    {
-        "id": "hostnet",
-        "name": "Hostnet",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://appsuite.hostnet.nl/appsuite/"
-        }
-    },
-    {
-        "id": "guru",
-        "name": "guru.com",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.guru.com/pro/messages.aspx"
-        }
-    },
-    {
-        "id": "penpot",
-        "name": "Penpot",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://design.penpot.app/",
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "pixieset",
-        "name": "Pixieset",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://accounts.pixieset.com/dashboard/"
-        }
-    },
-    {
-        "id": "nomadlist",
-        "name": "NomadList",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://nomadlist.com/chat",
-            "hasNotificationSound": true,
-            "hasTeamId": true
-        }
-    },
-    {
-        "id": "unraid",
-        "name": "Unraid",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/rctneil/franz-recipe-unraid",
-        "config": {
-            "serviceURL": "{teamId}",
-            "hasTeamId": true
-        }
-    },
-    {
-        "id": "onmail",
-        "name": "onMail",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.onmail.com"
-        }
-    },
-    {
-        "id": "air-droid",
-        "name": "AirDroid",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "air-droid",
+        "recipeConfig": {
             "serviceURL": "http://web.airdroid.com/",
             "message": "AirDroid allows you to access and manage your Android phone or tablet from Windows, Mac or the Web, wirelessly, for free. Transfer files between your devices, and share files to your friends.",
             "hasNotificationSound": true
-        }
+        },
+        "title": "AirDroid"
     },
     {
-        "id": "keepervault",
-        "name": "Keeper Vault",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://keepersecurity.eu/vault/#"
-        }
+        "recipeId": "airmessage",
+        "recipeConfig": {
+            "serviceURL": "https://web.airmessage.org/"
+        },
+        "title": "AirMessage"
     },
     {
-        "id": "invoice-ninja",
-        "name": "Invoice Ninja",
-        "version": "1.1.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://invoicing.co/#/",
+        "recipeId": "airtable",
+        "recipeConfig": {
+            "serviceURL": "https://airtable.com"
+        },
+        "title": "Airtable"
+    },
+    {
+        "recipeId": "alibaba-chat",
+        "recipeConfig": {
+            "serviceURL": "https://message.alibaba.com/message/messenger.htm"
+        },
+        "title": "Alibaba Chat"
+    },
+    {
+        "recipeId": "amazon-web-services",
+        "recipeConfig": {
+            "serviceURL": "https://aws.amazon.com/"
+        },
+        "title": "Amazon Web Services"
+    },
+    {
+        "recipeId": "amazon-work-mail",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.awsapps.com/mail",
+            "hasTeamId": true,
+            "urlInputSuffix": ".awsapps.com/mail"
+        },
+        "title": "Amazon WorkMail"
+    },
+    {
+        "recipeId": "android-messages",
+        "recipeConfig": {
+            "serviceURL": "https://messages.google.com/web",
+            "hasNotificationSound": true
+        },
+        "title": "Android Messages"
+    },
+    {
+        "recipeId": "anydo",
+        "recipeConfig": {
+            "serviceURL": "https://desktop.any.do/"
+        },
+        "title": "Any.do"
+    },
+    {
+        "recipeId": "asana",
+        "recipeConfig": {
+            "serviceURL": "https://app.asana.com",
+            "hasNotificationSound": true
+        },
+        "title": "Asana"
+    },
+    {
+        "recipeId": "awork",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.awork.io",
+            "hasTeamId": true,
+            "urlInputSuffix": ".awork.io"
+        },
+        "title": "Awork"
+    },
+    {
+        "recipeId": "azure-devops",
+        "recipeConfig": {
+            "serviceURL": "https://dev.azure.com/"
+        },
+        "title": "Azure DevOps"
+    },
+    {
+        "recipeId": "azure-portal",
+        "recipeConfig": {
+            "serviceURL": "https://portal.azure.com/"
+        },
+        "title": "Azure Portal"
+    },
+    {
+        "recipeId": "badoo",
+        "recipeConfig": {
+            "serviceURL": "https://badoo.com"
+        },
+        "title": "Badoo"
+    },
+    {
+        "recipeId": "bale",
+        "recipeConfig": {
+            "serviceURL": "https://web.bale.ai/"
+        },
+        "title": "Bale"
+    },
+    {
+        "recipeId": "bard",
+        "recipeConfig": {
+            "serviceURL": "https://bard.google.com/"
+        },
+        "title": "Bard"
+    },
+    {
+        "recipeId": "basecamp",
+        "recipeConfig": {
+            "serviceURL": "https://launchpad.37signals.com/"
+        },
+        "title": "Basecamp"
+    },
+    {
+        "recipeId": "bigbluebutton",
+        "recipeConfig": {
+            "serviceURL": "https://bigbluebutton.mycompany.com/",
+            "hasCustomUrl": true
+        },
+        "title": "BigBlueButton"
+    },
+    {
+        "recipeId": "binance",
+        "recipeConfig": {
+            "serviceURL": "https://accounts.binance.com"
+        },
+        "title": "Binance"
+    },
+    {
+        "recipeId": "bip",
+        "recipeConfig": {
+            "serviceURL": "https://web.bip.com/",
+            "hasNotificationSound": true
+        },
+        "title": "BiP"
+    },
+    {
+        "recipeId": "bitbucket",
+        "recipeConfig": {
+            "serviceURL": "https://bitbucket.org/dashboard/overview",
             "hasHostedOption": true,
             "hasCustomUrl": true
-        }
+        },
+        "title": "BitBucket"
     },
     {
-        "id": "google-docs",
-        "name": "Google Docs",
-        "version": "2.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://docs.google.com/document/u/0/"
-        }
+        "recipeId": "bitwarden",
+        "recipeConfig": {
+            "serviceURL": "https://vault.bitwarden.com/",
+            "hasCustomUrl": true
+        },
+        "title": "Bitwarden"
     },
     {
-        "id": "poe",
-        "name": "poe",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://poe.com/"
-        }
+        "recipeId": "BlueBubbles",
+        "recipeConfig": {
+            "serviceURL": "https://bluebubbles.app/web/#/"
+        },
+        "title": "BlueBubbles"
     },
     {
-        "id": "ciscospark",
-        "name": "Cisco Spark",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.ciscospark.com",
-            "hasIndirectMessages": true
-        }
+        "recipeId": "bluesky",
+        "recipeConfig": {
+            "serviceURL": "https://bsky.app/"
+        },
+        "title": "Bluesky"
     },
     {
-        "id": "gadugadu",
-        "name": "Gadu-Gadu",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.gg.pl",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "brax.me",
-        "name": "Brax.Me",
-        "version": "1.1.1",
-        "license": "MIT",
-        "repository": "https://github.com/hafiz-muhammad/ferdium-recipes",
-        "config": {
-            "serviceURL": "https://brax.me"
-        }
-    },
-    {
-        "id": "twitter",
-        "name": "X",
-        "version": "1.4.2",
-        "license": "MIT",
-        "aliases": [
-            "Twitter"
-        ],
-        "config": {
-            "serviceURL": "https://x.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "steamchat",
-        "name": "SteamChat",
-        "version": "1.5.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://steamcommunity.com/chat",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "sendtask",
-        "name": "Sendtask",
-        "version": "1.3.1",
-        "repository": "https://github.com/patrickdaniel/sendtask-franz",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.sendtask.io/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "simplelogin",
-        "name": "SimpleLogin",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.simplelogin.io/"
-        }
-    },
-    {
-        "id": "monday",
-        "name": "Monday",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.monday.com",
-            "hasTeamId": true,
-            "urlInputSuffix": ".monday.com"
-        }
-    },
-    {
-        "id": "somtoday",
-        "name": "SomToday",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://inloggen.somtoday.nl",
-            "hasDirectMessages": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "viva-engage",
-        "name": "Viva Engage",
-        "version": "1.0.0",
-        "license": "MIT",
-        "aliases": [
-            "yammer"
-        ],
-        "config": {
-            "serviceURL": "https://engage.cloud.microsoft",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "bard",
-        "name": "Bard",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://bard.google.com/"
-        }
-    },
-    {
-        "id": "infomaniak-calendar",
-        "name": "Infomaniak Calendar",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://calendar.infomaniak.com"
-        }
-    },
-    {
-        "id": "chatwork",
-        "name": "Chatwork",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/hideosasaki/recipe-chatwork",
-        "config": {
-            "serviceURL": "https://www.chatwork.com/login.php",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "voetbal-nl",
-        "name": "Voetbal",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://voetbal.nl/inloggen",
-            "hasDirectMessages": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "duckduckgo-ai-chat",
-        "name": "DuckDuckGo AI Chat",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://duckduckgo.com/aichat"
-        }
-    },
-    {
-        "id": "gotomeeting",
-        "name": "Go To Meeting",
-        "version": "0.5.1",
-        "repository": "https://github.com/tristanplouz/ferdi-recipe-gotomeeting.git",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.gotomeeting.com/home.html",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "good-reads",
-        "name": "Good Reads",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.goodreads.com/"
-        }
-    },
-    {
-        "id": "hacker-news",
-        "name": "Hacker News",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://news.ycombinator.com/"
-        }
-    },
-    {
-        "id": "sympatia",
-        "name": "Sympatia",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://sympatia.onet.pl/"
-        }
-    },
-    {
-        "id": "noisli",
-        "name": "Noisli",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.noisli.com/login"
-        }
-    },
-    {
-        "id": "udemy",
-        "name": "Udemy",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/gaspergrom/Franz-services/tree/master/udemy",
-        "config": {
-            "serviceURL": "https://www.udemy.com/home/my-courses/learning/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "regex101",
-        "name": "Regex101",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://regex101.com/"
-        }
-    },
-    {
-        "id": "gather",
-        "name": "Gather",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.gather.town/app"
-        }
-    },
-    {
-        "id": "airmessage",
-        "name": "AirMessage",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.airmessage.org/"
-        }
-    },
-    {
-        "id": "zalo",
-        "name": "Zalo",
-        "version": "1.5.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://chat.zalo.me/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "gettr",
-        "name": "Gettr",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://gettr.com"
-        }
-    },
-    {
-        "id": "goto",
-        "name": "GoTo",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.goto.com/"
-        }
-    },
-    {
-        "id": "box",
-        "name": "Box",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "box",
+        "recipeConfig": {
             "serviceURL": "https://account.box.com/login"
-        }
+        },
+        "title": "Box"
     },
     {
-        "id": "discord",
-        "name": "Discord",
-        "version": "1.8.5",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://discord.com/app",
+        "recipeId": "brax.me",
+        "recipeConfig": {
+            "serviceURL": "https://brax.me"
+        },
+        "title": "Brax.Me"
+    },
+    {
+        "recipeId": "bring",
+        "recipeConfig": {
+            "serviceURL": "https://web.getbring.com"
+        },
+        "title": "Bring!"
+    },
+    {
+        "recipeId": "bugzilla",
+        "recipeConfig": {
+            "serviceURL": "https://bugzilla.mozilla.org/",
+            "hasCustomUrl": true,
+            "message": "Bugzilla's default URL is https://bugzilla.mozilla.org/",
             "hasNotificationSound": true,
             "hasIndirectMessages": true
-        }
+        },
+        "title": "Bugzilla"
     },
     {
-        "id": "clockwise",
-        "name": "Clockwise",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/TheKevJames/franz-recipe-clockwise",
-        "config": {
-            "serviceURL": "https://www.getclockwise.com/app/"
-        }
+        "recipeId": "campuswire",
+        "recipeConfig": {
+            "serviceURL": "https://campuswire.com/c",
+            "hasNotificationSound": true
+        },
+        "title": "Campuswire"
     },
     {
-        "id": "nextcloud-carnet",
-        "name": "Carnet (Nextcloud)",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/csolisr/ferdium-recipes/tree/master/recipes/nextcloud-carnet/",
-        "config": {
+        "recipeId": "canva",
+        "recipeConfig": {
+            "serviceURL": "https://canva.com"
+        },
+        "title": "Canva"
+    },
+    {
+        "recipeId": "canvas",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.instructure.com/",
+            "hasTeamId": true,
+            "message": "Your canvas TeamID is your school's initials eg MIT, FIU, UCF etc."
+        },
+        "title": "Canvas"
+    },
+    {
+        "recipeId": "cara",
+        "recipeConfig": {
+            "serviceURL": "https://cara.app"
+        },
+        "title": "Cara"
+    },
+    {
+        "recipeId": "nextcloud-carnet",
+        "recipeConfig": {
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
             "hasTeamId": true,
             "urlInputPrefix": "https://",
             "urlInputSuffix": "/apps/carnet/",
             "serviceURL": "https://{teamId}/apps/carnet/"
-        }
-    },
-    {
-        "id": "google-meet",
-        "name": "Google Meet",
-        "version": "2.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://meet.google.com/u/0/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "mirotalk-webrtc",
-        "name": "MiroTalk WebRTC",
-        "version": "1.2.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://webrtc.mirotalk.com",
-            "hasCustomUrl": true,
-            "hasHostedOption": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "meta-business-suite",
-        "name": "Meta Business Suite",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://business.facebook.com"
-        }
-    },
-    {
-        "id": "wikipedia",
-        "name": "Wikipedia",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.wikipedia.org/",
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "erepublik",
-        "name": "eRepublik",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://erepublik.com"
-        }
-    },
-    {
-        "id": "hangouts",
-        "name": "Google Chat",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.google.com/chat/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "memos",
-        "name": "memos",
-        "version": "1.0.1",
-        "license": "MIT",
-        "repository": {
-            "type": "git",
-            "url": "https://github.com/usememos/memos"
         },
-        "config": {
-            "message": "A self-hosted privacy-first, lightweight note-taking service. Easily capture and share your great thoughts.",
-            "hasCustomUrl": true,
-            "hasDirectMessages": false
-        }
+        "title": "Carnet (Nextcloud)"
     },
     {
-        "id": "chatwoot",
-        "name": "Chatwoot",
-        "version": "1.2.2",
-        "license": "MIT",
-        "repository": "https://github.com/maximeMD/ferdi-chatwoot",
-        "config": {
-            "serviceURL": "https://app.chatwoot.com/app/login"
-        }
+        "recipeId": "chatwithgpt",
+        "recipeConfig": {
+            "serviceURL": "https://www.chatwithgpt.ai/"
+        },
+        "title": "Chat with GPT"
     },
     {
-        "id": "taiga",
-        "name": "Taiga",
-        "version": "1.0.0",
-        "license": "MIT",
-        "repository": "https://github.com/kaleidos-ventures/taiga",
-        "config": {
-            "serviceURL": "https://tree.taiga.io"
-        }
+        "recipeId": "chatgpt",
+        "recipeConfig": {
+            "serviceURL": "https://chat.openai.com/chat"
+        },
+        "title": "ChatGPT"
     },
     {
-        "id": "pulse-sms",
-        "name": "PulseSMS",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://pulsesms.app",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "gitlab",
-        "name": "GitLab",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://gitlab.com/users/sign_in",
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "parro",
-        "name": "Parro",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://talk.parro.com/",
-            "hasDirectMessages": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "tchap",
-        "name": "Tchap",
-        "version": "1.1.2",
-        "license": "MIT",
-        "repository": "https://github.com/Sykursen/recipe-tchap/",
-        "config": {
-            "serviceURL": "https://www.tchap.gouv.fr/"
-        }
-    },
-    {
-        "id": "feedbin",
-        "name": "Feedbin",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://feedbin.com/login",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "ring-central",
-        "name": "RingCentral",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/deadmeu/ferdi-ringcentral",
-        "aliases": [
-            "Glip"
-        ],
-        "config": {
-            "serviceURL": "https://app.ringcentral.com/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "awork",
-        "name": "Awork",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.awork.io",
-            "hasTeamId": true,
-            "urlInputSuffix": ".awork.io"
-        }
-    },
-    {
-        "id": "online-go",
-        "name": "Online Go",
-        "version": "1.0.1",
-        "license": "MIT",
-        "aliases": [
-            "OGS"
-        ],
-        "config": {
-            "hasDirectMessages": true,
-            "hasIndirectMessages": true,
-            "hasNotificationSound": true,
-            "serviceURL": "https://online-go.com"
-        }
-    },
-    {
-        "id": "instagram-direct-messages",
-        "name": "Instagram Direct Messages",
-        "version": "1.1.3",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.instagram.com/direct/inbox/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "wire",
-        "name": "Wire",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.wire.com/",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "pinterest",
-        "name": "Pinterest",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://pinterest.com"
-        }
-    },
-    {
-        "id": "monicahq",
-        "name": "Monica HQ",
-        "version": "1.4.1",
-        "license": "MIT",
-        "repository": "https://github.com/jkbecker/recipe-monica",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "guilded",
-        "name": "Guilded",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.guilded.gg/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "campuswire",
-        "name": "Campuswire",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://campuswire.com/c",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "pocketcasts",
-        "name": "PocketCasts",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://play.pocketcasts.com/user/login"
-        }
-    },
-    {
-        "id": "jitsi",
-        "name": "Jitsi Meet",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/sampathBlam/ferdi-jitsi",
-        "config": {
-            "serviceURL": "https://meet.jit.si/",
-            "hasHostedOption": true,
-            "hasCustomUrl": true,
-            "message": "For the public instance, use https://meet.jit.si/ for the Custom server"
-        }
-    },
-    {
-        "id": "zenhub",
-        "name": "ZenHub",
-        "version": "1.3.2",
-        "license": "MIT",
-        "repository": "https://github.com/mordaroso/recipe-franz-zenhub",
-        "config": {
-            "hasTeamId": true,
-            "serviceURL": "https://app.zenhub.com/workspaces/{teamId}/board"
-        }
-    },
-    {
-        "id": "riseup",
-        "name": "Riseup.net",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.riseup.net"
-        }
-    },
-    {
-        "id": "hey",
-        "name": "Hey",
-        "version": "1.2.1",
-        "repository": "https://github.com/cpwood/recipe-hey",
-        "config": {
-            "serviceURL": "https://app.hey.com",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "name": "Mastodon",
-        "id": "mastodon",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mastodon.social",
-            "hasNotificationSound": true,
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "zeplin",
-        "name": "Zeplin",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.zeplin.io/login"
-        }
-    },
-    {
-        "id": "evernote",
-        "name": "Evernote",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.evernote.com/Login.action"
-        }
-    },
-    {
-        "id": "plurk",
-        "name": "Plurk",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.plurk.com"
-        }
-    },
-    {
-        "id": "teamweek",
-        "name": "Teamweek",
-        "version": "1.3.2",
-        "license": "MIT",
-        "repository": "https://github.com/claudiupelmus/recipe-teamweek",
-        "config": {
-            "serviceURL": "https://app.teamweek.com/"
-        }
-    },
-    {
-        "id": "yahoo-mail",
-        "name": "Yahoo Mail",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.yahoo.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "ritetag",
-        "name": "Ritetag",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/alexdevero/franz-ritetag-recipe",
-        "config": {
-            "serviceURL": "https://ritetag.com"
-        }
-    },
-    {
-        "id": "moodle",
-        "name": "Moodle",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "irccloud",
-        "name": "IRCCloud",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/albertomurillo/recipe-irccloud",
-        "config": {
-            "serviceURL": "https://www.irccloud.com",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "plan",
-        "name": "Plan",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://getplan.co/",
-            "message": "Plan is a better way to manage everything you have to do and everywhere you have to be."
-        }
-    },
-    {
-        "id": "lemmy",
-        "name": "Lemmy",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [],
-        "config": {
-            "serviceURL": "https://lemmy.ml/",
-            "hasCustomUrl": true,
-            "message": "Lemmy's default URL is https://lemmy.ml/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "ms-planner",
-        "name": "Microsoft Planner",
-        "aliases": [
-            "office",
-            "tasks"
-        ],
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://tasks.office.com/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "flowdock",
-        "name": "Flowdock",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.flowdock.com/app/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "citrix-workspace",
-        "name": "Citrix Workspace",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.cloud.com",
-            "hasNotificationSound": true,
-            "hasTeamId": true,
-            "urlInputSuffix": ".cloud.com"
-        }
-    },
-    {
-        "id": "circuit",
-        "name": "Circuit",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://eu.yourcircuit.com/"
-        }
-    },
-    {
-        "id": "roundcube",
-        "name": "Roundcube",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/jonathanjuursema/franz-roundcube",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "coinbase",
-        "name": "Coinbase",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/gaspergrom/Franz-services",
-        "config": {
-            "serviceURL": "https://www.coinbase.com/dashboard",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "devdocs",
-        "name": "DevDocs",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://devdocs.io"
-        }
-    },
-    {
-        "id": "zoho",
-        "name": "Zoho Mail",
-        "version": "1.4.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.zoho.com/mail/login.html",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "trakt",
-        "name": "Trakt",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://trakt.tv"
-        }
-    },
-    {
-        "id": "office365-owa",
-        "name": "Office 365 Outlook",
-        "version": "1.7.3",
-        "license": "MIT",
-        "aliases": [
-            "live.com",
-            "outlook"
-        ],
-        "config": {
-            "serviceURL": "https://outlook.live.com/mail/",
-            "hasNotificationSound": true,
-            "hasHostedOption": true,
-            "hasCustomUrl": true,
-            "allowFavoritesDelineationInUnreadCount": true
-        }
-    },
-    {
-        "id": "wrike",
-        "name": "Wrike",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/koma-private/recipe-wrike",
-        "config": {
-            "serviceURL": "https://www.wrike.com/login/"
-        }
-    },
-    {
-        "id": "smartsheet",
-        "name": "SmartSheet",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.smartsheet.com"
-        }
-    },
-    {
-        "id": "portainer",
-        "name": "Portainer",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "hasHostedOption": true,
-            "hasCustomUrl": true,
-            "hasNotificationSound": false
-        }
-    },
-    {
-        "id": "rainloop",
-        "name": "RainLoop",
-        "version": "1.3.1",
-        "repository": "https://github.com/promarcel/franz-recipe-rainloop",
-        "license": "MIT",
-        "config": {
-            "hasNotificationSound": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "snapdrop",
-        "name": "Snapdrop",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "http://snapdrop.net/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "odoo",
-        "name": "Odoo",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.odoo.com/web/login",
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "lark",
-        "name": "Lark",
-        "version": "0.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.larksuite.com/messenger/",
-            "hasTeamId": true,
-            "urlInputSuffix": ".larksuite.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "wakapi",
-        "name": "Wakapi",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://wakapi.dev",
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "bring",
-        "name": "Bring!",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.getbring.com"
-        }
-    },
-    {
-        "id": "stride",
-        "name": "Stride",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.stride.com",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "producthunt",
-        "name": "Product Hunt",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/alexdevero/franz-producthunt-recipe",
-        "config": {
-            "serviceURL": "https://www.producthunt.com/",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "linear",
-        "name": "Linear",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://linear.app"
-        }
-    },
-    {
-        "id": "canva",
-        "name": "Canva",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://canva.com"
-        }
-    },
-    {
-        "id": "azure-portal",
-        "name": "Azure Portal",
-        "version": "1.0.0",
-        "license": "MIT",
-        "aliases": [
-            "azpo"
-        ],
-        "config": {
-            "serviceURL": "https://portal.azure.com/"
-        }
-    },
-    {
-        "id": "diagrams",
-        "name": "Diagrams",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.diagrams.net/"
-        }
-    },
-    {
-        "id": "pleroma",
-        "name": "Pleroma",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "OVHCloud",
-        "name": "OVH Cloud",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.ovh.com/auth"
-        }
-    },
-    {
-        "id": "webex-teams",
-        "name": "Webex Teams",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.webex.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "yandex-mail",
-        "name": "Yandex Mail",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.yandex.ru"
-        }
-    },
-    {
-        "id": "workplace",
-        "name": "Workplace",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.workplace.com/chat",
-            "hasNotificationSound": true,
-            "hasTeamId": true,
-            "urlInputSuffix": ".workplace.com"
-        }
-    },
-    {
-        "id": "temp-mail",
-        "name": "Temp Mail",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://temp-mail.org/"
-        }
-    },
-    {
-        "id": "proton-drive",
-        "name": "Proton Drive",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://drive.proton.me"
-        }
-    },
-    {
-        "id": "fleep",
-        "name": "Fleep",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://fleep.io/chat"
-        }
-    },
-    {
-        "id": "intercom",
-        "name": "Intercom",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.intercom.io/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "idobata",
-        "name": "Idobata",
-        "version": "0.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://idobata.io",
-            "message": "Idobata plugin for meetfranz."
-        }
-    },
-    {
-        "id": "quora",
-        "name": "Quora",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.quora.com"
-        }
-    },
-    {
-        "id": "ntfy",
-        "name": "ntfy",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [
-            "Notify"
-        ],
-        "config": {
-            "serviceURL": "https://ntfy.sh/app",
-            "hasCustomUrl": true,
-            "message": "ntfy lets you send push notifications to your phone or desktop via scripts from any computer, using simple HTTP PUT or POST requests.",
-            "hasNotificationSound": true,
-            "hasDirectMessages": true,
-            "hasIndirectMessages": false
-        }
-    },
-    {
-        "id": "element",
-        "name": "Element",
-        "version": "1.4.1",
-        "license": "MIT",
-        "aliases": [
-            "Riot.im",
-            "Matrix"
-        ],
-        "config": {
-            "serviceURL": "https://app.element.io/",
-            "hasCustomUrl": true,
-            "message": "Element's default URL is https://app.element.io/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "miro",
-        "name": "Miro",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://miro.com/app/dashboard/"
-        }
-    },
-    {
-        "id": "twitter-dm",
-        "name": "Twitter DM",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mobile.twitter.com/messages",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "nextcloud-talk",
-        "name": "Nextcloud Talk",
-        "version": "1.4.2",
-        "license": "MIT",
-        "repository": "https://github.com/csolisr/ferdium-recipes/tree/master/recipes/nextcloud-tasks/",
-        "config": {
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true,
-            "hasTeamId": true,
-            "urlInputPrefix": "https://",
-            "urlInputSuffix": "/apps/spreed/",
-            "serviceURL": "https://{teamId}/apps/spreed/"
-        }
-    },
-    {
-        "id": "infomaniak-kdrive",
-        "name": "Infomaniak KDrive",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://kdrive.infomaniak.com/"
-        }
-    },
-    {
-        "id": "postman",
-        "name": "Postman",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.postman.co/home"
-        }
-    },
-    {
-        "id": "sogo",
-        "name": "SOGo",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "clubhouse",
-        "name": "Clubhouse",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/dnlnrs/ferdi-recipe-clubhouse",
-        "config": {
-            "serviceURL": "https://app.clubhouse.io/{teamId}/dashboard",
-            "hasTeamId": true
-        }
-    },
-    {
-        "id": "devRant",
-        "name": "devRant",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/emamut/recipe-devrant",
-        "config": {
-            "serviceURL": "https://devrant.com/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "medium",
-        "name": "Medium",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://medium.com"
-        }
-    },
-    {
-        "id": "google-maps",
-        "name": "Google Maps",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.google.com/maps"
-        }
-    },
-    {
-        "id": "mailbox.org",
-        "name": "Mailbox.org",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://office.mailbox.org/appsuite/#!!&app=io.ox/portal"
-        }
-    },
-    {
-        "id": "jsoncrack",
-        "name": "JSON Crack",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.jsoncrack.com/"
-        }
-    },
-    {
-        "id": "clickup",
-        "name": "ClickUp",
-        "version": "2.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.clickup.com",
-            "hasCustomUrl": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "infomaniak-mail",
-        "name": "Infomaniak Mail",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.infomaniak.com/"
-        }
-    },
-    {
-        "id": "zulip",
-        "name": "Zulip",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "daily-dev",
-        "name": "Daily.dev",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.daily.dev"
-        }
-    },
-    {
-        "id": "reddit-chat",
-        "name": "Reddit Chat",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://chat.reddit.com/"
-        }
-    },
-    {
-        "id": "lineworks",
-        "name": "Line Works",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "hasIndirectMessages": true,
-            "serviceURL": "https://talk.worksmobile.com/"
-        }
-    },
-    {
-        "id": "mysms",
-        "name": "MySMS",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.mysms.com"
-        }
-    },
-    {
-        "id": "azure-devops",
-        "name": "Azure DevOps",
-        "version": "1.4.1",
-        "license": "MIT",
-        "aliases": [
-            "azdo"
-        ],
-        "config": {
-            "serviceURL": "https://dev.azure.com/"
-        }
-    },
-    {
-        "id": "strava",
-        "name": "Strava",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.strava.com/"
-        }
-    },
-    {
-        "id": "nextcloud-deck",
-        "name": "Nextcloud Deck",
-        "version": "1.1.1",
-        "license": "MIT",
-        "repository": "https://github.com/mindcombatant/ferdium-recipes/tree/master/recipes/nextcloud-deck/",
-        "config": {
-            "hasNotificationSound": true,
-            "hasTeamId": true,
-            "urlInputPrefix": "https://",
-            "urlInputSuffix": "/apps/deck/",
-            "serviceURL": "https://{teamId}/apps/deck/"
-        }
-    },
-    {
-        "id": "excalidraw",
-        "name": "Excalidraw",
-        "version": "1.0.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://excalidraw.com/",
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "msteams",
-        "name": "Microsoft Teams",
-        "version": "3.3.2",
-        "license": "MIT",
-        "aliases": [
-            "teamsChat"
-        ],
-        "config": {
-            "serviceURL": "https://teams.microsoft.com",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "chatra",
-        "name": "Chatra",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "chatra",
+        "recipeConfig": {
             "serviceURL": "https://app.chatra.io/",
             "hasNotificationSound": true,
             "hasIndirectMessages": true
-        }
+        },
+        "title": "Chatra"
     },
     {
-        "id": "nextdoor",
-        "name": "Nextdoor",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://nextdoor.co.uk/inbox/"
-        }
+        "recipeId": "chatwoot",
+        "recipeConfig": {
+            "serviceURL": "https://app.chatwoot.com/app/login"
+        },
+        "title": "Chatwoot"
     },
     {
-        "id": "google-keep",
-        "name": "Google Keep",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://keep.google.com/u/0/"
-        }
+        "recipeId": "chatwork",
+        "recipeConfig": {
+            "serviceURL": "https://www.chatwork.com/login.php",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Chatwork"
     },
     {
-        "id": "podio",
-        "name": "Podio",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://podio.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "notion-calendar",
-        "name": "Notion Calendar",
-        "version": "1.0.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://calendar.notion.so/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "easy-redmine",
-        "name": "Easy Redmine",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamID}.easyredmine.com",
-            "hasTeamId": true
-        }
-    },
-    {
-        "id": "freshrss",
-        "name": "FreshRSS",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "BlueBubbles",
-        "name": "BlueBubbles",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://bluebubbles.app/web/#/"
-        }
-    },
-    {
-        "id": "youtrack",
-        "name": "YouTrack",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.myjetbrains.com/youtrack/",
-            "urlInputSuffix": ".myjetbrains.com",
-            "hasHostedOption": true,
-            "hasTeamId": true,
-            "hasCustomUrl": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "cinny",
-        "name": "Cinny",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [
-            "Matrix"
-        ],
-        "config": {
+        "recipeId": "cinny",
+        "recipeConfig": {
             "serviceURL": "https://app.cinny.in",
             "hasCustomUrl": true,
             "message": "Cinny's default URL is https://app.cinny.in",
             "hasNotificationSound": true,
             "hasDirectMessages": true,
             "hasIndirectMessages": true
-        }
+        },
+        "title": "Cinny"
     },
     {
-        "id": "sococo",
-        "name": "Sococo",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/klcodanr/recipe-sococo",
-        "config": {
-            "serviceURL": "https://app.sococo.com",
-            "hasNotificationSound": true
-        }
+        "recipeId": "circuit",
+        "recipeConfig": {
+            "serviceURL": "https://eu.yourcircuit.com/"
+        },
+        "title": "Circuit"
     },
     {
-        "id": "teamleader",
-        "name": "teamleader",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.teamleader.eu/?gotologin",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "youtube",
-        "name": "YouTube",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://youtube.com/"
-        }
-    },
-    {
-        "id": "proton-calendar",
-        "name": "ProtonCalendar",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://calendar.proton.me/"
-        }
-    },
-    {
-        "id": "kiwiirc",
-        "name": "KiwiIRC",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://kiwiirc.com/nextclient/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "bigbluebutton",
-        "name": "BigBlueButton",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://bigbluebutton.mycompany.com/",
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "elk",
-        "name": "Elk",
-        "version": "1.1.1",
-        "license": "MIT",
-        "repository": "https://github.com/jalil-salame/ferdium-elk-recipe",
-        "config": {
-            "serviceURL": "https://elk.zone/"
-        }
-    },
-    {
-        "id": "help-scout",
-        "name": "Help Scout",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.helpscout.com"
-        }
-    },
-    {
-        "id": "icq",
-        "name": "ICQ",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/meetfranz/recipe-icq",
-        "config": {
-            "serviceURL": "https://web.icq.com"
-        }
-    },
-    {
-        "id": "gaming-on-linux",
-        "name": "GamingOnLinux",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.gamingonlinux.com"
-        }
-    },
-    {
-        "id": "mirotalk-p2p",
-        "name": "MiroTalk P2P",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://p2p.mirotalk.com",
-            "hasCustomUrl": true,
-            "hasHostedOption": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "canvas",
-        "name": "Canvas",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.instructure.com/",
-            "hasTeamId": true,
-            "message": "Your canvas TeamID is your school's initials eg MIT, FIU, UCF etc."
-        }
-    },
-    {
-        "id": "notion",
-        "name": "Notion",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/TanZng/ferdi-notion",
-        "config": {
-            "serviceURL": "https://www.notion.so/",
-            "hasIndirectMessages": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "pastebin",
-        "name": "Pastebin",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://pastebin.com/"
-        }
-    },
-    {
-        "id": "youtubemusic",
-        "name": "YouTube Music",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://music.youtube.com/"
-        }
-    },
-    {
-        "id": "affine",
-        "name": "Affine",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true,
-            "serviceURL": "https://{affine}/"
-        }
-    },
-    {
-        "id": "vk",
-        "name": "VK",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/meetfranz/recipe-vk",
-        "config": {
-            "serviceURL": "https://www.vk.com"
-        }
-    },
-    {
-        "id": "pushover",
-        "name": "Pushover",
-        "version": "1.1.2",
-        "license": "MIT",
-        "repository": "https://github.com/jdwhite/franz-recipe-pushover",
-        "config": {
-            "serviceURL": "https://client.pushover.net",
-            "hasNotificationSound": true,
-            "hasDirectMessages": true,
-            "hasIndirectMessages": false,
-            "hasTeamId": false
-        }
-    },
-    {
-        "id": "harvest",
-        "name": "Harvest",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.harvestapp.com",
-            "hasTeamId": true,
-            "urlInputSuffix": ".harvestapp.com"
-        }
-    },
-    {
-        "id": "peopleperhour",
-        "name": "People Per Hour",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.peopleperhour.com/notification/list"
-        }
-    },
-    {
-        "id": "wechat",
-        "name": "WeChat",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/koma-private/recipe-wechat",
-        "config": {
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true,
-            "serviceURL": "https://web.wechat.com/"
-        }
-    },
-    {
-        "id": "netlify",
-        "name": "Netlify",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.netlify.com",
+        "recipeId": "ciscospark",
+        "recipeConfig": {
+            "serviceURL": "https://web.ciscospark.com",
             "hasIndirectMessages": true
-        }
+        },
+        "title": "Cisco Spark"
     },
     {
-        "id": "stackoverflow",
-        "name": "Stack Overflow",
-        "version": "0.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/christianascone/franz-recipe-stackoverflow",
-        "config": {
-            "serviceURL": "https://stackoverflow.com",
+        "recipeId": "citrix-workspace",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.cloud.com",
+            "hasNotificationSound": true,
+            "hasTeamId": true,
+            "urlInputSuffix": ".cloud.com"
+        },
+        "title": "Citrix Workspace"
+    },
+    {
+        "recipeId": "claude-ai",
+        "recipeConfig": {
+            "serviceURL": "https://claude.ai"
+        },
+        "title": "claude.ai"
+    },
+    {
+        "recipeId": "clickup",
+        "recipeConfig": {
+            "serviceURL": "https://app.clickup.com",
+            "hasCustomUrl": true,
             "hasNotificationSound": true
-        }
+        },
+        "title": "ClickUp"
     },
     {
-        "id": "zammad",
-        "name": "Zammad",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "clockify",
+        "recipeConfig": {
+            "serviceURL": "https://clockify.me/tracker",
+            "hasNotificationSound": true
+        },
+        "title": "Clockify"
+    },
+    {
+        "recipeId": "clockwise",
+        "recipeConfig": {
+            "serviceURL": "https://www.getclockwise.com/app/"
+        },
+        "title": "Clockwise"
+    },
+    {
+        "recipeId": "clubhouse",
+        "recipeConfig": {
+            "serviceURL": "https://app.clubhouse.io/{teamId}/dashboard",
+            "hasTeamId": true
+        },
+        "title": "Clubhouse"
+    },
+    {
+        "recipeId": "coinbase",
+        "recipeConfig": {
+            "serviceURL": "https://www.coinbase.com/dashboard",
+            "hasNotificationSound": true
+        },
+        "title": "Coinbase"
+    },
+    {
+        "recipeId": "conceptboard",
+        "recipeConfig": {
+            "serviceURL": "https://app.conceptboard.com/"
+        },
+        "title": "Conceptboard"
+    },
+    {
+        "recipeId": "confluence",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Confluence"
+    },
+    {
+        "recipeId": "crowdin",
+        "recipeConfig": {
+            "serviceURL": "https://crowdin.com/profile"
+        },
+        "title": "Crowdin"
+    },
+    {
+        "recipeId": "birdbox_custom",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Custom Service"
+    },
+    {
+        "recipeId": "daily-dev",
+        "recipeConfig": {
+            "serviceURL": "https://app.daily.dev"
+        },
+        "title": "Daily.dev"
+    },
+    {
+        "recipeId": "deckblue",
+        "recipeConfig": {
+            "serviceURL": "https://deck.blue/"
+        },
+        "title": "DeckBlue"
+    },
+    {
+        "recipeId": "deepl",
+        "recipeConfig": {
+            "serviceURL": "https://www.deepl.com/translator"
+        },
+        "title": "DeepL"
+    },
+    {
+        "recipeId": "dev-community",
+        "recipeConfig": {
+            "serviceURL": "https://dev.to"
+        },
+        "title": "Dev Community"
+    },
+    {
+        "recipeId": "devdocs",
+        "recipeConfig": {
+            "serviceURL": "https://devdocs.io"
+        },
+        "title": "DevDocs"
+    },
+    {
+        "recipeId": "devRant",
+        "recipeConfig": {
+            "serviceURL": "https://devrant.com/",
+            "hasNotificationSound": true
+        },
+        "title": "devRant"
+    },
+    {
+        "recipeId": "diagrams",
+        "recipeConfig": {
+            "serviceURL": "https://app.diagrams.net/"
+        },
+        "title": "Diagrams"
+    },
+    {
+        "recipeId": "dialpad",
+        "recipeConfig": {
+            "serviceURL": "https://dialpad.com/app",
+            "hasNotificationSound": true
+        },
+        "title": "Dialpad"
+    },
+    {
+        "recipeId": "dingtalk",
+        "recipeConfig": {
+            "serviceURL": "https://im.dingtalk.com/",
+            "hasNotificationSound": true,
+            "disablewebsecurity": true
+        },
+        "title": "Dingtalk"
+    },
+    {
+        "recipeId": "discord",
+        "recipeConfig": {
+            "serviceURL": "https://discord.com/app",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Discord"
+    },
+    {
+        "recipeId": "discourse",
+        "recipeConfig": {
+            "serviceURL": "https://meta.discourse.org/",
+            "hasCustomUrl": true,
+            "message": "Discourse's default URL is https://meta.discourse.org/",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Discourse"
+    },
+    {
+        "recipeId": "disqus",
+        "recipeConfig": {
+            "serviceURL": "https://disqus.com/home/"
+        },
+        "title": "Disqus"
+    },
+    {
+        "recipeId": "dockerhub",
+        "recipeConfig": {
+            "serviceURL": "https://hub.docker.com"
+        },
+        "title": "Docker Hub"
+    },
+    {
+        "recipeId": "drawio",
+        "recipeConfig": {
+            "serviceURL": "https://app.diagrams.net/"
+        },
+        "title": "Draw.io"
+    },
+    {
+        "recipeId": "dropbox",
+        "recipeConfig": {
+            "serviceURL": "https://www.dropbox.com/home",
+            "hasIndirectMessages": true
+        },
+        "title": "Dropbox"
+    },
+    {
+        "recipeId": "duckduckgo-ai-chat",
+        "recipeConfig": {
+            "serviceURL": "https://duckduckgo.com/aichat"
+        },
+        "title": "DuckDuckGo AI Chat"
+    },
+    {
+        "recipeId": "easy-redmine",
+        "recipeConfig": {
+            "serviceURL": "https://{teamID}.easyredmine.com",
+            "hasTeamId": true
+        },
+        "title": "Easy Redmine"
+    },
+    {
+        "recipeId": "eitaa",
+        "recipeConfig": {
+            "serviceURL": "https://web.eitaa.com/"
+        },
+        "title": "Eitaa"
+    },
+    {
+        "recipeId": "element",
+        "recipeConfig": {
+            "serviceURL": "https://app.element.io/",
+            "hasCustomUrl": true,
+            "message": "Element's default URL is https://app.element.io/",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Element"
+    },
+    {
+        "recipeId": "elevate",
+        "recipeConfig": {
+            "serviceURL": "https://elevate.serverdata.net"
+        },
+        "title": "Elevate"
+    },
+    {
+        "recipeId": "elk",
+        "recipeConfig": {
+            "serviceURL": "https://elk.zone/"
+        },
+        "title": "Elk"
+    },
+    {
+        "recipeId": "epicgames",
+        "recipeConfig": {
+            "serviceURL": "https://www.epicgames.com/id/login?lang=en_US&redirectUrl=https%3A%2F%2Fwww.epicgames.com%2Fstore%2Fen-US%2F&noHostRedirect=true"
+        },
+        "title": "Epic Games Store"
+    },
+    {
+        "recipeId": "erepublik",
+        "recipeConfig": {
+            "serviceURL": "https://erepublik.com"
+        },
+        "title": "eRepublik"
+    },
+    {
+        "recipeId": "evernote",
+        "recipeConfig": {
+            "serviceURL": "https://www.evernote.com/Login.action"
+        },
+        "title": "Evernote"
+    },
+    {
+        "recipeId": "excalidraw",
+        "recipeConfig": {
+            "serviceURL": "https://excalidraw.com/",
+            "hasCustomUrl": true
+        },
+        "title": "Excalidraw"
+    },
+    {
+        "recipeId": "facebook",
+        "recipeConfig": {
+            "serviceURL": "https://www.facebook.com/login"
+        },
+        "title": "Facebook"
+    },
+    {
+        "recipeId": "facebookpages",
+        "recipeConfig": {
+            "serviceURL": "https://facebook.com/{teamId}/",
+            "urlInputPrefix": "https://facebook.com/",
+            "hasNotificationSound": true,
+            "hasTeamId": true,
+            "message": "Insert your page name in team, e.g. meetfranz"
+        },
+        "title": "Facebook Pages"
+    },
+    {
+        "recipeId": "fandom",
+        "recipeConfig": {
+            "serviceURL": "https://www.fandom.com"
+        },
+        "title": "Fandom"
+    },
+    {
+        "recipeId": "fastmail",
+        "recipeConfig": {
+            "serviceURL": "https://www.fastmail.com/mail/",
+            "message": "Get private, secure, ad-free email hosting for you or your business"
+        },
+        "title": "FastMail"
+    },
+    {
+        "recipeId": "feedbin",
+        "recipeConfig": {
+            "serviceURL": "https://feedbin.com/login",
+            "hasNotificationSound": true
+        },
+        "title": "Feedbin"
+    },
+    {
+        "recipeId": "feedly",
+        "recipeConfig": {
+            "serviceURL": "https://feedly.com"
+        },
+        "title": "Feedly"
+    },
+    {
+        "recipeId": "figma",
+        "recipeConfig": {
+            "serviceURL": "https://figma.com"
+        },
+        "title": "Figma"
+    },
+    {
+        "recipeId": "firefly",
+        "recipeConfig": {
+            "hasCustomUrl": true,
+            "serviceURL": "https://{firefly}/"
+        },
+        "title": "Firefly"
+    },
+    {
+        "recipeId": "fiverr",
+        "recipeConfig": {
+            "serviceURL": "https://www.fiverr.com/inbox/",
+            "hasNotificationSound": true
+        },
+        "title": "Fiverr"
+    },
+    {
+        "recipeId": "fleep",
+        "recipeConfig": {
+            "serviceURL": "https://fleep.io/chat"
+        },
+        "title": "Fleep"
+    },
+    {
+        "recipeId": "flock",
+        "recipeConfig": {
+            "serviceURL": "https://web.flock.com",
+            "hasNotificationSound": true
+        },
+        "title": "Flock"
+    },
+    {
+        "recipeId": "flowdock",
+        "recipeConfig": {
+            "serviceURL": "https://www.flowdock.com/app/",
+            "hasNotificationSound": true
+        },
+        "title": "Flowdock"
+    },
+    {
+        "recipeId": "freshdesk",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.freshdesk.com/a/tickets/filters/unresolved",
+            "urlInputSuffix": ".freshdesk.com/a/tickets/filters/unresolved",
+            "hasTeamId": true,
+            "hasNotificationSound": true
+        },
+        "title": "Freshdesk"
+    },
+    {
+        "recipeId": "freshrss",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "FreshRSS"
+    },
+    {
+        "recipeId": "freshservice",
+        "recipeConfig": {
+            "serviceURL": "https://freshservice.com"
+        },
+        "title": "Freshservice"
+    },
+    {
+        "recipeId": "gadugadu",
+        "recipeConfig": {
+            "serviceURL": "https://www.gg.pl",
+            "hasNotificationSound": true
+        },
+        "title": "Gadu-Gadu"
+    },
+    {
+        "recipeId": "gaming-on-linux",
+        "recipeConfig": {
+            "serviceURL": "https://www.gamingonlinux.com"
+        },
+        "title": "GamingOnLinux"
+    },
+    {
+        "recipeId": "gather",
+        "recipeConfig": {
+            "serviceURL": "https://app.gather.town/app"
+        },
+        "title": "Gather"
+    },
+    {
+        "recipeId": "gettr",
+        "recipeConfig": {
+            "serviceURL": "https://gettr.com"
+        },
+        "title": "Gettr"
+    },
+    {
+        "recipeId": "gitea",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Gitea"
+    },
+    {
+        "recipeId": "github",
+        "recipeConfig": {
+            "serviceURL": "https://github.com/notifications",
+            "hasHostedOption": true,
+            "hasCustomUrl": true,
+            "hasIndirectMessages": true
+        },
+        "title": "GitHub"
+    },
+    {
+        "recipeId": "gitlab",
+        "recipeConfig": {
+            "serviceURL": "https://gitlab.com/users/sign_in",
+            "hasHostedOption": true,
+            "hasCustomUrl": true
+        },
+        "title": "GitLab"
+    },
+    {
+        "recipeId": "gitter",
+        "recipeConfig": {
+            "serviceURL": "https://gitter.im",
+            "hasNotificationSound": true
+        },
+        "title": "Gitter"
+    },
+    {
+        "recipeId": "glowing-bear",
+        "recipeConfig": {
+            "serviceURL": "https://www.glowing-bear.org",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Glowing Bear"
+    },
+    {
+        "recipeId": "gmail",
+        "recipeConfig": {
+            "serviceURL": "https://mail.google.com"
+        },
+        "title": "Gmail"
+    },
+    {
+        "recipeId": "gotomeeting",
+        "recipeConfig": {
+            "serviceURL": "https://app.gotomeeting.com/home.html",
+            "hasNotificationSound": true
+        },
+        "title": "Go To Meeting"
+    },
+    {
+        "recipeId": "good-reads",
+        "recipeConfig": {
+            "serviceURL": "https://www.goodreads.com/"
+        },
+        "title": "Good Reads"
+    },
+    {
+        "recipeId": "hangouts",
+        "recipeConfig": {
+            "serviceURL": "https://mail.google.com/chat/",
+            "hasNotificationSound": true
+        },
+        "title": "Google Chat"
+    },
+    {
+        "recipeId": "google-classroom",
+        "recipeConfig": {
+            "serviceURL": "https://classroom.google.com/u/0/"
+        },
+        "title": "Google Classroom"
+    },
+    {
+        "recipeId": "google-contacts",
+        "recipeConfig": {
+            "serviceURL": "https://contacts.google.com/u/0/"
+        },
+        "title": "Google Contacts"
+    },
+    {
+        "recipeId": "google-docs",
+        "recipeConfig": {
+            "serviceURL": "https://docs.google.com/document/u/0/"
+        },
+        "title": "Google Docs"
+    },
+    {
+        "recipeId": "google-drive",
+        "recipeConfig": {
+            "serviceURL": "https://drive.google.com/drive/my-drive",
+            "hasNotificationSound": true
+        },
+        "title": "Google Drive"
+    },
+    {
+        "recipeId": "google-duo",
+        "recipeConfig": {
+            "serviceURL": "https://duo.google.com/?web",
+            "hasNotificationSound": true
+        },
+        "title": "Google Duo"
+    },
+    {
+        "recipeId": "google-gemini",
+        "recipeConfig": {
+            "serviceURL": "https://gemini.google.com"
+        },
+        "title": "Google Gemini"
+    },
+    {
+        "recipeId": "google-groups",
+        "recipeConfig": {
+            "serviceURL": "https://groups.google.com/u/0/"
+        },
+        "title": "Google Groups"
+    },
+    {
+        "recipeId": "google-keep",
+        "recipeConfig": {
+            "serviceURL": "https://keep.google.com/u/0/"
+        },
+        "title": "Google Keep"
+    },
+    {
+        "recipeId": "google-maps",
+        "recipeConfig": {
+            "serviceURL": "https://www.google.com/maps"
+        },
+        "title": "Google Maps"
+    },
+    {
+        "recipeId": "google-meet",
+        "recipeConfig": {
+            "serviceURL": "https://meet.google.com/u/0/",
+            "hasNotificationSound": true
+        },
+        "title": "Google Meet"
+    },
+    {
+        "recipeId": "google-news",
+        "recipeConfig": {
+            "serviceURL": "https://news.google.com/u/0/"
+        },
+        "title": "Google News"
+    },
+    {
+        "recipeId": "google-podcasts",
+        "recipeConfig": {
+            "serviceURL": "https://podcasts.google.com/u/0/"
+        },
+        "title": "Google Podcasts"
+    },
+    {
+        "recipeId": "google-presentation",
+        "recipeConfig": {
+            "serviceURL": "https://docs.google.com/presentation/u/0/"
+        },
+        "title": "Google Presentation"
+    },
+    {
+        "recipeId": "google-spreadsheets",
+        "recipeConfig": {
+            "serviceURL": "https://docs.google.com/spreadsheets/u/0/"
+        },
+        "title": "Google Spreadsheets"
+    },
+    {
+        "recipeId": "google-translate",
+        "recipeConfig": {
+            "serviceURL": "https://translate.google.com/u/0/"
+        },
+        "title": "Google Translate"
+    },
+    {
+        "recipeId": "google-voice",
+        "recipeConfig": {
+            "serviceURL": "https://voice.google.com/u/0/",
+            "message": "Google Voice gives you one number for all your phones, voicemail as easy as email, free US long distance, low rates on international calls, and many calling features like transcripts, call blocking, call screening, conference calling, SMS, and more."
+        },
+        "title": "Google Voice"
+    },
+    {
+        "recipeId": "gotify",
+        "recipeConfig": {
             "hasNotificationSound": true,
             "hasDirectMessages": false,
             "hasIndirectMessages": true,
             "hasCustomUrl": true
-        }
+        },
+        "title": "Gotify"
     },
     {
-        "id": "xing",
-        "name": "XING",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.xing.com/messenger/global"
-        }
+        "recipeId": "goto",
+        "recipeConfig": {
+            "serviceURL": "https://app.goto.com/"
+        },
+        "title": "GoTo"
     },
     {
-        "id": "airtable",
-        "name": "Airtable",
-        "version": "1.4.1",
-        "license": "MIT",
-        "repository": "https://github.com/transnat/recipe-airtable",
-        "config": {
-            "serviceURL": "https://airtable.com"
-        }
+        "recipeId": "grammarly",
+        "recipeConfig": {
+            "serviceURL": "https://app.grammarly.com/"
+        },
+        "title": "Grammarly"
     },
     {
-        "id": "mastodeck",
-        "name": "Mastodeck",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mastodeck.com"
-        }
-    },
-    {
-        "id": "hastebin",
-        "name": "Hastebin",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.toptal.com/developers/hastebin"
-        }
-    },
-    {
-        "id": "todoist",
-        "name": "Todoist",
-        "version": "1.5.2",
-        "license": "MIT",
-        "repository": "https://github.com/meetfranz/recipe-todoist",
-        "config": {
-            "serviceURL": "https://todoist.com/app",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "google-classroom",
-        "name": "Google Classroom",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/TanZng/ferdi-googleclassroom",
-        "config": {
-            "serviceURL": "https://classroom.google.com/u/0/"
-        }
-    },
-    {
-        "id": "mirotalk-c2c",
-        "name": "MiroTalk C2C",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://c2c.mirotalk.com",
-            "hasCustomUrl": true,
-            "hasHostedOption": true,
+        "recipeId": "groupme",
+        "recipeConfig": {
+            "serviceURL": "https://web.groupme.com",
             "hasNotificationSound": true
-        }
+        },
+        "title": "GroupMe"
     },
     {
-        "id": "whimsical",
-        "name": "Whimsical",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://whimsical.com/"
-        }
+        "recipeId": "guilded",
+        "recipeConfig": {
+            "serviceURL": "https://www.guilded.gg/",
+            "hasNotificationSound": true
+        },
+        "title": "Guilded"
     },
     {
-        "id": "iris-messenger",
-        "name": "Iris Messenger",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://iris.to"
-        }
+        "recipeId": "guru",
+        "recipeConfig": {
+            "serviceURL": "https://www.guru.com/pro/messages.aspx"
+        },
+        "title": "guru.com"
     },
     {
-        "id": "planitpoker",
-        "name": "PlanITPoker",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.planitpoker.com/board/#/room/{teamId}",
-            "urlInputPrefix": "planitpoker.com/board/#/room/",
-            "hasTeamId": true
-        }
+        "recipeId": "habitica",
+        "recipeConfig": {
+            "serviceURL": "https://habitica.com"
+        },
+        "title": "Habitica"
     },
     {
-        "id": "misskey",
-        "name": "Misskey",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/sharkpp/franz-recipe-misskey",
-        "config": {
-            "serviceURL": "https://{teamId}",
+        "recipeId": "hacker-news",
+        "recipeConfig": {
+            "serviceURL": "https://news.ycombinator.com/"
+        },
+        "title": "Hacker News"
+    },
+    {
+        "recipeId": "hackmd",
+        "recipeConfig": {
+            "serviceURL": "https://hackmd.io",
+            "hasNotificationSound": true
+        },
+        "title": "HackMd"
+    },
+    {
+        "recipeId": "hangoutschat",
+        "recipeConfig": {
+            "serviceURL": "https://chat.google.com",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Hangouts Chat"
+    },
+    {
+        "recipeId": "harvest",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.harvestapp.com",
             "hasTeamId": true,
-            "hasNotificationSound": true,
-            "message": "Please enter the instance address of Misskey in the team name input box."
-        }
+            "urlInputSuffix": ".harvestapp.com"
+        },
+        "title": "Harvest"
     },
     {
-        "id": "threema",
-        "name": "Threema",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/Arany/franz-recipe-threema",
-        "config": {
-            "serviceURL": "https://web.threema.ch",
-            "hasNotificationSound": true
-        }
+        "recipeId": "hastebin",
+        "recipeConfig": {
+            "serviceURL": "https://www.toptal.com/developers/hastebin"
+        },
+        "title": "Hastebin"
     },
     {
-        "id": "traccar",
-        "name": "Traccar",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "hasHostedOption": true,
+        "recipeId": "help-scout",
+        "recipeConfig": {
+            "serviceURL": "https://www.helpscout.com"
+        },
+        "title": "Help Scout"
+    },
+    {
+        "recipeId": "hey",
+        "recipeConfig": {
+            "serviceURL": "https://app.hey.com",
+            "hasIndirectMessages": true
+        },
+        "title": "Hey"
+    },
+    {
+        "recipeId": "home-assistant",
+        "recipeConfig": {
             "hasCustomUrl": true,
             "hasNotificationSound": true
-        }
+        },
+        "title": "Home Assistant"
     },
     {
-        "id": "tweetdeck",
-        "name": "Tweetdeck",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://tweetdeck.twitter.com/",
+        "recipeId": "hostnet",
+        "recipeConfig": {
+            "serviceURL": "https://appsuite.hostnet.nl/appsuite/"
+        },
+        "title": "Hostnet"
+    },
+    {
+        "recipeId": "hubstaff",
+        "recipeConfig": {
+            "serviceURL": "https://app.hubstaff.com/login_now",
             "hasNotificationSound": true
-        }
+        },
+        "title": "HubStaff"
     },
     {
-        "id": "netatmo-energy",
-        "name": "Netatmo Energy",
-        "version": "1.4.1",
-        "license": "MIT",
-        "repository": "https://github.com/rctneil/franz-recipe-netatmo-energy",
-        "config": {
-            "serviceURL": "https://my.netatmo.com/app/energy"
-        }
+        "recipeId": "iberbox",
+        "recipeConfig": {
+            "serviceURL": "https://iberbox.com/login"
+        },
+        "title": "IberBox"
     },
     {
-        "id": "perplexity",
-        "name": "Perplexity AI",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.perplexity.ai/"
-        }
+        "recipeId": "iCloud",
+        "recipeConfig": {
+            "serviceURL": "https://www.icloud.com/"
+        },
+        "title": "iCloud"
     },
     {
-        "id": "messenger",
-        "name": "Messenger",
-        "version": "1.8.4",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://messenger.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "glowing-bear",
-        "name": "Glowing Bear",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.glowing-bear.org",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "gitea",
-        "name": "Gitea",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "icloud-mail",
-        "name": "iCloud Mail",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
+        "recipeId": "icloud-mail",
+        "recipeConfig": {
             "serviceURL": "https://www.icloud.com/mail/"
-        }
+        },
+        "title": "iCloud Mail"
     },
     {
-        "id": "jira",
-        "name": "Jira",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "icloud-reminders",
+        "recipeConfig": {
+            "serviceURL": "https://www.icloud.com/reminders"
+        },
+        "title": "iCloud Reminders"
+    },
+    {
+        "recipeId": "icq",
+        "recipeConfig": {
+            "serviceURL": "https://web.icq.com"
+        },
+        "title": "ICQ"
+    },
+    {
+        "recipeId": "idobata",
+        "recipeConfig": {
+            "serviceURL": "https://idobata.io",
+            "message": "Idobata plugin for meetfranz."
+        },
+        "title": "Idobata"
+    },
+    {
+        "recipeId": "infomaniak-calendar",
+        "recipeConfig": {
+            "serviceURL": "https://calendar.infomaniak.com"
+        },
+        "title": "Infomaniak Calendar"
+    },
+    {
+        "recipeId": "infomaniak-kdrive",
+        "recipeConfig": {
+            "serviceURL": "https://kdrive.infomaniak.com/"
+        },
+        "title": "Infomaniak KDrive"
+    },
+    {
+        "recipeId": "infomaniak-mail",
+        "recipeConfig": {
+            "serviceURL": "https://mail.infomaniak.com/"
+        },
+        "title": "Infomaniak Mail"
+    },
+    {
+        "recipeId": "inoreader",
+        "recipeConfig": {
+            "serviceURL": "https://www.inoreader.com/login",
+            "message": "The content reader for power users who want to save time."
+        },
+        "title": "Inoreader"
+    },
+    {
+        "recipeId": "instagram",
+        "recipeConfig": {
+            "serviceURL": "https://instagram.com/",
+            "hasNotificationSound": true
+        },
+        "title": "Instagram"
+    },
+    {
+        "recipeId": "instagram-direct-messages",
+        "recipeConfig": {
+            "serviceURL": "https://www.instagram.com/direct/inbox/",
+            "hasNotificationSound": true
+        },
+        "title": "Instagram Direct Messages"
+    },
+    {
+        "recipeId": "intercom",
+        "recipeConfig": {
+            "serviceURL": "https://app.intercom.io/",
+            "hasNotificationSound": true
+        },
+        "title": "Intercom"
+    },
+    {
+        "recipeId": "invoice-ninja",
+        "recipeConfig": {
+            "serviceURL": "https://invoicing.co/#/",
+            "hasHostedOption": true,
+            "hasCustomUrl": true
+        },
+        "title": "Invoice Ninja"
+    },
+    {
+        "recipeId": "irccloud",
+        "recipeConfig": {
+            "serviceURL": "https://www.irccloud.com",
+            "hasIndirectMessages": true
+        },
+        "title": "IRCCloud"
+    },
+    {
+        "recipeId": "iris-messenger",
+        "recipeConfig": {
+            "serviceURL": "https://iris.to"
+        },
+        "title": "Iris Messenger"
+    },
+    {
+        "recipeId": "jira",
+        "recipeConfig": {
             "serviceURL": "https://{teamId}.atlassian.net",
             "urlInputSuffix": ".atlassian.net",
             "hasHostedOption": true,
             "hasTeamId": true,
             "hasCustomUrl": true,
             "hasNotificationSound": true
-        }
+        },
+        "title": "Jira"
     },
     {
-        "id": "drawio",
-        "name": "Draw.io",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.diagrams.net/"
-        }
-    },
-    {
-        "id": "github",
-        "name": "GitHub",
-        "version": "2.6.5",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://github.com/notifications",
+        "recipeId": "jitsi",
+        "recipeConfig": {
+            "serviceURL": "https://meet.jit.si/",
             "hasHostedOption": true,
             "hasCustomUrl": true,
-            "hasIndirectMessages": true
-        }
+            "message": "For the public instance, use https://meet.jit.si/ for the Custom server"
+        },
+        "title": "Jitsi Meet"
     },
     {
-        "id": "hangoutschat",
-        "name": "Hangouts Chat",
-        "version": "1.8.3",
-        "license": "MIT",
-        "aliases": [
-            "google-chat",
-            "gChat"
-        ],
-        "config": {
-            "serviceURL": "https://chat.google.com",
+        "recipeId": "jollor",
+        "recipeConfig": {
+            "serviceURL": "https://jollor.com",
+            "message": "Jollor - Manage your social media with ease",
+            "hasNotificationSound": true
+        },
+        "title": "jollor"
+    },
+    {
+        "recipeId": "jsoncrack",
+        "recipeConfig": {
+            "serviceURL": "https://app.jsoncrack.com/"
+        },
+        "title": "JSON Crack"
+    },
+    {
+        "recipeId": "keepervault",
+        "recipeConfig": {
+            "serviceURL": "https://keepersecurity.eu/vault/#"
+        },
+        "title": "Keeper Vault"
+    },
+    {
+        "recipeId": "keybase.io",
+        "recipeConfig": {
+            "serviceURL": "https://keybase.io/login",
+            "hasNotificationSound": true
+        },
+        "title": "Keybase"
+    },
+    {
+        "recipeId": "kimaicloud",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.kimai.cloud",
+            "urlInputSuffix": ".kimai.cloud",
+            "hasHostedOption": true,
+            "hasTeamId": true,
+            "hasCustomUrl": true
+        },
+        "title": "Kimai Cloud"
+    },
+    {
+        "recipeId": "kiwiirc",
+        "recipeConfig": {
+            "serviceURL": "https://kiwiirc.com/nextclient/",
+            "hasNotificationSound": true
+        },
+        "title": "KiwiIRC"
+    },
+    {
+        "recipeId": "lark",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.larksuite.com/messenger/",
+            "hasTeamId": true,
+            "urlInputSuffix": ".larksuite.com",
+            "hasNotificationSound": true
+        },
+        "title": "Lark"
+    },
+    {
+        "recipeId": "lastpass",
+        "recipeConfig": {
+            "serviceURL": "https://lastpass.com/?ac=1&lpnorefresh=1",
+            "hasNotificationSound": true
+        },
+        "title": "LastPass"
+    },
+    {
+        "recipeId": "lemmy",
+        "recipeConfig": {
+            "serviceURL": "https://lemmy.ml/",
+            "hasCustomUrl": true,
+            "message": "Lemmy's default URL is https://lemmy.ml/",
             "hasNotificationSound": true,
             "hasIndirectMessages": true
-        }
+        },
+        "title": "Lemmy"
     },
     {
-        "id": "magic-level",
-        "name": "Magic Level",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "lineworks",
+        "recipeConfig": {
+            "hasIndirectMessages": true,
+            "serviceURL": "https://talk.worksmobile.com/"
+        },
+        "title": "Line Works"
+    },
+    {
+        "recipeId": "linear",
+        "recipeConfig": {
+            "serviceURL": "https://linear.app"
+        },
+        "title": "Linear"
+    },
+    {
+        "recipeId": "linkedin",
+        "recipeConfig": {
+            "serviceURL": "https://www.linkedin.com/messaging"
+        },
+        "title": "LinkedIn"
+    },
+    {
+        "recipeId": "localazy",
+        "recipeConfig": {
+            "serviceURL": "https://localazy.com/my/dashboard"
+        },
+        "title": "Localazy"
+    },
+    {
+        "recipeId": "magic-level",
+        "recipeConfig": {
             "serviceURL": "https://magiclevel.ml"
-        }
+        },
+        "title": "Magic Level"
     },
     {
-        "id": "google-gemini",
-        "name": "Google Gemini",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://gemini.google.com"
-        }
+        "recipeId": "mailbox.org",
+        "recipeConfig": {
+            "serviceURL": "https://office.mailbox.org/appsuite/#!!&app=io.ox/portal"
+        },
+        "title": "Mailbox.org"
     },
     {
-        "id": "figma",
-        "name": "Figma",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://figma.com"
-        }
+        "recipeId": "mailfence",
+        "recipeConfig": {
+            "serviceURL": "https://mailfence.com"
+        },
+        "title": "Mailfence"
     },
     {
-        "id": "alibaba-chat",
-        "name": "Alibaba Chat",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://message.alibaba.com/message/messenger.htm"
-        }
+        "recipeId": "mastodeck",
+        "recipeConfig": {
+            "serviceURL": "https://mastodeck.com"
+        },
+        "title": "Mastodeck"
     },
     {
-        "id": "facebook",
-        "name": "Facebook",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.facebook.com/login"
-        }
-    },
-    {
-        "id": "basecamp",
-        "name": "Basecamp",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://launchpad.37signals.com/"
-        }
-    },
-    {
-        "id": "badoo",
-        "name": "Badoo",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://badoo.com"
-        }
-    },
-    {
-        "id": "threads",
-        "name": "Threads",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://threads.net/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "zendesk",
-        "name": "Zendesk",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.zendesk.com/agent",
-            "hasTeamId": true,
-            "urlInputSuffix": ".zendesk.com"
-        }
-    },
-    {
-        "id": "bale",
-        "name": "Bale",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.bale.ai/"
-        }
-    },
-    {
-        "id": "plek",
-        "name": "Plek",
-        "version": "1.2.1",
-        "repository": "https://github.com/jsimonetti/franz-recipe-plek",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.plek.co",
+        "recipeId": "mastodon",
+        "recipeConfig": {
+            "serviceURL": "https://mastodon.social",
             "hasNotificationSound": true,
-            "hasIndirectMessages": true,
-            "hasTeamId": true,
-            "disablewebsecurity": true
-        }
-    },
-    {
-        "id": "bip",
-        "name": "BiP",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.bip.com/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "superlist",
-        "name": "Superlist",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.superlist.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "google-drive",
-        "name": "Google Drive",
-        "version": "2.3.1",
-        "repository": "https://github.com/BrianGilbert/franz-recipe-tawk",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://drive.google.com/drive/my-drive",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "patreon",
-        "name": "Patreon",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.patreon.com/login"
-        }
-    },
-    {
-        "id": "revolt",
-        "name": "Revolt",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.revolt.chat/"
-        }
-    },
-    {
-        "id": "standardnotes",
-        "name": "StandardNotes",
-        "version": "1.5.1",
-        "license": "MIT",
-        "repository": "https://github.com/vantezzen/franz-recipe-standardnotes",
-        "config": {
-            "serviceURL": "https://app.standardnotes.com/"
-        }
-    },
-    {
-        "id": "tixio",
-        "name": "Tixio",
-        "version": "1.3.2",
-        "license": "MIT",
-        "repository": "https://github.com/hmcclungiii/franz-recipe-tixio",
-        "config": {
-            "serviceURL": "https://{teamId}.tixio.io/app/",
-            "message": "Franz Recipe for Tixio by hmcclungiii",
-            "hasTeamId": true,
-            "hasDirectMessages": false,
-            "urlInputSuffix": ".tixio.io/app/"
-        }
-    },
-    {
-        "id": "bitwarden",
-        "name": "Bitwarden",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://vault.bitwarden.com/",
+            "hasHostedOption": true,
             "hasCustomUrl": true
-        }
+        },
+        "title": "Mastodon"
     },
     {
-        "id": "xmpp",
-        "name": "XMPP",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/Aman9das/ferdi-xmpp-recipe",
-        "config": {
-            "serviceURL": "https://inverse.chat",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "feedly",
-        "name": "Feedly",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://feedly.com"
-        }
-    },
-    {
-        "id": "chatwithgpt",
-        "name": "Chat with GPT",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.chatwithgpt.ai/"
-        }
-    },
-    {
-        "id": "romeo",
-        "name": "Romeo",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "http://romeo.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "bluesky",
-        "name": "Bluesky",
-        "version": "1.1.4",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://bsky.app/"
-        }
-    },
-    {
-        "id": "telegram",
-        "name": "Telegram",
-        "version": "3.4.5",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.telegram.org",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "skiff-mail",
-        "name": "Skiff Mail",
-        "version": "1.2.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.skiff.com/mail/inbox"
-        }
-    },
-    {
-        "id": "tutanota",
-        "name": "Tuta Mail",
-        "version": "1.3.3",
-        "license": "MIT",
-        "aliases": [
-            "Tutanota"
-        ],
-        "config": {
-            "serviceURL": "https://app.tuta.com/"
-        }
-    },
-    {
-        "id": "protonet",
-        "name": "protonet",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamID}.protonet.info",
+        "recipeId": "mattermost",
+        "recipeConfig": {
             "hasNotificationSound": true,
-            "hasTeamId": true
-        }
-    },
-    {
-        "id": "reddit",
-        "name": "Reddit",
-        "version": "1.4.1",
-        "license": "MIT",
-        "repository": "https://github.com/ferdium/ferdium-recipes",
-        "config": {
             "hasIndirectMessages": true,
-            "serviceURL": "https://www.reddit.com/"
-        }
-    },
-    {
-        "id": "proton-pass",
-        "name": "Proton Pass",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://pass.proton.me/"
-        }
-    },
-    {
-        "id": "replit",
-        "name": "Replit",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://replit.com/login"
-        }
-    },
-    {
-        "id": "confluence",
-        "name": "Confluence",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
             "hasCustomUrl": true
-        }
+        },
+        "title": "Mattermost"
     },
     {
-        "id": "epicgames",
-        "name": "Epic Games Store",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.epicgames.com/id/login?lang=en_US&redirectUrl=https%3A%2F%2Fwww.epicgames.com%2Fstore%2Fen-US%2F&noHostRedirect=true"
-        }
+        "recipeId": "mdaemon",
+        "recipeConfig": {
+            "hasCustomUrl": true,
+            "hasNotificationSound": true
+        },
+        "title": "MDaemon Worldclient"
     },
     {
-        "id": "nextcloud-tasks",
-        "name": "Nextcloud Tasks",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/csolisr/ferdium-recipes/tree/master/recipes/nextcloud-tasks/",
-        "config": {
+        "recipeId": "medium",
+        "recipeConfig": {
+            "serviceURL": "https://medium.com"
+        },
+        "title": "Medium"
+    },
+    {
+        "recipeId": "meetup",
+        "recipeConfig": {
+            "serviceURL": "https://meetup.com",
+            "hasIndirectMessages": true
+        },
+        "title": "Meetup"
+    },
+    {
+        "recipeId": "memos",
+        "recipeConfig": {
+            "message": "A self-hosted privacy-first, lightweight note-taking service. Easily capture and share your great thoughts.",
+            "hasCustomUrl": true,
+            "hasDirectMessages": false
+        },
+        "title": "memos"
+    },
+    {
+        "recipeId": "messenger",
+        "recipeConfig": {
+            "serviceURL": "https://messenger.com",
+            "hasNotificationSound": true
+        },
+        "title": "Messenger"
+    },
+    {
+        "recipeId": "meta-business-suite",
+        "recipeConfig": {
+            "serviceURL": "https://business.facebook.com"
+        },
+        "title": "Meta Business Suite"
+    },
+    {
+        "recipeId": "mewe",
+        "recipeConfig": {
+            "serviceURL": "https://mewe.com/chat",
+            "hasNotificationSound": true
+        },
+        "title": "MeWe"
+    },
+    {
+        "recipeId": "kaizala",
+        "recipeConfig": {
+            "serviceURL": "https://webapp.kaiza.la",
+            "hasNotificationSound": true
+        },
+        "title": "Microsoft Kaizala"
+    },
+    {
+        "recipeId": "ms-planner",
+        "recipeConfig": {
+            "serviceURL": "https://tasks.office.com/",
+            "hasNotificationSound": true
+        },
+        "title": "Microsoft Planner"
+    },
+    {
+        "recipeId": "msteams",
+        "recipeConfig": {
+            "serviceURL": "https://teams.microsoft.com",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Microsoft Teams"
+    },
+    {
+        "recipeId": "mstodo",
+        "recipeConfig": {
+            "serviceURL": "https://to-do.live.com/tasks/",
+            "hasNotificationSound": true
+        },
+        "title": "Microsoft To Do"
+    },
+    {
+        "recipeId": "miro",
+        "recipeConfig": {
+            "serviceURL": "https://miro.com/app/dashboard/"
+        },
+        "title": "Miro"
+    },
+    {
+        "recipeId": "mirotalk-c2c",
+        "recipeConfig": {
+            "serviceURL": "https://c2c.mirotalk.com",
+            "hasCustomUrl": true,
+            "hasHostedOption": true,
+            "hasNotificationSound": true
+        },
+        "title": "MiroTalk C2C"
+    },
+    {
+        "recipeId": "mirotalk-bro",
+        "recipeConfig": {
+            "serviceURL": "https://bro.mirotalk.com",
+            "hasCustomUrl": true,
+            "hasHostedOption": true,
+            "hasNotificationSound": true
+        },
+        "title": "MiroTalk Live Broadcast"
+    },
+    {
+        "recipeId": "mirotalk-p2p",
+        "recipeConfig": {
+            "serviceURL": "https://p2p.mirotalk.com",
+            "hasCustomUrl": true,
+            "hasHostedOption": true,
+            "hasNotificationSound": true
+        },
+        "title": "MiroTalk P2P"
+    },
+    {
+        "recipeId": "mirotalk-sfu",
+        "recipeConfig": {
+            "serviceURL": "https://sfu.mirotalk.com",
+            "hasCustomUrl": true,
+            "hasHostedOption": true,
+            "hasNotificationSound": true
+        },
+        "title": "MiroTalk SFU"
+    },
+    {
+        "recipeId": "mirotalk-webrtc",
+        "recipeConfig": {
+            "serviceURL": "https://webrtc.mirotalk.com",
+            "hasCustomUrl": true,
+            "hasHostedOption": true,
+            "hasNotificationSound": true
+        },
+        "title": "MiroTalk WebRTC"
+    },
+    {
+        "recipeId": "misskey",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}",
+            "hasTeamId": true,
+            "hasNotificationSound": true,
+            "message": "Please enter the instance address of Misskey in the team name input box."
+        },
+        "title": "Misskey"
+    },
+    {
+        "recipeId": "monday",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.monday.com",
+            "hasTeamId": true,
+            "urlInputSuffix": ".monday.com"
+        },
+        "title": "Monday"
+    },
+    {
+        "recipeId": "monicahq",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Monica HQ"
+    },
+    {
+        "recipeId": "moodle",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Moodle"
+    },
+    {
+        "recipeId": "mysms",
+        "recipeConfig": {
+            "serviceURL": "https://app.mysms.com"
+        },
+        "title": "MySMS"
+    },
+    {
+        "recipeId": "netatmo-energy",
+        "recipeConfig": {
+            "serviceURL": "https://my.netatmo.com/app/energy"
+        },
+        "title": "Netatmo Energy"
+    },
+    {
+        "recipeId": "netlify",
+        "recipeConfig": {
+            "serviceURL": "https://app.netlify.com",
+            "hasIndirectMessages": true
+        },
+        "title": "Netlify"
+    },
+    {
+        "recipeId": "NewsBlur",
+        "recipeConfig": {
+            "serviceURL": "https://newsblur.com",
+            "hasNotificationSound": true
+        },
+        "title": "NewsBlur"
+    },
+    {
+        "recipeId": "nextcloud",
+        "recipeConfig": {
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
+            "hasCustomUrl": true,
+            "serviceURL": "https://{nextcloud}/"
+        },
+        "title": "Nextcloud"
+    },
+    {
+        "recipeId": "nextcloud-calendar",
+        "recipeConfig": {
+            "hasNotificationSound": true,
             "hasTeamId": true,
             "urlInputPrefix": "https://",
-            "urlInputSuffix": "/apps/tasks/",
-            "serviceURL": "https://{teamId}/apps/tasks/"
-        }
+            "urlInputSuffix": "/apps/calendar/",
+            "serviceURL": "https://{teamId}/apps/calendar/"
+        },
+        "title": "Nextcloud Calendar"
     },
     {
-        "id": "google-duo",
-        "name": "Google Duo",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/AnalogCyan/recipe-franz-googleduo",
-        "config": {
-            "serviceURL": "https://duo.google.com/?web",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "claude-ai",
-        "name": "claude.ai",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://claude.ai"
-        }
-    },
-    {
-        "id": "bugzilla",
-        "name": "Bugzilla",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [],
-        "config": {
-            "serviceURL": "https://bugzilla.mozilla.org/",
-            "hasCustomUrl": true,
-            "message": "Bugzilla's default URL is https://bugzilla.mozilla.org/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "TickTick",
-        "name": "TickTick",
-        "version": "1.4.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.ticktick.com/#p/inbox/tasks"
-        }
-    },
-    {
-        "id": "deepl",
-        "name": "DeepL",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.deepl.com/translator"
-        }
-    },
-    {
-        "id": "hackmd",
-        "name": "HackMd",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://hackmd.io",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "home-assistant",
-        "name": "Home Assistant",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "google-spreadsheets",
-        "name": "Google Spreadsheets",
-        "version": "2.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://docs.google.com/spreadsheets/u/0/"
-        }
-    },
-    {
-        "id": "pixelfed",
-        "name": "Pixelfed",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://pixelfed.social",
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "discourse",
-        "name": "Discourse",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [],
-        "config": {
-            "serviceURL": "https://meta.discourse.org/",
-            "hasCustomUrl": true,
-            "message": "Discourse's default URL is https://meta.discourse.org/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "zoom",
-        "name": "Zoom",
-        "version": "1.4.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.zoom.us/wc/home",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "whereby",
-        "name": "Whereby",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://whereby.com/{teamId}",
-            "hasNotificationSound": true,
-            "hasTeamId": true,
-            "urlInputPrefix": "https://whereby.com/"
-        }
-    },
-    {
-        "id": "paymo",
-        "name": "Paymo",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.paymoapp.com/auth/login"
-        }
-    },
-    {
-        "id": "habitica",
-        "name": "Habitica",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/lmnet/franz-recipe-notion",
-        "config": {
-            "serviceURL": "https://habitica.com"
-        }
-    },
-    {
-        "id": "cara",
-        "name": "Cara",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://cara.app"
-        }
-    },
-    {
-        "id": "dropbox",
-        "name": "Dropbox",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.dropbox.com/home",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "facebookpages",
-        "name": "Facebook Pages",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://facebook.com/{teamId}/",
-            "urlInputPrefix": "https://facebook.com/",
-            "hasNotificationSound": true,
-            "hasTeamId": true,
-            "message": "Insert your page name in team, e.g. meetfranz"
-        }
-    },
-    {
-        "id": "crowdin",
-        "name": "Crowdin",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://crowdin.com/profile"
-        }
-    },
-    {
-        "id": "pushbullet",
-        "name": "Pushbullet",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.pushbullet.com/"
-        }
-    },
-    {
-        "id": "stackoverflow-chat",
-        "name": "Stack Overflow Chat",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://chat.stackoverflow.com/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "gotify",
-        "name": "Gotify",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "hasNotificationSound": true,
-            "hasDirectMessages": false,
-            "hasIndirectMessages": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "nextcloud-cospend",
-        "name": "Nextcloud Cospend",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/csolisr/ferdium-recipes/tree/master/recipes/nextcloud-cospend/",
-        "config": {
+        "recipeId": "nextcloud-cospend",
+        "recipeConfig": {
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
             "hasTeamId": true,
             "urlInputPrefix": "https://",
             "urlInputSuffix": "/apps/cospend/",
             "serviceURL": "https://{teamId}/apps/cospend/"
-        }
+        },
+        "title": "Nextcloud Cospend"
     },
     {
-        "id": "iberbox",
-        "name": "IberBox",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://iberbox.com/login"
-        }
+        "recipeId": "nextcloud-deck",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasTeamId": true,
+            "urlInputPrefix": "https://",
+            "urlInputSuffix": "/apps/deck/",
+            "serviceURL": "https://{teamId}/apps/deck/"
+        },
+        "title": "Nextcloud Deck"
     },
     {
-        "id": "scrumpy",
-        "name": "Scrumpy",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/scrumpy/franz-recipe-scrumpy",
-        "config": {
-            "serviceURL": "https://app.scrumpy.io"
-        }
+        "recipeId": "nextcloud-news",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasTeamId": true,
+            "urlInputPrefix": "https://",
+            "urlInputSuffix": "/apps/news/",
+            "serviceURL": "https://{teamId}/apps/news/"
+        },
+        "title": "Nextcloud News"
     },
     {
-        "id": "meetup",
-        "name": "Meetup",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://meetup.com",
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "rydoo",
-        "name": "Rydoo",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.rydoo.com/"
-        }
-    },
-    {
-        "id": "dialpad",
-        "name": "Dialpad",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/TheKevJames/franz-recipe-dialpad",
-        "config": {
-            "serviceURL": "https://dialpad.com/app",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "conceptboard",
-        "name": "Conceptboard",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.conceptboard.com/"
-        }
-    },
-    {
-        "id": "slack",
-        "name": "Slack",
-        "version": "1.6.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.slack.com",
+        "recipeId": "nextcloud-talk",
+        "recipeConfig": {
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
             "hasTeamId": true,
-            "urlInputSuffix": ".slack.com"
-        }
+            "urlInputPrefix": "https://",
+            "urlInputSuffix": "/apps/spreed/",
+            "serviceURL": "https://{teamId}/apps/spreed/"
+        },
+        "title": "Nextcloud Talk"
     },
     {
-        "id": "oreilly-learning",
-        "name": "O'Reilly Learning",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://learning.oreilly.com/home-new/"
-        }
-    },
-    {
-        "id": "upwork",
-        "name": "upwork",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.upwork.com/ab/notifications/"
-        }
-    },
-    {
-        "id": "slowly",
-        "name": "Slowly",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/BerakaStudio/franz-slowly",
-        "config": {
-            "serviceURL": "https://web.getslowly.com/home"
-        }
-    },
-    {
-        "id": "jollor",
-        "name": "jollor",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://jollor.com",
-            "message": "Jollor - Manage your social media with ease",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "grammarly",
-        "name": "Grammarly",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.grammarly.com/"
-        }
-    },
-    {
-        "id": "mattermost",
-        "name": "Mattermost",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "nextcloud-tasks",
+        "recipeConfig": {
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "tinder",
-        "name": "Tinder",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://tinder.com"
-        }
-    },
-    {
-        "id": "flock",
-        "name": "Flock",
-        "version": "1.2.1",
-        "license": "MIT",
-        "repository": "https://github.com/jereddowden/franz-recipe-flock",
-        "config": {
-            "serviceURL": "https://web.flock.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "google-groups",
-        "name": "Google Groups",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://groups.google.com/u/0/"
-        }
-    },
-    {
-        "id": "simplenote",
-        "name": "Simplenote",
-        "version": "1.4.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.simplenote.com/"
-        }
-    },
-    {
-        "id": "chatgpt",
-        "name": "ChatGPT",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://chat.openai.com/chat"
-        }
-    },
-    {
-        "id": "trello",
-        "name": "Trello",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://trello.com/"
-        }
-    },
-    {
-        "id": "pivotal-tracker",
-        "name": "pivotal-tracker",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.pivotaltracker.com/signin",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "mailfence",
-        "name": "Mailfence",
-        "version": "1.1.1",
-        "license": "MIT",
-        "repository": "https://github.com/hafiz-muhammad/ferdium-recipes",
-        "config": {
-            "serviceURL": "https://mailfence.com"
-        }
-    },
-    {
-        "id": "zimbra",
-        "name": "Zimbra",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "schildichat",
-        "name": "SchildiChat",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [
-            "Element",
-            "Riot.im",
-            "Matrix"
-        ],
-        "config": {
-            "serviceURL": "https://app.schildi.chat/",
-            "hasCustomUrl": true,
-            "message": "SchildiChat's default URL is https://app.schildi.chat/",
-            "hasNotificationSound": true,
-            "hasIndirectMessages": true
-        }
-    },
-    {
-        "id": "clockify",
-        "name": "Clockify",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://clockify.me/tracker",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "mirotalk-bro",
-        "name": "MiroTalk Live Broadcast",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://bro.mirotalk.com",
-            "hasCustomUrl": true,
-            "hasHostedOption": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "fiverr",
-        "name": "Fiverr",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.fiverr.com/inbox/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "bitbucket",
-        "name": "BitBucket",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://bitbucket.org/dashboard/overview",
-            "hasHostedOption": true,
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "twist",
-        "name": "Twist",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://twistapp.com/login",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "skype",
-        "name": "Skype",
-        "version": "3.6.3",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.skype.com/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "sync",
-        "name": "Sync",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://cp.sync.com/files/"
-        }
-    },
-    {
-        "id": "icloud-reminders",
-        "name": "iCloud Reminders",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.icloud.com/reminders"
-        }
-    },
-    {
-        "id": "mstodo",
-        "name": "Microsoft To Do",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://to-do.live.com/tasks/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "withspectrum",
-        "name": "Spectrum",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://spectrum.chat"
-        }
-    },
-    {
-        "id": "truelancer",
-        "name": "Truelancer",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.truelancer.com/notifications?page=1"
-        }
-    },
-    {
-        "id": "pomodoro-tracker",
-        "name": "Pomodoro Tracker",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://pomodoro-tracker.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "proton-mail",
-        "name": "Proton Mail",
-        "version": "1.7.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.proton.me/login"
-        }
-    },
-    {
-        "id": "mdaemon",
-        "name": "MDaemon Worldclient",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true,
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "tawk",
-        "name": "Tawk.to",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://dashboard.tawk.to/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "lastpass",
-        "name": "LastPass",
-        "version": "2.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://lastpass.com/?ac=1&lpnorefresh=1",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "sonarqube",
-        "name": "SonarQube",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "hasCustomUrl": true,
-            "serviceURL": "https://{sonarqube}/"
-        }
-    },
-    {
-        "id": "keybase.io",
-        "name": "Keybase",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://keybase.io/login",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "google-translate",
-        "name": "Google Translate",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://translate.google.com/u/0/"
-        }
-    },
-    {
-        "id": "tiktok",
-        "name": "Tiktok",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://tiktok.com"
-        }
-    },
-    {
-        "id": "iCloud",
-        "name": "iCloud",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.icloud.com/"
-        }
-    },
-    {
-        "id": "google-podcasts",
-        "name": "Google Podcasts",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://podcasts.google.com/u/0/"
-        }
-    },
-    {
-        "id": "twitch",
-        "name": "Twitch",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.twitch.tv/{teamId}/chat",
             "hasTeamId": true,
-            "urlInputPrefix": "https://go.twitch.tv/",
-            "hasNotificationSound": true,
-            "message": "Twitch chat allows you to not only interact with fellow members of the Twitch Community, but Broadcasters as well."
-        }
+            "urlInputPrefix": "https://",
+            "urlInputSuffix": "/apps/tasks/",
+            "serviceURL": "https://{teamId}/apps/tasks/"
+        },
+        "title": "Nextcloud Tasks"
     },
     {
-        "id": "teamwork-projects",
-        "name": "Teamwork Projects",
-        "version": "0.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.teamwork.com/",
+        "recipeId": "nextdoor",
+        "recipeConfig": {
+            "serviceURL": "https://nextdoor.co.uk/inbox/"
+        },
+        "title": "Nextdoor"
+    },
+    {
+        "recipeId": "noisli",
+        "recipeConfig": {
+            "serviceURL": "https://www.noisli.com/login"
+        },
+        "title": "Noisli"
+    },
+    {
+        "recipeId": "nomadlist",
+        "recipeConfig": {
+            "serviceURL": "https://nomadlist.com/chat",
             "hasNotificationSound": true,
-            "urlInputSuffix": ".teamwork.com",
             "hasTeamId": true
-        }
+        },
+        "title": "NomadList"
     },
     {
-        "id": "pipefy",
-        "name": "Pipefy",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "notion",
+        "recipeConfig": {
+            "serviceURL": "https://www.notion.so/",
+            "hasIndirectMessages": true,
+            "hasNotificationSound": true
+        },
+        "title": "Notion"
+    },
+    {
+        "recipeId": "notion-calendar",
+        "recipeConfig": {
+            "serviceURL": "https://calendar.notion.so/",
+            "hasNotificationSound": true
+        },
+        "title": "Notion Calendar"
+    },
+    {
+        "recipeId": "ntfy",
+        "recipeConfig": {
+            "serviceURL": "https://ntfy.sh/app",
+            "hasCustomUrl": true,
+            "message": "ntfy lets you send push notifications to your phone or desktop via scripts from any computer, using simple HTTP PUT or POST requests.",
+            "hasNotificationSound": true,
+            "hasDirectMessages": true,
+            "hasIndirectMessages": false
+        },
+        "title": "ntfy"
+    },
+    {
+        "recipeId": "oreilly-learning",
+        "recipeConfig": {
+            "serviceURL": "https://learning.oreilly.com/home-new/"
+        },
+        "title": "O'Reilly Learning"
+    },
+    {
+        "recipeId": "odoo",
+        "recipeConfig": {
+            "serviceURL": "https://www.odoo.com/web/login",
+            "hasCustomUrl": true
+        },
+        "title": "Odoo"
+    },
+    {
+        "recipeId": "odysee",
+        "recipeConfig": {
+            "serviceURL": "https://odysee.com"
+        },
+        "title": "Odysee"
+    },
+    {
+        "recipeId": "office365-owa",
+        "recipeConfig": {
+            "serviceURL": "https://outlook.live.com/mail/",
+            "hasNotificationSound": true,
+            "hasHostedOption": true,
+            "hasCustomUrl": true,
+            "allowFavoritesDelineationInUnreadCount": true
+        },
+        "title": "Office 365 Outlook"
+    },
+    {
+        "recipeId": "onenote",
+        "recipeConfig": {
+            "serviceURL": "https://onenote.com"
+        },
+        "title": "OneNote"
+    },
+    {
+        "recipeId": "online-go",
+        "recipeConfig": {
+            "hasDirectMessages": true,
+            "hasIndirectMessages": true,
+            "hasNotificationSound": true,
+            "serviceURL": "https://online-go.com"
+        },
+        "title": "Online Go"
+    },
+    {
+        "recipeId": "onmail",
+        "recipeConfig": {
+            "serviceURL": "https://mail.onmail.com"
+        },
+        "title": "onMail"
+    },
+    {
+        "recipeId": "outreach",
+        "recipeConfig": {
+            "serviceURL": "https://accounts.outreach.io/users/sign_in"
+        },
+        "title": "Outreach"
+    },
+    {
+        "recipeId": "OVHCloud",
+        "recipeConfig": {
+            "serviceURL": "https://www.ovh.com/auth"
+        },
+        "title": "OVH Cloud"
+    },
+    {
+        "recipeId": "parro",
+        "recipeConfig": {
+            "serviceURL": "https://talk.parro.com/",
+            "hasDirectMessages": true,
+            "hasNotificationSound": true
+        },
+        "title": "Parro"
+    },
+    {
+        "recipeId": "pastebin",
+        "recipeConfig": {
+            "serviceURL": "https://pastebin.com/"
+        },
+        "title": "Pastebin"
+    },
+    {
+        "recipeId": "patreon",
+        "recipeConfig": {
+            "serviceURL": "https://www.patreon.com/login"
+        },
+        "title": "Patreon"
+    },
+    {
+        "recipeId": "paymo",
+        "recipeConfig": {
+            "serviceURL": "https://app.paymoapp.com/auth/login"
+        },
+        "title": "Paymo"
+    },
+    {
+        "recipeId": "penpot",
+        "recipeConfig": {
+            "serviceURL": "https://design.penpot.app/",
+            "hasHostedOption": true,
+            "hasCustomUrl": true
+        },
+        "title": "Penpot"
+    },
+    {
+        "recipeId": "peopleperhour",
+        "recipeConfig": {
+            "serviceURL": "https://www.peopleperhour.com/notification/list"
+        },
+        "title": "People Per Hour"
+    },
+    {
+        "recipeId": "perplexity",
+        "recipeConfig": {
+            "serviceURL": "https://www.perplexity.ai/"
+        },
+        "title": "Perplexity AI"
+    },
+    {
+        "recipeId": "phanpy",
+        "recipeConfig": {
+            "serviceURL": "https://phanpy.social/"
+        },
+        "title": "Phanpy"
+    },
+    {
+        "recipeId": "pinterest",
+        "recipeConfig": {
+            "serviceURL": "https://pinterest.com"
+        },
+        "title": "Pinterest"
+    },
+    {
+        "recipeId": "pipefy",
+        "recipeConfig": {
             "serviceURL": "https://app.pipefy.com/",
             "hasCustomUrl": true,
             "hasHostedOption": true,
             "hasIndirectMessages": true
-        }
+        },
+        "title": "Pipefy"
     },
     {
-        "id": "purelymail",
-        "name": "Purelymail",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://inbox.purelymail.com",
+        "recipeId": "pivotal-tracker",
+        "recipeConfig": {
+            "serviceURL": "https://www.pivotaltracker.com/signin",
             "hasNotificationSound": true
-        }
+        },
+        "title": "pivotal-tracker"
     },
     {
-        "id": "odysee",
-        "name": "Odysee",
-        "version": "1.1.1",
-        "license": "MIT",
-        "repository": "https://github.com/hafiz-muhammad/ferdium-recipes",
-        "config": {
-            "serviceURL": "https://odysee.com"
-        }
-    },
-    {
-        "id": "google-voice",
-        "name": "Google Voice",
-        "version": "0.6.7",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://voice.google.com/u/0/",
-            "message": "Google Voice gives you one number for all your phones, voicemail as easy as email, free US long distance, low rates on international calls, and many calling features like transcripts, call blocking, call screening, conference calling, SMS, and more."
-        }
-    },
-    {
-        "id": "deckblue",
-        "name": "DeckBlue",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://deck.blue/"
-        }
-    },
-    {
-        "id": "anydo",
-        "name": "Any.do",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/chappy84/recipe-anydo",
-        "config": {
-            "serviceURL": "https://desktop.any.do/"
-        }
-    },
-    {
-        "id": "gitter",
-        "name": "Gitter",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://gitter.im",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "superhuman",
-        "name": "Superhuman",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/CrystalLarsh/franz-superhuman-recipe",
-        "config": {
-            "hasCustomUrl": true
-        }
-    },
-    {
-        "id": "outreach",
-        "name": "Outreach",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://accounts.outreach.io/users/sign_in"
-        }
-    },
-    {
-        "id": "instagram",
-        "name": "Instagram",
-        "version": "2.5.4",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://instagram.com/",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "fandom",
-        "name": "Fandom",
-        "version": "1.0.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.fandom.com"
-        }
-    },
-    {
-        "id": "productive",
-        "name": "Productive",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.productive.io/"
-        }
-    },
-    {
-        "id": "workflowy",
-        "name": "WorkFlowy",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://workflowy.com"
-        }
-    },
-    {
-        "id": "asana",
-        "name": "Asana",
-        "version": "1.3.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.asana.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "toggl",
-        "name": "Toggl",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.toggl.com/app/timer",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "reclaim",
-        "name": "Reclaim",
-        "version": "1.1.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.reclaim.ai/"
-        }
-    },
-    {
-        "id": "posteo",
-        "name": "Posteo",
-        "version": "1.1.1",
-        "license": "MIT",
-        "aliases": [
-            "mail",
-            "e-mail"
-        ],
-        "config": {
-            "serviceURL": "https://posteo.de/webmail/"
-        }
-    },
-    {
-        "id": "gmail",
-        "name": "Gmail",
-        "version": "1.6.3",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mail.google.com"
-        }
-    },
-    {
-        "id": "slite",
-        "name": "Slite",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://{teamId}.slite.com",
-            "hasTeamId": true,
-            "urlInputSuffix": ".slite.com"
-        }
-    },
-    {
-        "id": "snapchat",
-        "name": "Snapchat",
-        "version": "1.2.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.snapchat.com/"
-        }
-    },
-    {
-        "id": "kimaicloud",
-        "name": "Kimai Cloud",
-        "version": "1.5.1",
-        "license": "MIT",
-        "repository": "https://github.com/kimai-cloud/recipe-kimaicloud",
-        "config": {
-            "serviceURL": "https://{teamId}.kimai.cloud",
-            "urlInputSuffix": ".kimai.cloud",
+        "recipeId": "pixelfed",
+        "recipeConfig": {
+            "serviceURL": "https://pixelfed.social",
             "hasHostedOption": true,
-            "hasTeamId": true,
             "hasCustomUrl": true
-        }
+        },
+        "title": "Pixelfed"
     },
     {
-        "id": "whatsapp",
-        "name": "WhatsApp",
-        "version": "3.5.7",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.whatsapp.com",
+        "recipeId": "pixieset",
+        "recipeConfig": {
+            "serviceURL": "https://accounts.pixieset.com/dashboard/"
+        },
+        "title": "Pixieset"
+    },
+    {
+        "recipeId": "plan",
+        "recipeConfig": {
+            "serviceURL": "https://getplan.co/",
+            "message": "Plan is a better way to manage everything you have to do and everywhere you have to be."
+        },
+        "title": "Plan"
+    },
+    {
+        "recipeId": "planitpoker",
+        "recipeConfig": {
+            "serviceURL": "https://www.planitpoker.com/board/#/room/{teamId}",
+            "urlInputPrefix": "planitpoker.com/board/#/room/",
+            "hasTeamId": true
+        },
+        "title": "PlanITPoker"
+    },
+    {
+        "recipeId": "plek",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.plek.co",
             "hasNotificationSound": true,
             "hasIndirectMessages": true,
+            "hasTeamId": true,
             "disablewebsecurity": true
-        }
+        },
+        "title": "Plek"
     },
     {
-        "id": "anonaddy",
-        "name": "addy.io",
-        "version": "1.3.3",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.addy.io/",
+        "recipeId": "pleroma",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Pleroma"
+    },
+    {
+        "recipeId": "plurk",
+        "recipeConfig": {
+            "serviceURL": "https://www.plurk.com"
+        },
+        "title": "Plurk"
+    },
+    {
+        "recipeId": "pocket",
+        "recipeConfig": {
+            "serviceURL": "https://getpocket.com/a/queue/list/"
+        },
+        "title": "Pocket"
+    },
+    {
+        "recipeId": "pocketcasts",
+        "recipeConfig": {
+            "serviceURL": "https://play.pocketcasts.com/user/login"
+        },
+        "title": "PocketCasts"
+    },
+    {
+        "recipeId": "podio",
+        "recipeConfig": {
+            "serviceURL": "https://podio.com",
+            "hasNotificationSound": true
+        },
+        "title": "Podio"
+    },
+    {
+        "recipeId": "poe",
+        "recipeConfig": {
+            "serviceURL": "https://poe.com/"
+        },
+        "title": "poe"
+    },
+    {
+        "recipeId": "pomodoro-tracker",
+        "recipeConfig": {
+            "serviceURL": "https://pomodoro-tracker.com",
+            "hasNotificationSound": true
+        },
+        "title": "Pomodoro Tracker"
+    },
+    {
+        "recipeId": "portainer",
+        "recipeConfig": {
+            "hasHostedOption": true,
             "hasCustomUrl": true,
-            "hasHostedOption": true
-        }
+            "hasNotificationSound": false
+        },
+        "title": "Portainer"
     },
     {
-        "id": "dev-community",
-        "name": "Dev Community",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://dev.to"
-        }
+        "recipeId": "posteo",
+        "recipeConfig": {
+            "serviceURL": "https://posteo.de/webmail/"
+        },
+        "title": "Posteo"
     },
     {
-        "id": "rocketchat",
-        "name": "Rocket.Chat",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "postman",
+        "recipeConfig": {
+            "serviceURL": "https://web.postman.co/home"
+        },
+        "title": "Postman"
+    },
+    {
+        "recipeId": "producthunt",
+        "recipeConfig": {
+            "serviceURL": "https://www.producthunt.com/",
+            "hasIndirectMessages": true
+        },
+        "title": "Product Hunt"
+    },
+    {
+        "recipeId": "productive",
+        "recipeConfig": {
+            "serviceURL": "https://app.productive.io/"
+        },
+        "title": "Productive"
+    },
+    {
+        "recipeId": "proton-drive",
+        "recipeConfig": {
+            "serviceURL": "https://drive.proton.me"
+        },
+        "title": "Proton Drive"
+    },
+    {
+        "recipeId": "proton-mail",
+        "recipeConfig": {
+            "serviceURL": "https://mail.proton.me/login"
+        },
+        "title": "Proton Mail"
+    },
+    {
+        "recipeId": "proton-pass",
+        "recipeConfig": {
+            "serviceURL": "https://pass.proton.me/"
+        },
+        "title": "Proton Pass"
+    },
+    {
+        "recipeId": "proton-calendar",
+        "recipeConfig": {
+            "serviceURL": "https://calendar.proton.me/"
+        },
+        "title": "ProtonCalendar"
+    },
+    {
+        "recipeId": "protonet",
+        "recipeConfig": {
+            "serviceURL": "https://{teamID}.protonet.info",
+            "hasNotificationSound": true,
+            "hasTeamId": true
+        },
+        "title": "protonet"
+    },
+    {
+        "recipeId": "pulse-sms",
+        "recipeConfig": {
+            "serviceURL": "https://pulsesms.app",
+            "hasNotificationSound": true
+        },
+        "title": "PulseSMS"
+    },
+    {
+        "recipeId": "purelymail",
+        "recipeConfig": {
+            "serviceURL": "https://inbox.purelymail.com",
+            "hasNotificationSound": true
+        },
+        "title": "Purelymail"
+    },
+    {
+        "recipeId": "pushbullet",
+        "recipeConfig": {
+            "serviceURL": "https://www.pushbullet.com/"
+        },
+        "title": "Pushbullet"
+    },
+    {
+        "recipeId": "pushover",
+        "recipeConfig": {
+            "serviceURL": "https://client.pushover.net",
+            "hasNotificationSound": true,
+            "hasDirectMessages": true,
+            "hasIndirectMessages": false,
+            "hasTeamId": false
+        },
+        "title": "Pushover"
+    },
+    {
+        "recipeId": "quora",
+        "recipeConfig": {
+            "serviceURL": "https://www.quora.com"
+        },
+        "title": "Quora"
+    },
+    {
+        "recipeId": "rainloop",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasCustomUrl": true
+        },
+        "title": "RainLoop"
+    },
+    {
+        "recipeId": "reclaim",
+        "recipeConfig": {
+            "serviceURL": "https://app.reclaim.ai/"
+        },
+        "title": "Reclaim"
+    },
+    {
+        "recipeId": "reddit",
+        "recipeConfig": {
+            "hasIndirectMessages": true,
+            "serviceURL": "https://www.reddit.com/"
+        },
+        "title": "Reddit"
+    },
+    {
+        "recipeId": "reddit-chat",
+        "recipeConfig": {
+            "serviceURL": "https://chat.reddit.com/"
+        },
+        "title": "Reddit Chat"
+    },
+    {
+        "recipeId": "regex101",
+        "recipeConfig": {
+            "serviceURL": "https://regex101.com/"
+        },
+        "title": "Regex101"
+    },
+    {
+        "recipeId": "replit",
+        "recipeConfig": {
+            "serviceURL": "https://replit.com/login"
+        },
+        "title": "Replit"
+    },
+    {
+        "recipeId": "revolt",
+        "recipeConfig": {
+            "serviceURL": "https://app.revolt.chat/"
+        },
+        "title": "Revolt"
+    },
+    {
+        "recipeId": "ring-central",
+        "recipeConfig": {
+            "serviceURL": "https://app.ringcentral.com/",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "RingCentral"
+    },
+    {
+        "recipeId": "riseup",
+        "recipeConfig": {
+            "serviceURL": "https://mail.riseup.net"
+        },
+        "title": "Riseup.net"
+    },
+    {
+        "recipeId": "ritetag",
+        "recipeConfig": {
+            "serviceURL": "https://ritetag.com"
+        },
+        "title": "Ritetag"
+    },
+    {
+        "recipeId": "rocketchat",
+        "recipeConfig": {
             "serviceURL": "https://{teamId}.rocket.chat",
             "hasNotificationSound": true,
             "hasCustomUrl": true,
             "hasTeamId": true,
             "urlInputSuffix": ".rocket.chat"
-        }
+        },
+        "title": "Rocket.Chat"
     },
     {
-        "id": "phanpy",
-        "name": "Phanpy",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://phanpy.social/"
-        }
-    },
-    {
-        "id": "amazon-web-services",
-        "name": "Amazon Web Services",
-        "version": "1.3.1",
-        "license": "MIT",
-        "aliases": [
-            "aws"
-        ],
-        "config": {
-            "serviceURL": "https://aws.amazon.com/"
-        }
-    },
-    {
-        "id": "disqus",
-        "name": "Disqus",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://disqus.com/home/"
-        }
-    },
-    {
-        "id": "android-messages",
-        "name": "Android Messages",
-        "version": "2.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://messages.google.com/web",
+        "recipeId": "romeo",
+        "recipeConfig": {
+            "serviceURL": "http://romeo.com",
             "hasNotificationSound": true
-        }
+        },
+        "title": "Romeo"
     },
     {
-        "id": "google-contacts",
-        "name": "Google Contacts",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://contacts.google.com/u/0/"
-        }
+        "recipeId": "roundcube",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Roundcube"
     },
     {
-        "id": "voxer",
-        "name": "Voxer",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "rydoo",
+        "recipeConfig": {
+            "serviceURL": "https://app.rydoo.com/"
+        },
+        "title": "Rydoo"
+    },
+    {
+        "recipeId": "schildichat",
+        "recipeConfig": {
+            "serviceURL": "https://app.schildi.chat/",
+            "hasCustomUrl": true,
+            "message": "SchildiChat's default URL is https://app.schildi.chat/",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "SchildiChat"
+    },
+    {
+        "recipeId": "scribens",
+        "recipeConfig": {
+            "serviceURL": "https://scribens.{teamId}",
+            "urlInputPrefix": "https://scribens.",
+            "hasTeamId": true,
+            "message": "Insert your language in team, e.g. com for English or fr for french"
+        },
+        "title": "Scribens"
+    },
+    {
+        "recipeId": "scrumpy",
+        "recipeConfig": {
+            "serviceURL": "https://app.scrumpy.io"
+        },
+        "title": "Scrumpy"
+    },
+    {
+        "recipeId": "sendtask",
+        "recipeConfig": {
+            "serviceURL": "https://app.sendtask.io/",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Sendtask"
+    },
+    {
+        "recipeId": "simplelogin",
+        "recipeConfig": {
+            "serviceURL": "https://app.simplelogin.io/"
+        },
+        "title": "SimpleLogin"
+    },
+    {
+        "recipeId": "simplenote",
+        "recipeConfig": {
+            "serviceURL": "https://app.simplenote.com/"
+        },
+        "title": "Simplenote"
+    },
+    {
+        "recipeId": "skiff-mail",
+        "recipeConfig": {
+            "serviceURL": "https://app.skiff.com/mail/inbox"
+        },
+        "title": "Skiff Mail"
+    },
+    {
+        "recipeId": "skype",
+        "recipeConfig": {
+            "serviceURL": "https://web.skype.com/",
+            "hasNotificationSound": true
+        },
+        "title": "Skype"
+    },
+    {
+        "recipeId": "slack",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.slack.com",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true,
+            "hasTeamId": true,
+            "urlInputSuffix": ".slack.com"
+        },
+        "title": "Slack"
+    },
+    {
+        "recipeId": "slite",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.slite.com",
+            "hasTeamId": true,
+            "urlInputSuffix": ".slite.com"
+        },
+        "title": "Slite"
+    },
+    {
+        "recipeId": "slowly",
+        "recipeConfig": {
+            "serviceURL": "https://web.getslowly.com/home"
+        },
+        "title": "Slowly"
+    },
+    {
+        "recipeId": "smartsheet",
+        "recipeConfig": {
+            "serviceURL": "https://app.smartsheet.com"
+        },
+        "title": "SmartSheet"
+    },
+    {
+        "recipeId": "snapchat",
+        "recipeConfig": {
+            "serviceURL": "https://web.snapchat.com/"
+        },
+        "title": "Snapchat"
+    },
+    {
+        "recipeId": "snapdrop",
+        "recipeConfig": {
+            "serviceURL": "http://snapdrop.net/",
+            "hasNotificationSound": true
+        },
+        "title": "Snapdrop"
+    },
+    {
+        "recipeId": "sococo",
+        "recipeConfig": {
+            "serviceURL": "https://app.sococo.com",
+            "hasNotificationSound": true
+        },
+        "title": "Sococo"
+    },
+    {
+        "recipeId": "sogo",
+        "recipeConfig": {
+            "hasCustomUrl": true,
+            "hasNotificationSound": true
+        },
+        "title": "SOGo"
+    },
+    {
+        "recipeId": "somtoday",
+        "recipeConfig": {
+            "serviceURL": "https://inloggen.somtoday.nl",
+            "hasDirectMessages": true,
+            "hasNotificationSound": true
+        },
+        "title": "SomToday"
+    },
+    {
+        "recipeId": "sonarqube",
+        "recipeConfig": {
+            "hasCustomUrl": true,
+            "serviceURL": "https://{sonarqube}/"
+        },
+        "title": "SonarQube"
+    },
+    {
+        "recipeId": "withspectrum",
+        "recipeConfig": {
+            "serviceURL": "https://spectrum.chat"
+        },
+        "title": "Spectrum"
+    },
+    {
+        "recipeId": "stackoverflow",
+        "recipeConfig": {
+            "serviceURL": "https://stackoverflow.com",
+            "hasNotificationSound": true
+        },
+        "title": "Stack Overflow"
+    },
+    {
+        "recipeId": "stackoverflow-chat",
+        "recipeConfig": {
+            "serviceURL": "https://chat.stackoverflow.com/",
+            "hasNotificationSound": true
+        },
+        "title": "Stack Overflow Chat"
+    },
+    {
+        "recipeId": "stackexchange",
+        "recipeConfig": {
+            "serviceURL": "https://stackexchange.com/"
+        },
+        "title": "StackExchange"
+    },
+    {
+        "recipeId": "standardnotes",
+        "recipeConfig": {
+            "serviceURL": "https://app.standardnotes.com/"
+        },
+        "title": "StandardNotes"
+    },
+    {
+        "recipeId": "steamchat",
+        "recipeConfig": {
+            "serviceURL": "https://steamcommunity.com/chat",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "SteamChat"
+    },
+    {
+        "recipeId": "strava",
+        "recipeConfig": {
+            "serviceURL": "https://www.strava.com/"
+        },
+        "title": "Strava"
+    },
+    {
+        "recipeId": "stride",
+        "recipeConfig": {
+            "serviceURL": "https://app.stride.com",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "Stride"
+    },
+    {
+        "recipeId": "superhuman",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Superhuman"
+    },
+    {
+        "recipeId": "superlist",
+        "recipeConfig": {
+            "serviceURL": "https://app.superlist.com",
+            "hasNotificationSound": true
+        },
+        "title": "Superlist"
+    },
+    {
+        "recipeId": "sympatia",
+        "recipeConfig": {
+            "serviceURL": "https://sympatia.onet.pl/"
+        },
+        "title": "Sympatia"
+    },
+    {
+        "recipeId": "sync",
+        "recipeConfig": {
+            "serviceURL": "https://cp.sync.com/files/"
+        },
+        "title": "Sync"
+    },
+    {
+        "recipeId": "taiga",
+        "recipeConfig": {
+            "serviceURL": "https://tree.taiga.io"
+        },
+        "title": "Taiga"
+    },
+    {
+        "recipeId": "tawk",
+        "recipeConfig": {
+            "serviceURL": "https://dashboard.tawk.to/",
+            "hasNotificationSound": true
+        },
+        "title": "Tawk.to"
+    },
+    {
+        "recipeId": "tchap",
+        "recipeConfig": {
+            "serviceURL": "https://www.tchap.gouv.fr/"
+        },
+        "title": "Tchap"
+    },
+    {
+        "recipeId": "teamleader",
+        "recipeConfig": {
+            "serviceURL": "https://app.teamleader.eu/?gotologin",
+            "hasNotificationSound": true
+        },
+        "title": "teamleader"
+    },
+    {
+        "recipeId": "teamweek",
+        "recipeConfig": {
+            "serviceURL": "https://app.teamweek.com/"
+        },
+        "title": "Teamweek"
+    },
+    {
+        "recipeId": "teamwork-projects",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.teamwork.com/",
+            "hasNotificationSound": true,
+            "urlInputSuffix": ".teamwork.com",
+            "hasTeamId": true
+        },
+        "title": "Teamwork Projects"
+    },
+    {
+        "recipeId": "telegram",
+        "recipeConfig": {
+            "serviceURL": "https://web.telegram.org",
+            "hasNotificationSound": true
+        },
+        "title": "Telegram"
+    },
+    {
+        "recipeId": "temp-mail",
+        "recipeConfig": {
+            "serviceURL": "https://temp-mail.org/"
+        },
+        "title": "Temp Mail"
+    },
+    {
+        "recipeId": "thelounge",
+        "recipeConfig": {
+            "hasCustomUrl": true,
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "The Lounge"
+    },
+    {
+        "recipeId": "threads",
+        "recipeConfig": {
+            "serviceURL": "https://threads.net/",
+            "hasNotificationSound": true
+        },
+        "title": "Threads"
+    },
+    {
+        "recipeId": "threema",
+        "recipeConfig": {
+            "serviceURL": "https://web.threema.ch",
+            "hasNotificationSound": true
+        },
+        "title": "Threema"
+    },
+    {
+        "recipeId": "tick",
+        "recipeConfig": {
+            "serviceURL": "http://app.tickspot.com/"
+        },
+        "title": "tick"
+    },
+    {
+        "recipeId": "TickTick",
+        "recipeConfig": {
+            "serviceURL": "https://www.ticktick.com/#p/inbox/tasks"
+        },
+        "title": "TickTick"
+    },
+    {
+        "recipeId": "tiktok",
+        "recipeConfig": {
+            "serviceURL": "https://tiktok.com"
+        },
+        "title": "Tiktok"
+    },
+    {
+        "recipeId": "tinder",
+        "recipeConfig": {
+            "serviceURL": "https://tinder.com"
+        },
+        "title": "Tinder"
+    },
+    {
+        "recipeId": "tt-rss",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Tiny Tiny RSS"
+    },
+    {
+        "recipeId": "tixio",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.tixio.io/app/",
+            "message": "Franz Recipe for Tixio by hmcclungiii",
+            "hasTeamId": true,
+            "hasDirectMessages": false,
+            "urlInputSuffix": ".tixio.io/app/"
+        },
+        "title": "Tixio"
+    },
+    {
+        "recipeId": "todoist",
+        "recipeConfig": {
+            "serviceURL": "https://todoist.com/app",
+            "hasIndirectMessages": true
+        },
+        "title": "Todoist"
+    },
+    {
+        "recipeId": "toggl",
+        "recipeConfig": {
+            "serviceURL": "https://www.toggl.com/app/timer",
+            "hasNotificationSound": true
+        },
+        "title": "Toggl"
+    },
+    {
+        "recipeId": "traccar",
+        "recipeConfig": {
+            "hasHostedOption": true,
+            "hasCustomUrl": true,
+            "hasNotificationSound": true
+        },
+        "title": "Traccar"
+    },
+    {
+        "recipeId": "trakt",
+        "recipeConfig": {
+            "serviceURL": "https://trakt.tv"
+        },
+        "title": "Trakt"
+    },
+    {
+        "recipeId": "trello",
+        "recipeConfig": {
+            "serviceURL": "https://trello.com/"
+        },
+        "title": "Trello"
+    },
+    {
+        "recipeId": "truelancer",
+        "recipeConfig": {
+            "serviceURL": "https://www.truelancer.com/notifications?page=1"
+        },
+        "title": "Truelancer"
+    },
+    {
+        "recipeId": "tutanota",
+        "recipeConfig": {
+            "serviceURL": "https://app.tuta.com/"
+        },
+        "title": "Tuta Mail"
+    },
+    {
+        "recipeId": "tweetdeck",
+        "recipeConfig": {
+            "serviceURL": "https://tweetdeck.twitter.com/",
+            "hasNotificationSound": true
+        },
+        "title": "Tweetdeck"
+    },
+    {
+        "recipeId": "twist",
+        "recipeConfig": {
+            "serviceURL": "https://twistapp.com/login",
+            "hasNotificationSound": true
+        },
+        "title": "Twist"
+    },
+    {
+        "recipeId": "twitch",
+        "recipeConfig": {
+            "serviceURL": "https://www.twitch.tv/{teamId}/chat",
+            "hasTeamId": true,
+            "urlInputPrefix": "https://go.twitch.tv/",
+            "hasNotificationSound": true,
+            "message": "Twitch chat allows you to not only interact with fellow members of the Twitch Community, but Broadcasters as well."
+        },
+        "title": "Twitch"
+    },
+    {
+        "recipeId": "twitter-dm",
+        "recipeConfig": {
+            "serviceURL": "https://mobile.twitter.com/messages",
+            "hasNotificationSound": true
+        },
+        "title": "Twitter DM"
+    },
+    {
+        "recipeId": "udemy",
+        "recipeConfig": {
+            "serviceURL": "https://www.udemy.com/home/my-courses/learning/",
+            "hasNotificationSound": true
+        },
+        "title": "Udemy"
+    },
+    {
+        "recipeId": "unraid",
+        "recipeConfig": {
+            "serviceURL": "{teamId}",
+            "hasTeamId": true
+        },
+        "title": "Unraid"
+    },
+    {
+        "recipeId": "upwork",
+        "recipeConfig": {
+            "serviceURL": "https://www.upwork.com/ab/notifications/"
+        },
+        "title": "upwork"
+    },
+    {
+        "recipeId": "viva-engage",
+        "recipeConfig": {
+            "serviceURL": "https://engage.cloud.microsoft",
+            "hasIndirectMessages": true
+        },
+        "title": "Viva Engage"
+    },
+    {
+        "recipeId": "vk",
+        "recipeConfig": {
+            "serviceURL": "https://www.vk.com"
+        },
+        "title": "VK"
+    },
+    {
+        "recipeId": "voetbal-nl",
+        "recipeConfig": {
+            "serviceURL": "https://voetbal.nl/inloggen",
+            "hasDirectMessages": true,
+            "hasNotificationSound": true
+        },
+        "title": "Voetbal"
+    },
+    {
+        "recipeId": "voxer",
+        "recipeConfig": {
             "serviceURL": "https://web.voxer.com",
             "hasNotificationSound": true
-        }
+        },
+        "title": "Voxer"
     },
     {
-        "id": "linkedin",
-        "name": "LinkedIn",
-        "version": "1.5.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.linkedin.com/messaging"
-        }
-    },
-    {
-        "id": "kaizala",
-        "name": "Microsoft Kaizala",
-        "version": "1.4.1",
-        "license": "MIT",
-        "repository": "https://github.com/meetfranz/recipe-microsoft-kaizala",
-        "config": {
-            "serviceURL": "https://webapp.kaiza.la",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "tt-rss",
-        "name": "Tiny Tiny RSS",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "wakapi",
+        "recipeConfig": {
+            "serviceURL": "https://wakapi.dev",
+            "hasHostedOption": true,
             "hasCustomUrl": true
-        }
+        },
+        "title": "Wakapi"
     },
     {
-        "id": "80lv",
-        "name": "80LV",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://80.lv"
-        }
-    },
-    {
-        "id": "dockerhub",
-        "name": "Docker Hub",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://hub.docker.com"
-        }
-    },
-    {
-        "id": "inoreader",
-        "name": "Inoreader",
-        "version": "1.3.1",
-        "license": "MIT",
-        "repository": "https://github.com/annagrram/recipe-inoreader",
-        "config": {
-            "serviceURL": "https://www.inoreader.com/login",
-            "message": "The content reader for power users who want to save time."
-        }
-    },
-    {
-        "id": "binance",
-        "name": "Binance",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://accounts.binance.com"
-        }
-    },
-    {
-        "id": "wakatime",
-        "name": "Wakatime",
-        "version": "1.3.1",
-        "license": "MIT",
-        "config": {
+        "recipeId": "wakatime",
+        "recipeConfig": {
             "serviceURL": "https://wakatime.com/login"
-        }
+        },
+        "title": "Wakatime"
     },
     {
-        "id": "eitaa",
-        "name": "Eitaa",
-        "version": "1.0.0",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://web.eitaa.com/"
-        }
-    },
-    {
-        "id": "elevate",
-        "name": "Elevate",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://elevate.serverdata.net"
-        }
-    },
-    {
-        "id": "hubstaff",
-        "name": "HubStaff",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://app.hubstaff.com/login_now",
+        "recipeId": "webex-teams",
+        "recipeConfig": {
+            "serviceURL": "https://web.webex.com",
             "hasNotificationSound": true
-        }
+        },
+        "title": "Webex Teams"
     },
     {
-        "id": "mewe",
-        "name": "MeWe",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://mewe.com/chat",
-            "hasNotificationSound": true
-        }
+        "recipeId": "wechat",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true,
+            "serviceURL": "https://web.wechat.com/"
+        },
+        "title": "WeChat"
     },
     {
-        "id": "fastmail",
-        "name": "FastMail",
-        "version": "2.4.2",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://www.fastmail.com/mail/",
-            "message": "Get private, secure, ad-free email hosting for you or your business"
-        }
+        "recipeId": "whatsapp",
+        "recipeConfig": {
+            "serviceURL": "https://web.whatsapp.com",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true,
+            "disablewebsecurity": true
+        },
+        "title": "WhatsApp"
     },
     {
-        "id": "tick",
-        "name": "tick",
-        "version": "1.1.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "http://app.tickspot.com/"
-        }
-    },
-    {
-        "id": "onenote",
-        "name": "OneNote",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://onenote.com"
-        }
-    },
-    {
-        "id": "google-news",
-        "name": "Google News",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://news.google.com/u/0/"
-        }
-    },
-    {
-        "id": "NewsBlur",
-        "name": "NewsBlur",
-        "version": "1.4.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://newsblur.com",
-            "hasNotificationSound": true
-        }
-    },
-    {
-        "id": "zoho-projects",
-        "name": "Zoho Projects",
-        "version": "1.2.1",
-        "license": "MIT",
-        "config": {
-            "serviceURL": "https://projects.zoho.eu/"
-        }
-    },
-    {
-        "id": "nextcloud-calendar",
-        "name": "Nextcloud Calendar",
-        "version": "1.3.2",
-        "license": "MIT",
-        "repository": "https://github.com/csolisr/ferdium-recipes/tree/master/recipes/nextcloud-calendar/",
-        "config": {
+        "recipeId": "whereby",
+        "recipeConfig": {
+            "serviceURL": "https://whereby.com/{teamId}",
             "hasNotificationSound": true,
             "hasTeamId": true,
-            "urlInputPrefix": "https://",
-            "urlInputSuffix": "/apps/calendar/",
-            "serviceURL": "https://{teamId}/apps/calendar/"
-        }
+            "urlInputPrefix": "https://whereby.com/"
+        },
+        "title": "Whereby"
+    },
+    {
+        "recipeId": "whimsical",
+        "recipeConfig": {
+            "serviceURL": "https://whimsical.com/"
+        },
+        "title": "Whimsical"
+    },
+    {
+        "recipeId": "wikipedia",
+        "recipeConfig": {
+            "serviceURL": "https://www.wikipedia.org/",
+            "hasHostedOption": true,
+            "hasCustomUrl": true
+        },
+        "title": "Wikipedia"
+    },
+    {
+        "recipeId": "wire",
+        "recipeConfig": {
+            "serviceURL": "https://app.wire.com/",
+            "hasIndirectMessages": true
+        },
+        "title": "Wire"
+    },
+    {
+        "recipeId": "workflowy",
+        "recipeConfig": {
+            "serviceURL": "https://workflowy.com"
+        },
+        "title": "WorkFlowy"
+    },
+    {
+        "recipeId": "workplace",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.workplace.com/chat",
+            "hasNotificationSound": true,
+            "hasTeamId": true,
+            "urlInputSuffix": ".workplace.com"
+        },
+        "title": "Workplace"
+    },
+    {
+        "recipeId": "wrike",
+        "recipeConfig": {
+            "serviceURL": "https://www.wrike.com/login/"
+        },
+        "title": "Wrike"
+    },
+    {
+        "recipeId": "twitter",
+        "recipeConfig": {
+            "serviceURL": "https://x.com",
+            "hasNotificationSound": true
+        },
+        "title": "X"
+    },
+    {
+        "recipeId": "xing",
+        "recipeConfig": {
+            "serviceURL": "https://www.xing.com/messenger/global"
+        },
+        "title": "XING"
+    },
+    {
+        "recipeId": "xmpp",
+        "recipeConfig": {
+            "serviceURL": "https://inverse.chat",
+            "hasNotificationSound": true
+        },
+        "title": "XMPP"
+    },
+    {
+        "recipeId": "yahoo-mail",
+        "recipeConfig": {
+            "serviceURL": "https://mail.yahoo.com",
+            "hasNotificationSound": true
+        },
+        "title": "Yahoo Mail"
+    },
+    {
+        "recipeId": "yandex-mail",
+        "recipeConfig": {
+            "serviceURL": "https://mail.yandex.ru"
+        },
+        "title": "Yandex Mail"
+    },
+    {
+        "recipeId": "youtrack",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.myjetbrains.com/youtrack/",
+            "urlInputSuffix": ".myjetbrains.com",
+            "hasHostedOption": true,
+            "hasTeamId": true,
+            "hasCustomUrl": true,
+            "hasNotificationSound": true
+        },
+        "title": "YouTrack"
+    },
+    {
+        "recipeId": "youtube",
+        "recipeConfig": {
+            "serviceURL": "https://youtube.com/"
+        },
+        "title": "YouTube"
+    },
+    {
+        "recipeId": "youtubemusic",
+        "recipeConfig": {
+            "serviceURL": "https://music.youtube.com/"
+        },
+        "title": "YouTube Music"
+    },
+    {
+        "recipeId": "zalo",
+        "recipeConfig": {
+            "serviceURL": "https://chat.zalo.me/",
+            "hasNotificationSound": true
+        },
+        "title": "Zalo"
+    },
+    {
+        "recipeId": "zammad",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasDirectMessages": false,
+            "hasIndirectMessages": true,
+            "hasCustomUrl": true
+        },
+        "title": "Zammad"
+    },
+    {
+        "recipeId": "zendesk",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.zendesk.com/agent",
+            "hasTeamId": true,
+            "urlInputSuffix": ".zendesk.com"
+        },
+        "title": "Zendesk"
+    },
+    {
+        "recipeId": "zenhub",
+        "recipeConfig": {
+            "hasTeamId": true,
+            "serviceURL": "https://app.zenhub.com/workspaces/{teamId}/board"
+        },
+        "title": "ZenHub"
+    },
+    {
+        "recipeId": "zeplin",
+        "recipeConfig": {
+            "serviceURL": "https://app.zeplin.io/login"
+        },
+        "title": "Zeplin"
+    },
+    {
+        "recipeId": "zimbra",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true,
+            "hasCustomUrl": true
+        },
+        "title": "Zimbra"
+    },
+    {
+        "recipeId": "zoho",
+        "recipeConfig": {
+            "serviceURL": "https://www.zoho.com/mail/login.html",
+            "hasNotificationSound": true
+        },
+        "title": "Zoho Mail"
+    },
+    {
+        "recipeId": "zoho-projects",
+        "recipeConfig": {
+            "serviceURL": "https://projects.zoho.eu/"
+        },
+        "title": "Zoho Projects"
+    },
+    {
+        "recipeId": "zoom",
+        "recipeConfig": {
+            "serviceURL": "https://app.zoom.us/wc/home",
+            "hasNotificationSound": true
+        },
+        "title": "Zoom"
+    },
+    {
+        "recipeId": "zulip",
+        "recipeConfig": {
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true,
+            "hasCustomUrl": true
+        },
+        "title": "Zulip"
     }
 ]

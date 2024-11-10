@@ -17,10 +17,10 @@ async function clickAddSpace() {
     return;
   }
 
-  let space = document.querySelector(".card.selected")?._spaceData;
-  if (space) {
+  let spaceData = document.querySelector(".card.selected")?._spaceData;
+  if (spaceData) {
     let { teamId, targetUrl } = details.targetUrl;
-    let icon = space.icon || browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);
+    let icon = browser.runtime.getURL(`/recipes/${spaceData.recipeId}/icon.svg`);
 
     let data = {
       name: crypto.randomUUID().replace(/-/g, "_"),
@@ -31,8 +31,8 @@ async function clickAddSpace() {
       notifications: details.field("space-notifications"),
       startup: details.field("space-startup"),
       useragent: details.field("space-useragent"),
-      ferdiumId: space.id,
-      ferdiumConfig: space.config,
+      recipeId: spaceData.recipeId,
+      recipeConfig: spaceData.recipeConfig,
       teamId: teamId,
     };
 
@@ -50,7 +50,6 @@ async function clickCard(event) {
   }
   unselect();
 
-
   // Positioning
   let rect = card.getBoundingClientRect();
   let left = rect.left;
@@ -64,15 +63,11 @@ async function clickCard(event) {
   popup.style.top = `${rect.bottom + scrollTop}px`;
   popup.style.left = `${left}px`;
 
+  // Data
   card.classList.add("selected");
   popup.classList.add("attached");
-  document.getElementById("add-space-details").spaceData = {
-    ferdiumId: card._spaceData.id,
-    title: card._spaceData.name,
-    ferdiumConfig: card._spaceData.config
-  };
+  document.getElementById("add-space-details").spaceData = Object.assign({}, card._spaceData);
 }
-
 
 export async function loadAddSpaces() {
   let spaces = await fetch("/recipes/spaces.json").then(resp => resp.json());
@@ -83,21 +78,19 @@ export async function loadAddSpaces() {
   let featuredCardsContainer = document.getElementById("add-space-featured-cards");
   let cardMap = {};
 
-  spaces.sort((a, b) => a.name.localeCompare(b.name));
-
-  for (let space of spaces) {
+  for (let spaceData of spaces) {
     let card = cardTemplate.content.cloneNode(true);
-    card.querySelector("img").src = space.icon || browser.runtime.getURL(`/recipes/${space.id}/icon.svg`);
-    card.querySelector(".name").textContent = space.name;
-    card.querySelector(".card")._spaceData = space;
+    card.querySelector("img").src = browser.runtime.getURL(`/recipes/${spaceData.recipeId}/icon.svg`);
+    card.querySelector(".name").textContent = spaceData.title;
+    card.querySelector(".card")._spaceData = spaceData;
 
-    cardMap[space.id] = card.firstElementChild;
+    cardMap[spaceData.recipeId] = card.firstElementChild;
     allCardsContainer.appendChild(card);
   }
 
-  for (let spaceId of featured) {
-    let card = cardMap[spaceId].cloneNode(true);
-    card._spaceData = cardMap[spaceId]._spaceData;
+  for (let recipeId of featured) {
+    let card = cardMap[recipeId].cloneNode(true);
+    card._spaceData = cardMap[recipeId]._spaceData;
     featuredCardsContainer.appendChild(card);
   }
 }

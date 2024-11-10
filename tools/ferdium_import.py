@@ -86,7 +86,11 @@ def process_package_directory(package_dir, output_directory):
 
     shutil.copytree(package_dir, output_directory / "recipes" / pkgid)
 
-    return package_data
+    return {
+      "recipeId": pkgid,
+      "recipeConfig": package_data.get("config", {}),
+      "title": package_data.get("name"),
+    }
 
 
 def walk_and_process_packages(root_directory, output_directory):
@@ -118,7 +122,10 @@ def main():
     extra_data = walk_and_process_packages(gitroot() / "extra_recipes", output_directory)
     ferdium_data = walk_and_process_packages(ferdium_recipes, output_directory)
 
-    write_to_json_file(output_directory / "recipes" / "spaces.json", extra_data + ferdium_data)
+    recipes = extra_data + ferdium_data
+    recipes.sort(key=lambda recipe: recipe['title'].lower())
+
+    write_to_json_file(output_directory / "recipes" / "spaces.json", recipes)
 
 
 if __name__ == "__main__":

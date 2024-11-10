@@ -42,7 +42,7 @@ async function selectSpace(spaceItem) {
     spaceSettings.spaceData = data;
 
     spaceItem.classList.add("selected");
-    spaceSettings.classList.toggle("custom-service", data.ferdiumId == "birdbox_custom");
+    spaceSettings.classList.toggle("custom-service", data.recipeId == "birdbox_custom");
     document.getElementById("edit-space-debug").textContent = JSON.stringify(data, null, 2);
   }
 }
@@ -161,7 +161,7 @@ export async function initEditListeners() {
     let spaceElem = event.target.closest(".space-item, .card");
     if (spaceElem?.classList.contains("new-space")) {
       location.hash = "#add";
-    } else {
+    } else if (spaceElem) {
       selectSpace(spaceElem);
     }
   });

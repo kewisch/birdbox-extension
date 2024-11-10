@@ -119,7 +119,6 @@ class DetailElement extends HTMLElement {
 
   #listener(selector, eventName, method) {
     let boundMethod = method.bind(this);
-    console.log(this, boundMethod);
     this.shadowRoot.querySelector(selector).addEventListener(eventName, boundMethod);
     this.#disconnectors.push(() => {
       this.shadowRoot.querySelector(selector).removeEventListener(eventName, boundMethod);
@@ -159,7 +158,7 @@ class DetailElement extends HTMLElement {
   }
 
   setupCustomServer() {
-    let config = this.#spaceData.ferdiumConfig;
+    let config = this.#spaceData.recipeConfig;
     let customServerLabel = this.shadowRoot.querySelector(".custom-server-label");
     let customServer = this.shadowRoot.querySelector(".custom-server");
     let customServerContainer = this.shadowRoot.querySelector(".custom-server-field");
@@ -220,7 +219,7 @@ class DetailElement extends HTMLElement {
 
     let valid = await browser.runtime.sendMessage({
       action: "validateFerdiumUrl",
-      ferdiumId: this.#spaceData.ferdiumId,
+      recipeId: this.#spaceData.recipeId,
       url: targetUrl
     });
 
@@ -235,7 +234,7 @@ class DetailElement extends HTMLElement {
         errors.push("Invalid service URL: " + targetUrl);
       }
     } else if (!valid) {
-      errors.push(`Not a valid ${this.#spaceData.ferdiumId} URL`);
+      errors.push(`Not a valid ${this.#spaceData.recipeId} URL`);
     }
 
     customServer.setCustomValidity(errors);
@@ -279,7 +278,7 @@ class DetailElement extends HTMLElement {
   }
 
   get targetUrl() {
-    let config = this.#spaceData.ferdiumConfig;
+    let config = this.#spaceData.recipeConfig;
 
     let targetUrl = config.serviceURL;
     let teamId = null;

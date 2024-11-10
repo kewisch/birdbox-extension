@@ -30,7 +30,7 @@ async function onBeforeSendHeaders(e) {
   let space = gSpaceStorage.byName(spaceInfo[0].name);
 
   let hdrMap = Object.fromEntries(e.requestHeaders.map(hdr => [hdr.name.toLowerCase(), hdr]));
-  let ferdium = await gFerdiumBackground.get(space.ferdiumId);
+  let ferdium = await gFerdiumBackground.get(space.recipeId);
 
   // User Agent
   if ("user-agent" in hdrMap) {
@@ -168,14 +168,14 @@ function initListeners() {
 
       let spaceData = gSpaceStorage.byName(space.name);
 
-      if (spaceData?.ferdiumId && request.loadContentScript) {
+      if (spaceData?.recipeId && request.loadContentScript) {
         await browser.tabs.executeScript(sender.tab.id, {
           file: "/content/ferdium_env.js"
         });
 
         // Some recipes will have a function at the end that is not serializable. Add a null value
         // to avoid errors.
-        let webviewCode = await fetch(browser.runtime.getURL(`/recipes/${spaceData.ferdiumId}/webview.js`)).then(resp => resp.text());
+        let webviewCode = await fetch(browser.runtime.getURL(`/recipes/${spaceData.recipeId}/webview.js`)).then(resp => resp.text());
         await browser.tabs.executeScript(sender.tab.id, {
           code: webviewCode + "; null;"
         });
@@ -185,9 +185,9 @@ function initListeners() {
         });
       }
 
-      if (!spaceData.useragent && spaceData?.ferdiumId) {
+      if (!spaceData.useragent && spaceData?.recipeId) {
         spaceData = Object.assign({}, spaceData);
-        let ferdiumBg = await gFerdiumBackground.get(spaceData.ferdiumId);
+        let ferdiumBg = await gFerdiumBackground.get(spaceData.recipeId);
         spaceData.useragent = ferdiumBg.overrideUserAgent().replace(/Thunderbird/g, "Firefox");
       }
 
@@ -210,7 +210,7 @@ function initListeners() {
         }
       }
     } else if (request.action == "validateFerdiumUrl") {
-      let ferdiumBg = await gFerdiumBackground.get(request.ferdiumId);
+      let ferdiumBg = await gFerdiumBackground.get(request.recipeId);
       return ferdiumBg.validateUrl(request.url);
     } else {
       return undefined;

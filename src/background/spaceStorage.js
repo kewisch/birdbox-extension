@@ -48,7 +48,7 @@ export default class SpaceStorage {
   #getIcon(spaceData) {
     let icon = spaceData.icon;
     if (!icon) {
-      icon = browser.runtime.getURL(spaceData.ferdiumId ? `/recipes/${spaceData.ferdiumId}/icon.svg` : "/images/addon.svg");
+      icon = browser.runtime.getURL(spaceData.recipeId ? `/recipes/${spaceData.recipeId}/icon.svg` : "/images/addon.svg");
     }
     return icon;
   }
