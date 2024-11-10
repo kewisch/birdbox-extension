@@ -42,7 +42,6 @@ async function selectSpace(spaceItem) {
     spaceSettings.spaceData = data;
 
     spaceItem.classList.add("selected");
-    spaceSettings.classList.toggle("custom-service", data.recipeId == "birdbox_custom");
     document.getElementById("edit-space-debug").textContent = JSON.stringify(data, null, 2);
   }
 }
@@ -53,61 +52,16 @@ function getSelectedSpace() {
 
 async function changeForm(event) {
   if (validateSpace(event.detail)) {
+    let spaceElement = getSelectedSpace();
+    spaceElement._spaceData = event.detail;
+    updateSpaceItem(spaceElement);
+
     await browser.runtime.sendMessage({ action: "updateSpace", space: event.detail, create: true });
   } else {
     await browser.runtime.sendMessage({ action: "removeSpace", spaceName: event.detail.name, missingOk: true });
   }
 }
 
-async function fetchMetadata(spaceElement) {
-  if (!spaceElement._spaceData.url) {
-    return;
-  }
-
-  let imageData = DEFAULT_IMAGE;
-  let pageTitle = "";
-  try {
-    let resp = await fetch(spaceElement._spaceData.url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
-    let data = await resp.text();
-    let parser = new DOMParser();
-    let doc = parser.parseFromString(data, "text/html");
-    let icon = doc.querySelector("link[rel~='icon']");
-
-    pageTitle = doc.querySelector("title")?.textContent ?? "";
-
-    let iconUrl = new URL(icon?.getAttribute("href") ?? "/favicon.ico", spaceElement._spaceData.url);
-    resp = await fetch(iconUrl, { cache: "no-cache", signal: AbortSignal.timeout(5000) });
-    data = await resp.blob();
-    imageData = await new Promise((resolve, reject) => {
-      if (!resp.ok) {
-        resolve(DEFAULT_IMAGE);
-        return;
-      }
-
-      let reader = new FileReader();
-      reader.onloadend = function() {
-        if (reader.error) {
-          reject(reader.error);
-        } else {
-          resolve(reader.result);
-        }
-      };
-
-      reader.readAsDataURL(data);
-    });
-  } catch (e) {
-    // Pass on any other read errors
-  }
-
-  let titleElement = document.getElementById("edit-space-name");
-  if (!titleElement.value) {
-    titleElement.value = pageTitle;
-    spaceElement._spaceData.title = titleElement.value;
-  }
-
-  spaceElement.querySelector("img").src = imageData;
-  spaceElement._spaceData.icon = imageData;
-}
 
 function validateSpace(space) {
   return !!space.url;
@@ -127,24 +81,6 @@ async function deleteSpace() {
   if (document.querySelectorAll("#edit-spaces-list > .space-item.existing-space").length == 0) {
     document.getElementById("edit-settings").classList.add("no-spaces");
   }
-}
-
-async function refreshIcon() {
-  let spaceElement = getSelectedSpace();
-
-  let [space, ..._otherSpaces] = await messenger.spaces.query({ isSelfOwned: true, name: spaceElement._spaceData.name });
-  if (!space) {
-    return;
-  }
-
-  let tabs = await messenger.tabs.query({ spaceId: space.id });
-  if (tabs.length) {
-    spaceElement._spaceData.icon = tabs[0].favIconUrl;
-    updateSpaceItem(spaceElement);
-  } else {
-    await fetchMetadata(spaceElement);
-  }
-  await browser.runtime.sendMessage({ action: "updateSpace", space: spaceElement._spaceData });
 }
 
 export async function loadEditSpaces() {
@@ -167,7 +103,6 @@ export async function initEditListeners() {
   });
   document.getElementById("edit-space-settings").addEventListener("change", changeForm);
   document.getElementById("edit-space-delete").addEventListener("click", deleteSpace);
-  document.getElementById("edit-space-refresh-icon").addEventListener("click", refreshIcon);
 
   if (await browser.runtime.sendMessage({ action: "debugEnabled" })) {
     document.getElementById("edit-space-debug").removeAttribute("hidden");

@@ -2,6 +2,34 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+:root {
+  color-scheme: light dark;
+}
+
+input, button, select, textarea, .file-label {
+  padding: 5px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  background: none;
+  font-size: 0.81rem;
+}
+
+.file-label {
+  font-size: 0.81rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button:hover, .file-label:hover {
+  background-color: color-mix(in srgb, currentcolor, transparent 90%);
+}
+
+button:active, .file-label:active {
+  background-color: color-mix(in srgb, currentcolor, transparent 70%);
+}
+
 .space-settings {
   display: grid;
   grid-template-columns: [label] auto [control] 1fr;
@@ -28,11 +56,11 @@
   text-align: end;
 }
 
-.space-settings > input, .space-settings > select, .space-settings > textarea, .control {
+.space-settings > input, .space-settings > select, .space-settings > textarea, .space-settings > .control {
   grid-column: control;
 }
 
-.control {
+.space-settings > .control {
   display: flex;
   gap: 5px;
 }
@@ -51,19 +79,13 @@
   user-select: none;
 }
 
-.space-settings input, .space-settings button, .space-settings select, .space-settings textarea {
-  padding: 5px;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
-  background: none;
+.showfailure textarea:invalid,
+.showfailure input:invalid,
+textarea:invalid:focus,
+input:invalid:focus {
+  outline: 1px solid light-dark(#dc2626, #ef4444);
 }
 
-.space-settings.showfailure textarea:invalid,
-.space-settings.showfailure input:invalid,
-.space-settings textarea:invalid:focus,
-.space-settings input:invalid:focus {
-  outline: 1px solid red;
-}
 
 .custom-server-field .url-label {
   display: none;
@@ -77,26 +99,26 @@
   user-select: none;
 }
 
-.custom-server-field .url-prefix {
-  border-inline-end-width: 1px;
-  left: 0;
-}
-
-.custom-server-field .url-suffix {
-  border-inline-start-width: 1px;
-	right: 0;
-}
-
 .custom-server-field {
   display: flex;
   position: relative;
 }
 
-.custom-server-field.prefix .url-prefix {
+.custom-server-field > .url-prefix {
+  border-inline-end-width: 1px;
+  left: 0;
+}
+
+.custom-server-field > .url-suffix {
+  border-inline-start-width: 1px;
+	right: 0;
+}
+
+.custom-server-field.prefix > .url-prefix {
   display: flex;
 }
 
-.custom-server-field.suffix .url-suffix {
+.custom-server-field.suffix > .url-suffix {
   display: flex;
 }
 

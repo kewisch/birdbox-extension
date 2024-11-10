@@ -70,6 +70,14 @@
             placeholder="">
         </div>
 
+        <label data-l10n-id="browse.icon.label">Icon:</label>
+        <div id="space-icon-field" class="control advanced">
+          <button class="icon-use-default" data-l10n-id="browse.iconReset.label"></button>
+          <button class="icon-use-favicon" data-l10n-id="browse.iconFromPage.label"></button>
+          <label for="space-icon-file" class="file-label" data-l10n-id="browse.iconCustom.label"></label>
+          <input type="file" id="space-icon-file" class="icon-use-custom" accept="image/*">
+        </div>
+
         <label
           for="space-internal-links"
           class="top advanced"
@@ -142,12 +150,8 @@
             <space-details id="edit-space-settings" advanced></space-details>
             <div class="space-actions">
               <button
-                id="edit-space-refresh-icon"
-                slot="buttons"
-                data-l10n-id="browse.reloadIcon.button"></button>
-              <button
                 id="edit-space-delete"
-                slot="buttons"
+                class="delete"
                 data-l10n-id="browse.deleteSpace.button"></button>
             </div>
             <pre id="edit-space-debug" hidden="true"></pre>

@@ -1,6 +1,8 @@
 import { initLocalize } from "./common.js";
 import psl from "../background/libs/psl.min.js";
 
+const DEFAULT_IMAGE = browser.runtime.getURL("/images/addon.svg");
+
 function debounce(func, delay) {
   let timeoutId;
 
@@ -11,6 +13,25 @@ function debounce(func, delay) {
       func.apply(self, args);
     }, delay);
   };
+}
+
+async function toDataUri(data) {
+  if (!data) {
+    return DEFAULT_IMAGE;
+  }
+
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader();
+    reader.onloadend = function() {
+      if (reader.error) {
+        reject(reader.error);
+      } else {
+        resolve(reader.result);
+      }
+    };
+
+    reader.readAsDataURL(data);
+  });
 }
 
 class DetailElement extends HTMLElement {
@@ -89,6 +110,62 @@ class DetailElement extends HTMLElement {
     }));
   }
 
+  #iconUseDefault() {
+    let recipeId = this.#spaceData.recipeId;
+    this.#spaceData.icon = browser.runtime.getURL(`/recipes/${recipeId}/icon.svg`);
+
+    this.dispatchEvent(new CustomEvent("change", {
+      bubbles: true,
+      cancelable: true,
+      detail: this.#spaceData
+    }));
+  }
+
+  async #iconUseFavicon() {
+    this.#spaceData.icon = await this.#fetchMetadata(this.#spaceData.url);
+
+    this.dispatchEvent(new CustomEvent("change", {
+      bubbles: true,
+      cancelable: true,
+      detail: this.#spaceData
+    }));
+  }
+
+  async #iconUseCustom(event) {
+    this.#spaceData.icon = await toDataUri(event.target.files[0]);
+
+    this.dispatchEvent(new CustomEvent("change", {
+      bubbles: true,
+      cancelable: true,
+      detail: this.#spaceData
+    }));
+  }
+
+  async #fetchMetadata(url) {
+    if (!url) {
+      return null;
+    }
+
+    let imageData = DEFAULT_IMAGE;
+    try {
+      let resp = await fetch(url, { cache: "no-store", signal: AbortSignal.timeout(5000) });
+      let data = await resp.text();
+      let parser = new DOMParser();
+      let doc = parser.parseFromString(data, "text/html");
+      let icon = doc.querySelector("link[rel~='icon']");
+
+      let iconUrl = new URL(icon?.getAttribute("href") ?? "/favicon.ico", url);
+      resp = await fetch(iconUrl, { cache: "no-cache", signal: AbortSignal.timeout(5000) });
+      if (resp.ok) {
+        imageData = await toDataUri(await resp.blob());
+      }
+    } catch (e) {
+      // Ok to ignore errors, we'll just stick with the default image
+    }
+
+    return imageData;
+  }
+
   field(name) {
     let node = this.shadowRoot.querySelector("." + name);
     if (name == "space-useragent") {
@@ -131,6 +208,9 @@ class DetailElement extends HTMLElement {
     this.#listener(".space-settings", "change", this.#onChangeSettings);
     this.#listener(".space-useragent-type", "change", this.#onChangeUseragentType);
     this.#listener(".internal-links", "change", this.#validateInternalLinks);
+    this.#listener(".icon-use-default", "click", this.#iconUseDefault);
+    this.#listener(".icon-use-favicon", "click", this.#iconUseFavicon);
+    this.#listener(".icon-use-custom", "change", this.#iconUseCustom);
   }
 
   disconnectedCallback() {

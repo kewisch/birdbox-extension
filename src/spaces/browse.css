@@ -92,8 +92,12 @@ button {
   background: none;
 }
 
-button:active {
+button:hover {
   background-color: color-mix(in srgb, currentcolor, transparent 90%);
+}
+
+button:active {
+  background-color: color-mix(in srgb, currentcolor, transparent 70%);
 }
 
 button.primary-button {
@@ -110,6 +114,23 @@ button.primary-button:hover {
 button.primary-button:active {
   background-color: color-mix(in srgb, AccentColor, black 30%);
 }
+
+
+button.delete {
+  padding: 5px 10px;
+  background-color: light-dark(#dc2626, #ef4444);
+  color: white;
+  border: none;
+}
+
+button.delete:hover {
+  background-color: color-mix(in srgb, light-dark(#dc2626, #ef4444), black 20%);
+}
+
+button.delete:active {
+  background-color: color-mix(in srgb, light-dark(#dc2626, #ef4444), black 30%);
+}
+
 
 /* ADD SPACES */
 
@@ -159,6 +180,7 @@ button.primary-button:active {
   color: -moz-dialogtext;
   border-radius: 10px 0 0 10px;
   overflow-y: auto;
+  flex-shrink: 0;
 }
 
 #edit-spaces-list {
@@ -224,9 +246,5 @@ button.primary-button:active {
 #edit-settings.no-spaces .space-actions,
 #edit-settings.no-spaces #edit-space-debug,
 #edit-settings:not(.no-spaces) .no-spaces-info {
-  display: none;
-}
-
-#edit-space-settings:not(.custom-service) #edit-space-refresh-icon {
   display: none;
 }

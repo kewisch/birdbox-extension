@@ -41,6 +41,18 @@
   "browse.customServer.placeholder": {
     "message": "Service URL (https://...)"
   },
+  "browse.icon.label": {
+    "message": "Icon:"
+  },
+  "browse.iconReset.label": {
+    "message": "Reset to Default"
+  },
+  "browse.iconFromPage.label": {
+    "message": "Retrieve from Page"
+  },
+  "browse.iconCustom.label": {
+    "message": "Custom Icon"
+  },
   "browse.useragent.label": {
     "message": "User Agent:"
   },
@@ -82,9 +94,6 @@
   },
   "browse.deleteSpace.button": {
     "message": "Delete Space"
-  },
-  "browse.reloadIcon.button": {
-    "message": "Reload Icon"
   },
   "browse.customService.label": {
     "message": "Custom Service"
