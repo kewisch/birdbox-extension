@@ -13,6 +13,7 @@ export default class SpaceStorage {
     }
 
     let { spaces } = await messenger.storage.local.get({ spaces: [] });
+
     for (let space of spaces) {
       await this.add(space, false);
     }
@@ -55,8 +56,15 @@ export default class SpaceStorage {
 
   async add(spaceData, flush = true) {
     let icon = this.#getIcon(spaceData);
-    let tbSpace = await messenger.spaces.create(spaceData.name, spaceData.url, { defaultIcons: icon, title: spaceData.title });
-    await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
+    let tbSpace = await messenger.spaces.create(spaceData.name, {
+      url: spaceData.url,
+      cookieStoreId: spaceData.container || "firefox-default",
+      linkHandler: "relaxed"
+    }, {
+      defaultIcons: icon,
+      title: spaceData.title
+    });
+
     await messenger.birdbox.updateNotifications(spaceData.url, !!spaceData.notifications);
     spaceData.id = tbSpace.id;
     this.#spaces.push(spaceData);
@@ -83,13 +91,19 @@ export default class SpaceStorage {
     this.#spaceByName[spaceData.name] = spaceData;
 
     let icon = this.#getIcon(spaceData);
-    await messenger.spaces.update(spaceId, spaceData.url, { defaultIcons: icon, title: spaceData.title });
+    await messenger.spaces.update(spaceId, {
+      url: spaceData.url,
+      cookieStoreId: spaceData.container || "firefox-default",
+      linkHandler: "relaxed"
+    }, {
+      defaultIcons: icon,
+      title: spaceData.title
+    });
 
     let tabs = await messenger.tabs.query({ spaceId });
     await Promise.all(tabs.map(tab => {
       return messenger.tabs.sendMessage(tab.id, { action: "updateSpaceSettings", space: spaceData });
     }));
-    await messenger.birdbox.updateCookieStore(spaceData.name, spaceData.container || "firefox-default");
     await messenger.birdbox.updateNotifications(spaceData.url, !!spaceData.notifications);
 
     if (flush) {

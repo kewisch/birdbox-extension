@@ -82,9 +82,11 @@ async function onBeforeRequest(e) {
   }
 
   let spaceData = gSpaceStorage.byName(space.name);
+  let spaceUrl = new URL(spaceData.url);
+
   let targetUrl = new URL(e.url);
   let windowOrigin = new URL(e.originUrl).origin;
-  let originMismatch = windowOrigin != targetUrl.origin;
+  let originMismatch = spaceUrl.origin != targetUrl.origin && windowOrigin != targetUrl.origin;
   let linkMatches = host => targetUrl.hostname.endsWith(host);
 
   if (originMismatch && !spaceData.internalLinks?.some(linkMatches)) {
