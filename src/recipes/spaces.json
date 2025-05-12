@@ -1,5 +1,14 @@
 [
     {
+        "recipeId": "1password",
+        "recipeConfig": {
+            "serviceURL": "https://my.1password.com/signin/",
+            "hasNotificationSound": false,
+            "hasIndirectMessages": false
+        },
+        "title": "1Password"
+    },
+    {
         "recipeId": "80lv",
         "recipeConfig": {
             "serviceURL": "https://80.lv"
@@ -184,6 +193,13 @@
         "title": "Bitwarden"
     },
     {
+        "recipeId": "blinkist",
+        "recipeConfig": {
+            "serviceURL": "https://www.blinkist.com"
+        },
+        "title": "Blinkist"
+    },
+    {
         "recipeId": "BlueBubbles",
         "recipeConfig": {
             "serviceURL": "https://bluebubbles.app/web/#/"
@@ -228,6 +244,13 @@
             "hasIndirectMessages": true
         },
         "title": "Bugzilla"
+    },
+    {
+        "recipeId": "bycs-messenger",
+        "recipeConfig": {
+            "serviceURL": "https://messenger.bycs.de/#/home"
+        },
+        "title": "Bycs-Messenger"
     },
     {
         "recipeId": "campuswire",
@@ -285,6 +308,13 @@
             "serviceURL": "https://chat.openai.com/chat"
         },
         "title": "ChatGPT"
+    },
+    {
+        "recipeId": "chatllm",
+        "recipeConfig": {
+            "serviceURL": "https://apps.abacus.ai/chatllm"
+        },
+        "title": "ChatLLM"
     },
     {
         "recipeId": "chatra",
@@ -438,11 +468,25 @@
         "title": "DeckBlue"
     },
     {
+        "recipeId": "deepai",
+        "recipeConfig": {
+            "serviceURL": "https://deepai.org/"
+        },
+        "title": "DeepAI"
+    },
+    {
         "recipeId": "deepl",
         "recipeConfig": {
             "serviceURL": "https://www.deepl.com/translator"
         },
         "title": "DeepL"
+    },
+    {
+        "recipeId": "deepseek",
+        "recipeConfig": {
+            "serviceURL": "https://chat.deepseek.com/"
+        },
+        "title": "DeepSeek"
     },
     {
         "recipeId": "dev-community",
@@ -480,6 +524,13 @@
             "hasNotificationSound": true
         },
         "title": "Dialpad"
+    },
+    {
+        "recipeId": "dict-cc",
+        "recipeConfig": {
+            "serviceURL": "https://www.dict.cc/"
+        },
+        "title": "Dict.cc"
     },
     {
         "recipeId": "dingtalk",
@@ -616,6 +667,13 @@
         "title": "Excalidraw"
     },
     {
+        "recipeId": "exploit-db",
+        "recipeConfig": {
+            "serviceURL": "https://www.exploit-db.com/"
+        },
+        "title": "Exploit DB"
+    },
+    {
         "recipeId": "facebook",
         "recipeConfig": {
             "serviceURL": "https://www.facebook.com/login"
@@ -694,6 +752,13 @@
         "title": "Fleep"
     },
     {
+        "recipeId": "flipboard",
+        "recipeConfig": {
+            "serviceURL": "https://flipboard.com"
+        },
+        "title": "Flipboard"
+    },
+    {
         "recipeId": "flock",
         "recipeConfig": {
             "serviceURL": "https://web.flock.com",
@@ -708,6 +773,13 @@
             "hasNotificationSound": true
         },
         "title": "Flowdock"
+    },
+    {
+        "recipeId": "follow-is",
+        "recipeConfig": {
+            "serviceURL": "https://app.follow.is/"
+        },
+        "title": "Follow"
     },
     {
         "recipeId": "freshdesk",
@@ -732,6 +804,13 @@
             "serviceURL": "https://freshservice.com"
         },
         "title": "Freshservice"
+    },
+    {
+        "recipeId": "furaffinity",
+        "recipeConfig": {
+            "serviceURL": "https://www.furaffinity.net/"
+        },
+        "title": "Furaffinity"
     },
     {
         "recipeId": "gadugadu",
@@ -1084,6 +1163,13 @@
         "title": "HubStaff"
     },
     {
+        "recipeId": "hugging-chat",
+        "recipeConfig": {
+            "serviceURL": "https://huggingface.co/chat/"
+        },
+        "title": "Hugging Chat"
+    },
+    {
         "recipeId": "iberbox",
         "recipeConfig": {
             "serviceURL": "https://iberbox.com/login"
@@ -1276,6 +1362,13 @@
         "title": "KiwiIRC"
     },
     {
+        "recipeId": "ko-fi",
+        "recipeConfig": {
+            "serviceURL": "https://ko-fi.com"
+        },
+        "title": "Ko-fi"
+    },
+    {
         "recipeId": "lark",
         "recipeConfig": {
             "serviceURL": "https://{teamId}.larksuite.com/messenger/",
@@ -1292,6 +1385,13 @@
             "hasNotificationSound": true
         },
         "title": "LastPass"
+    },
+    {
+        "recipeId": "mistral",
+        "recipeConfig": {
+            "serviceURL": "https://chat.mistral.ai/chat"
+        },
+        "title": "Le Chat by Mistral"
     },
     {
         "recipeId": "lemmy",
@@ -1325,6 +1425,15 @@
             "serviceURL": "https://www.linkedin.com/messaging"
         },
         "title": "LinkedIn"
+    },
+    {
+        "recipeId": "lobe-chat",
+        "recipeConfig": {
+            "serviceURL": "https://lobechat.com/chat",
+            "hasHostedOption": true,
+            "hasCustomUrl": true
+        },
+        "title": "LobeChat"
     },
     {
         "recipeId": "localazy",
@@ -1467,6 +1576,13 @@
             "hasNotificationSound": true
         },
         "title": "Microsoft To Do"
+    },
+    {
+        "recipeId": "mightytext",
+        "recipeConfig": {
+            "serviceURL": "https://mightytext.net/web"
+        },
+        "title": "MightyText"
     },
     {
         "recipeId": "miro",
@@ -1691,6 +1807,13 @@
         "title": "NomadList"
     },
     {
+        "recipeId": "nostr",
+        "recipeConfig": {
+            "serviceURL": "https://nostr.com/"
+        },
+        "title": "Nostr"
+    },
+    {
         "recipeId": "notion",
         "recipeConfig": {
             "serviceURL": "https://www.notion.so/",
@@ -1751,6 +1874,13 @@
             "allowFavoritesDelineationInUnreadCount": true
         },
         "title": "Office 365 Outlook"
+    },
+    {
+        "recipeId": "onedrive",
+        "recipeConfig": {
+            "serviceURL": "https://onedrive.live.com/"
+        },
+        "title": "OneDrive"
     },
     {
         "recipeId": "onenote",
@@ -2231,6 +2361,13 @@
         "title": "Sendtask"
     },
     {
+        "recipeId": "sharezone",
+        "recipeConfig": {
+            "serviceURL": "https://web.sharezone.net/"
+        },
+        "title": "Sharezone"
+    },
+    {
         "recipeId": "simplelogin",
         "recipeConfig": {
             "serviceURL": "https://app.simplelogin.io/"
@@ -2349,6 +2486,13 @@
         "title": "Spectrum"
     },
     {
+        "recipeId": "spikenow",
+        "recipeConfig": {
+            "serviceURL": "https://spikenow.com/web/"
+        },
+        "title": "Spike"
+    },
+    {
         "recipeId": "stackoverflow",
         "recipeConfig": {
             "serviceURL": "https://stackoverflow.com",
@@ -2377,6 +2521,13 @@
             "serviceURL": "https://app.standardnotes.com/"
         },
         "title": "StandardNotes"
+    },
+    {
+        "recipeId": "statuzer",
+        "recipeConfig": {
+            "serviceURL": "https://statuzer.com"
+        },
+        "title": "Statuzer"
     },
     {
         "recipeId": "steamchat",
@@ -2433,11 +2584,31 @@
         "title": "Sync"
     },
     {
+        "recipeId": "synology-chat",
+        "recipeConfig": {
+            "hasHostedOption": false,
+            "hasCustomUrl": true
+        },
+        "title": "Synology Chat"
+    },
+    {
         "recipeId": "taiga",
         "recipeConfig": {
             "serviceURL": "https://tree.taiga.io"
         },
         "title": "Taiga"
+    },
+    {
+        "recipeId": "talkspirit",
+        "recipeConfig": {
+            "serviceURL": "https://{teamId}.talkspirit.com",
+            "hasTeamId": true,
+            "urlInputPrefix": "worspace:",
+            "urlInputSuffix": ".talkspirit.com",
+            "hasNotificationSound": true,
+            "hasIndirectMessages": true
+        },
+        "title": "talkspirit"
     },
     {
         "recipeId": "tawk",
@@ -2603,6 +2774,13 @@
             "serviceURL": "https://trello.com/"
         },
         "title": "Trello"
+    },
+    {
+        "recipeId": "trilium",
+        "recipeConfig": {
+            "hasCustomUrl": true
+        },
+        "title": "Trilium"
     },
     {
         "recipeId": "truelancer",
